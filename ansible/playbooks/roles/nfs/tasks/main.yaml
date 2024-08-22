@@ -1,0 +1,44 @@
+- name: Apt install packages
+  ansible.builtin.apt:
+    name: 
+      - nfs-common
+  tags:
+    - always
+
+- name: Creates directory
+  ansible.builtin.file:
+    path: /mnt/videos
+    state: directory
+    owner: "{{ ansible_user }}"
+    # group: "{{ ansible_user }}"
+  tags:
+    - always
+
+- name: Mount NFS volumes
+  ansible.posix.mount:
+    src: "{{ nas }}:/mnt/Zpool/Movies_and_Shows"
+    path: /mnt/videos
+    opts: rw,sync,hard
+    state: mounted
+    fstype: nfs
+  tags:
+    - always
+
+- name: Creates directory
+  ansible.builtin.file:
+    path: /mnt/backups
+    state: directory
+    owner: "{{ ansible_user }}"
+    # group: "{{ ansible_user }}"
+  tags:
+    - always
+
+- name: Mount NFS volumes
+  ansible.posix.mount:
+    src: "{{ nas }}:/mnt/Zpool/Backups"
+    path: /mnt/backups
+    opts: rw,sync,hard
+    state: mounted
+    fstype: nfs
+  tags:
+    - always

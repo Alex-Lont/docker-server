@@ -1,0 +1,201 @@
+- name: Apt install packages
+  ansible.builtin.apt:
+    name: 
+      - ufw
+  tags:
+    - always
+
+- name: Reset UFW
+  community.general.ufw:
+    state: reset
+  tags:
+    - always
+
+- name: Deny incoming
+  community.general.ufw:
+    default: deny
+    direction: incoming
+  tags:
+    - always
+
+- name: Deny outgoing
+  community.general.ufw:
+    default: deny
+    direction: outgoing
+  tags:
+    - always
+
+- name: DNS inbound
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: '53'
+  tags:
+    - DNS
+    - never
+
+- name: DNS outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    port: '53'
+  tags:
+    - always
+
+- name: NTP outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    port: '123'
+  tags:
+    - always
+
+- name: Docker network
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    from_ip: '192.168.30.0/24' 
+  tags: 
+    - docker
+    - never
+
+- name: https inbound
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    direction: in
+    port: '443'
+  tags:
+    - always
+
+- name: https outbound
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    direction: out
+    port: '443'
+  tags:
+    - always
+
+- name: http outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    proto: tcp
+    port: '80'
+  tags:
+    - always
+
+- name: ssh inbound
+  community.general.ufw:
+    rule: allow
+    direction: in
+    proto: tcp
+    port: '22'
+  tags:
+    - always
+
+- name: ssh outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    proto: tcp
+    port: '22'
+  tags:
+    - always
+
+- name: smtp inbound
+  community.general.ufw:
+    rule: allow
+    direction: in
+    proto: tcp
+    port: '25'
+  tags:
+    - DNS
+    - never
+
+- name: smtp outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    proto: tcp
+    port: '25'
+  tags:
+    - never
+
+- name: NFS outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    port: '111'
+    to_ip: "{{ nas }}"
+  tags:
+    - always
+
+- name: NFS outbound
+  community.general.ufw:
+    rule: allow
+    direction: out
+    port: '2049'
+    to_ip: "{{ nas }}"
+  tags:
+    - always
+
+- name: torrent
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    port: '8999'
+  tags:
+    - torrent
+    - never
+ 
+- name: plex
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    port: '32400'
+  tags:
+    - plex
+    - never
+
+- name: nextcloud 8080
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    port: '8080'
+  tags:
+    - nextcloud
+    - never
+
+- name: nextcloud portal
+  community.general.ufw:
+    rule: allow
+    proto: tcp
+    port: '8443'
+  tags:
+    - nextcloud
+    - never
+
+- name: Reverse Proxy Int
+  community.general.ufw:
+    rule: allow
+    direction: in
+    from_ip: "{{ proxy_int }}"
+  tags:
+    - always
+
+- name: Reverse Proxy Ext
+  community.general.ufw:
+    rule: allow
+    direction: in
+    from_ip: "{{ proxy_ext }}"
+  tags:
+    - always
+    
+- name: Allow everything and enable UFW
+  ufw:
+    state: enabled
+    policy: allow
+  tags:
+    - always

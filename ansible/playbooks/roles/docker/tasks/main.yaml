@@ -1,0 +1,47 @@
+- name: Add Docker repo using key from URL.
+  ansible.builtin.deb822_repository:
+    name: docker
+    types: deb
+    uris: "https://download.docker.com/linux/{{ ansible_facts['lsb']['id']|lower }}"
+    architectures: amd64
+    suites: "{{ ansible_facts['distribution_release'] }}"
+    components: stable
+    signed_by: https://download.docker.com/linux/{{ ansible_facts['lsb']['id']|lower }}/gpg
+    state: present
+    enabled: true
+  when: 
+    - ansible_facts['machine'] == "x86_64"
+  tags:
+    - always
+
+- name: Add Docker repo using key from URL.
+  ansible.builtin.deb822_repository:
+    name: docker
+    types: deb
+    uris: "https://download.docker.com/linux/{{ ansible_facts['lsb']['id']|lower }}"
+    architectures: arm64
+    suites: "{{ ansible_facts['distribution_release'] }}"
+    components: stable
+    signed_by: https://download.docker.com/linux/{{ ansible_facts['lsb']['id']|lower }}/gpg
+    state: present
+    enabled: true
+  when: 
+    - ansible_facts['machine'] == "aarch64"
+  tags:
+    - always
+
+- name: Update apt and install docker-ce
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+  tags:
+    - always
+
+- name: Add the user to docker
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    groups: docker
+    append: true
+  tags:
+    - always

@@ -1,0 +1,27 @@
+- hosts: artemis
+  become: true
+  tasks:
+    - name: Ping the hosts
+      ansible.builtin.ping:
+
+    - name: Print Who am i
+      ansible.builtin.debug:
+        msg:
+         - "Ran as {{ ansible_user }}"
+         - "Actually Ran as {{ ansible_facts['env']['USER'] }}"
+        
+    - name: What am i
+      ansible.builtin.debug:
+        msg: 
+        - "What am i {{ ansible_facts['os_family']|lower }}"
+        - "What am i truely {{ ansible_facts['distribution_release']|lower }}"
+
+    - name: System details
+      ansible.builtin.debug:
+        msg: 
+        - "{{ ansible_facts['distribution'] }}"
+        - "{{ ansible_facts['lsb']['id'] }}"
+        - "{{ ansible_facts['lsb']['release'] }}"
+        - "{{ ansible_facts['distribution_release'] }}"
+        - "{{ ansible_facts['machine'] }}"
+        - "{{ ansible_facts['default_ipv4']['address'] }}"

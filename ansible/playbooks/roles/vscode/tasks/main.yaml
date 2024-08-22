@@ -1,0 +1,19 @@
+- name: file watcher
+  lineinfile:
+    dest: /etc/sysctl.conf
+    line: "fs.inotify.max_user_watches=524288"
+    owner: root
+  when: 
+    - ansible_facts['distribution']|lower == "raspbian" or
+      ansible_facts['distribution']|lower == "ubuntu"
+  tags:
+    - always
+
+- name: reload file watcher
+  shell: |
+    sysctl -p
+  when: 
+    - ansible_facts['distribution']|lower == "raspbian" or 
+      ansible_facts['distribution']|lower == "ubuntu"
+  tags:
+    - always

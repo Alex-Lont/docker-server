@@ -1,0 +1,22 @@
+- name: Apt install packages
+  ansible.builtin.apt:
+    name: 
+      - sudo
+  tags:
+    - always
+
+- name: Add the user to sudoers
+  ansible.builtin.user:
+    name: "{{ new_user }}"
+    groups: sudo
+  tags:
+    - always
+
+- name: Allow user to run sudo without password
+  community.general.sudoers:
+    name: "{{ new_user }} no password"
+    #user: "{{ ansible_user_id }}" 
+    commands: ALL
+    user: "{{ new_user }}"
+  tags:
+    - always

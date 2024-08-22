@@ -1,0 +1,11 @@
+- hosts: pihole, docker
+  become: true
+  roles:
+    - updates   #restart
+    - pihole
+    - git
+    - nvidia
+    - role: nvidia-driver
+      when: "inventory_hostname == 'dionysus' and 'failed' in results.stdout|lower"
+    - role: watchtower    
+      when: "inventory_hostname != 'demeter'"

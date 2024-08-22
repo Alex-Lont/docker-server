@@ -1,0 +1,54 @@
+- name: Apt install packages
+  ansible.builtin.apt:
+    name: 
+      - python3-pip
+      - python3-debian
+      - python3-docker
+      - nano 
+      - nfs-common
+      - iputils-ping
+      - dnsutils
+      - git
+      - rsync
+      - ufw
+      - curl
+      - ca-certificates
+      - gnupg
+      - software-properties-common
+  tags:
+    - always
+
+- name: Apt install openvpn packages
+  ansible.builtin.apt:
+    name: 
+      - openvpn
+  tags: 
+    - torrent
+    - never
+
+- name: Apt install VM packages
+  ansible.builtin.apt:
+    name: 
+      - nfs-common
+      - qemu-guest-agent
+  tags: 
+    - vm
+    - never
+
+- name: Pip install packages
+  ansible.builtin.pip:
+    name: 
+     - pip
+    state: latest
+  tags:
+    - always
+
+- name: Pip install Docker packages
+  ansible.builtin.pip:
+    name: 
+     - docker==6.1.3
+     - docker-compose
+    state: latest
+  tags: 
+    - docker
+    - never

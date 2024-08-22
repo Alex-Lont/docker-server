@@ -1,0 +1,103 @@
+services:
+  qbittorrent:
+    image: dyonr/qbittorrentvpn:latest
+    container_name: qbittorrentvpn
+    privileged: true
+    networks:
+      - docker
+    environment:
+      - VPN_ENABLED=yes
+      - VPN_TYPE=openvpn
+      - VPN_USERNAME=${VPN_USERNAME}
+      - VPN_PASSWORD=${VPN_PASSWORD}
+      - ENABLE_SSL=no
+      - LAN_NETWORK=${LAN_NETWORK}, ${HOME_NETWORK}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - HEALTH_CHECK_HOST=one.one.one.one
+      - HEALTH_CHECK_INTERVAL=300
+      - UMASK=0022
+    volumes:
+      - ${config}/qBittorrent:/config
+      - ${downloads}:/downloads 
+    ports:
+      - 8080:8080
+      - 8999:8999
+      - 8999:8999/udp
+    restart: unless-stopped
+
+  jackett:
+    image: dyonr/jackettvpn:latest
+    container_name: jackett
+    privileged: true
+    networks:
+      - docker
+    environment:
+      - VPN_ENABLED=YES
+      - VPN_TYPE=openvpn
+      - VPN_USERNAME=${VPN_USERNAME}
+      - VPN_PASSWORD=${VPN_PASSWORD}
+      - LAN_NETWORK=${LAN_NETWORK}, ${HOME_NETWORK}
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${config}/jackett:/config
+      - ${config}/jackett/blackhole:/blackhole
+    ports:
+      - 9117:9117
+    restart: unless-stopped
+
+  radarr:
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    networks:
+      - docker
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${config}/radarr:/config
+      - ${movies}:/movies
+      - ${downloads}:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  sonarr:
+    image: linuxserver/sonarr:latest
+    container_name: sonarr
+    networks:
+      - docker
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${config}/sonarr:/config
+      - ${tv}:/tv
+      - ${downloads}:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  bazarr:
+    image: linuxserver/bazarr
+    container_name: bazarr
+    networks:
+      - docker
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${config}/bazarr:/config
+      - ${tv}:/tv
+      - ${movies}:/movies
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+
+networks:
+  docker:
+    driver: bridge

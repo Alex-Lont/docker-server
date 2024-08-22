@@ -1,0 +1,11 @@
+get-docker.sh
+test.sh
+.env
+acme.json
+secret.json
+*.tfstate
+*.tfvars
+**/.terraform/*
+*.lock.hcl
+*.backup
+*.sqlite

@@ -1,0 +1,18 @@
+- name: Pull Docker Image
+  docker_image:
+    name: containrrr/watchtower
+    source: pull
+    tag: latest
+  tags: always
+
+- name: Start Docker container
+  docker_container:
+    name: watchtower
+    image: containrrr/watchtower:latest
+    state: started
+    volumes: /var/run/docker.sock:/var/run/docker.sock 
+    env:
+      WATCHTOWER_RUN_ONCE: "true"
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_REMOVE_VOLUMES: "true"
+  tags: always

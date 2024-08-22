@@ -1,0 +1,293 @@
+http:
+ #region routers 
+  routers:
+    proxmox:
+      entryPoints:
+        - "https"
+      rule: "Host(`proxmox.home.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: proxmox
+    truenas:
+      entryPoints:
+        - "https"
+      rule: "Host(`truenas.home.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: truenas
+    omada:
+      entryPoints:
+        - "https"
+      rule: "Host(`omada.home.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: omada
+    pihole:
+      entryPoints:
+        - "https"
+      rule: "Host(`pihole.home.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: pihole
+    pihole-backup:
+      entryPoints:
+        - "https"
+      rule: "Host(`pihole-backup.home.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: pihole-backup
+    qbit:
+      entryPoints:
+        - "https"
+      rule: "Host(`qbit.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: qbit
+    sonarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`sonarr.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: sonarr
+    radarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`radarr.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: radarr
+    jackett:
+      entryPoints:
+        - "https"
+      rule: "Host(`jackett.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: jackett
+    bazarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`bazarr.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: bazarr
+    tdarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`tdarr.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: tdarr
+    speed:
+      entryPoints:
+        - "https"
+      rule: "Host(`speed.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: speed
+    raklora:
+      entryPoints:
+        - "https"
+      rule: "Host(`rak.iot.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: raklora
+    milesight:
+      entryPoints:
+        - "https"
+      rule: "Host(`milesight.iot.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: milesight
+    nvr:
+      entryPoints:
+        - "https"
+      rule: "Host(`nvr.iot.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: nvr
+    notes:
+      entryPoints:
+        - "https"
+      rule: "Host(`notes.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: notes
+    organiser:
+      entryPoints:
+        - "https"
+      rule: "Host(`organiser.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: organiser
+    tablet:
+      entryPoints:
+        - "https"
+      rule: "Host(`tablet.iot.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: tablet
+
+
+#endregion
+#region services
+  services:
+    proxmox:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.7.20:8006"
+        passHostHeader: true
+    truenas:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.7.18"
+        passHostHeader: true
+    omada:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.7.12"
+        passHostHeader: true
+    pihole:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.7.10"
+        passHostHeader: true
+    pihole-backup:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.7.11"
+        passHostHeader: true
+    qbit:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.32:8080"
+        passHostHeader: true
+    sonarr:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.32:8989"
+        passHostHeader: true
+    radarr:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.32:7878"
+        passHostHeader: true
+    jackett:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.32:9117"
+        passHostHeader: true
+    bazarr:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.32:6767"
+        passHostHeader: true
+    tdarr:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.33:8265"
+        passHostHeader: true
+    speed:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.31:8765"
+        passHostHeader: true
+    raklora:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.20"
+        passHostHeader: true
+    milesight:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.10.21"
+        passHostHeader: true
+    nvr:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.10.22"
+        passHostHeader: true
+    notes:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.31:8000"
+        passHostHeader: true
+    organiser:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.31:9090"
+        passHostHeader: true
+    tablet:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.15:2323"
+        passHostHeader: true
+
+#endregion
+  middlewares:
+    https-redirectscheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    default-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+
+    default-whitelist:
+      ipWhiteList:
+        sourceRange:
+        - "10.0.0.0/8"
+        - "192.168.0.0/16"
+        - "172.16.0.0/12"
+
+    secured:
+      chain:
+        middlewares:
+        - default-whitelist
+        - default-headers

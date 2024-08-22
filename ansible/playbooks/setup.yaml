@@ -1,0 +1,25 @@
+- name: Configure new user 
+  hosts: init
+  user: root
+  vars_prompt:
+  - name: "new_user"    
+    prompt: "Enter a new user"     
+    private: false
+
+  - name: "user_password"    
+    prompt: "Enter a password for the user"    
+    private: true
+    encrypt: "md5_crypt" #need to have python-passlib installed in local machine before we can use it    
+    confirm: true
+    salt_size: 7
+    
+  - name: "hostname"    
+    prompt: "Enter a new hostname"
+    private: false    
+
+  roles:
+    - role: user
+      vars:
+        new_user: {{ new_user }}
+    - sudo 
+    - hostname

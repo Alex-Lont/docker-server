@@ -1,0 +1,27 @@
+- name: Update and upgrade apt packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+  tags:
+    - always
+
+- name: Check that the reboot-required exists
+  stat:
+    path: /var/run/reboot-required
+  register: p
+  tags:
+    - always
+
+- debug:
+    msg: "Reboot required"
+  when: p.stat.exists
+  tags:
+    - restart
+    - never
+
+- name: reboot
+  reboot:
+  when: p.stat.exists
+  tags:
+    - restart
+    - never

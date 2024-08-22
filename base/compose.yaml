@@ -1,0 +1,90 @@
+services:
+  speedtest:
+    image: henrywhitaker3/speedtest-tracker:latest
+    container_name: speedtest
+    networks:
+      - docker
+    restart: unless-stopped
+    ports:
+      - 8765:80
+    environment:
+      - TZ=${TZ}
+      - PGID=${PGID}
+      - PUID=${PUID}
+      - OOKLA_EULA_GDPR=true
+    volumes:
+      - ${config}/speedtest:/config
+
+  flatnotes:
+    container_name: flatnotes
+    image: dullage/flatnotes:latest
+    environment:
+      PUID: ${PUID}
+      PGID: ${PGID}
+      FLATNOTES_AUTH_TYPE: "None"
+    volumes:
+      - ${config}/flatnotes:/data
+    ports:
+      - 8000:8080
+    restart: unless-stopped
+
+  organizr:
+    container_name: organizr
+    hostname: organizr
+    image: organizr/organizr:latest
+    restart: unless-stopped
+    networks:
+      - docker
+    volumes:
+      - ${config}/organizr:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - branch=v2-master
+      - fpm=true
+    ports:
+      - 9090:80
+
+  mysql:
+    image: mysql:8.0
+    hostname: mysql
+    container_name: mysql
+    networks:
+      - docker
+    volumes:
+      - ${config}/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD} 
+    restart: unless-stopped
+
+  semaphore:
+    image: semaphoreui/semaphore:latest
+    container_name: ansiblesemaphore
+    networks:
+      - docker
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      SEMAPHORE_DB_USER: ${MYSQL_USER}
+      SEMAPHORE_DB_PASS: ${MYSQL_PASSWORD}
+      SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
+      SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
+      SEMAPHORE_DB_DIALECT: mysql
+      SEMAPHORE_DB: ${MYSQL_DATABASE}
+      SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
+      SEMAPHORE_ADMIN_PASSWORD: ${MYSQL_PASSWORD}
+      SEMAPHORE_ADMIN_NAME: admin
+      SEMAPHORE_ADMIN_EMAIL: admin@localhost
+      SEMAPHORE_ADMIN: admin
+      SEMAPHORE_ACCESS_KEY_ENCRYPTION: ${KEY_ENCRYPTION}
+    depends_on:
+      - mysql # for postgres, change to: postgres
+
+networks:
+  docker:
+    driver: bridge

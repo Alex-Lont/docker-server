@@ -1,0 +1,6 @@
+- name: who am i
+  shell: whoami
+  register: w
+
+- debug:
+    msg: "{{ w }}" 

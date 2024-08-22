@@ -1,0 +1,60 @@
+- name: Touch the same file, but add/remove some permissions
+  become: false
+  ansible.builtin.file:
+    path: /home/{{ ansible_user }}/.gitconfig
+    state: touch
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags:
+    - init
+    - always
+
+- name: Add username to ~/.gitconfig
+  become: false
+  community.general.git_config:
+    name: user.name
+    scope: file
+    value: "{{ git_user }}"
+    file: /home/{{ ansible_user }}/.gitconfig
+  tags:
+    - init
+    - always
+
+- name: Add email to ~/.gitconfig
+  become: false
+  community.general.git_config:
+    name: user.email
+    scope: file
+    value: "{{ git_email }}"
+    file: /home/{{ ansible_user }}/.gitconfig
+  tags:
+    - init
+    - always
+
+- name: Creates directory
+  become: false
+  ansible.builtin.file:
+    path: /home/{{ ansible_user }}/.ssh
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+  tags:
+    - init
+    - always
+
+- name: enable ssh-agent and Add key to ssh-agent
+  shell: |
+    eval "$(ssh-agent)"
+    ssh-add /home/{{ ansible_user }}/.ssh/id_ed25519
+  tags:
+    - init
+    - always
+    
+- name: pull from git
+  git:
+    repo: git@github.com:Alex-Lont/docker-server.git
+    dest:  /home/{{ ansible_user }}
+    update: yes
+    version: master
+  tags:
+    - always

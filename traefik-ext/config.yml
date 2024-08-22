@@ -1,0 +1,117 @@
+http:
+ #region routers 
+  routers:
+    homeassistant:
+      entryPoints:
+        - "https"
+      rule: "Host(`homeassistant.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: homeassistant
+    plex:
+      entryPoints:
+        - "https"
+      rule: "Host(`plex.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: plex
+    nextcloud:
+      entryPoints:
+        - "https"
+      rule: "Host(`nextcloud.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - nextcloud-secure-headers
+        - https-redirectscheme
+      tls: {}
+      service: nextcloud
+    aio:
+      entryPoints:
+        - "https"
+      rule: "Host(`nextcloudaio.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: aio
+    warden:
+      entryPoints:
+        - "https"
+      rule: "Host(`warden.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: warden
+#endregion
+#region services
+  services:
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.14:8123"
+        passHostHeader: true
+    plex:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.33:32400"
+        passHostHeader: true
+    nextcloud:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.34:11000"
+        passHostHeader: true
+    aio:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.30.34:8080"
+        passHostHeader: true
+    warden:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.35"
+        passHostHeader: true
+
+
+#endregion
+  middlewares:
+    https-redirectscheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    nextcloud-secure-headers:
+      headers:
+        hostsProxyHeaders:
+          - "X-Forwarded-Host"
+        referrerPolicy: "same-origin"
+
+    default-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
+
+    default-whitelist:
+      ipWhiteList:
+        sourceRange:
+        - "10.0.0.0/8"
+        - "192.168.0.0/16"
+        - "172.16.0.0/12"
+
+    secured:
+      chain:
+        middlewares:
+        - default-whitelist
+        - default-headers

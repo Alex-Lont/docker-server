@@ -1,0 +1,81 @@
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    ports:
+      - 90:80
+      - 443:443
+    environment:
+      - CF_API_EMAIL=${CF_API_EMAIL}
+      - CF_API_KEY=${CF_API_KEY}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.yml:/traefik.yml:ro
+      - ./config.yml:/config.yml:ro
+      - ./acme.json:/acme.json
+    command: 
+      --providers.docker=true
+      --providers.docker.exposedByDefault=false
+      --entryPoints.web.address=:90
+      --entryPoints.web.http.redirections.entryPoint.to=websecure
+      --entryPoints.web.http.redirections.entryPoint.scheme=https
+      --entryPoints.websecure.address=:443
+      --entryPoints.websecure.http.tls=true
+      --api.debug=true
+      --api.dashboard=true
+      --log.level=DEBUG
+      --accesslog=true
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.home.${DOMAIN}`)"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.home.${DOMAIN}`)"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=home.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.home.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[1].main=iot.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[1].sans=*.iot.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].main=docker.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.docker.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - ../homarr/config:/app/data/configs
+      - ../homarr/data:/data 
+      - ../homarr/icons:/app/public/icons 
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - BASE_URL=home.docker.${DOMAIN}
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.homarr.entrypoints=http
+      - traefik.http.routers.homarr.rule=Host(`home.docker.${DOMAIN}`)
+      - traefik.http.middlewares.homarr-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.homarr.middlewares=homarr-https-redirect
+      - traefik.http.routers.homarr-secure.entrypoints=https
+      - traefik.http.routers.homarr-secure.rule=Host(`home.docker.${DOMAIN}`)
+      - traefik.http.routers.homarr-secure.tls=true
+      - traefik.http.routers.homarr-secure.service=homarr
+      - traefik.http.services.homarr.loadbalancer.server.port=7575
+      - traefik.docker.network=proxy
+     
+networks:
+  proxy:
+    driver: bridge

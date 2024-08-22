@@ -1,0 +1,14 @@
+- name: Check Nvidia Driver
+  shell: nvidia-smi
+  register: results
+  ignore_errors: true
+  when: "inventory_hostname == 'dionysus'"
+  tags:
+    - always
+
+- name: Print Debug  
+  debug:
+    var: results.stdout
+  when: "inventory_hostname == 'dionysus' and 'failed' in results.stdout|lower"
+  tags:
+    - always
