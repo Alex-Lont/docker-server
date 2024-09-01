@@ -7,7 +7,7 @@
     group: "{{ ansible_user }}"
   tags:
     - init
-    - always
+    - never
 
 - name: Add username to ~/.gitconfig
   become: false
@@ -18,7 +18,7 @@
     file: /home/{{ ansible_user }}/.gitconfig
   tags:
     - init
-    - always
+    - never
 
 - name: Add email to ~/.gitconfig
   become: false
@@ -29,7 +29,7 @@
     file: /home/{{ ansible_user }}/.gitconfig
   tags:
     - init
-    - always
+    - never
 
 - name: Creates directory
   become: false
@@ -40,7 +40,7 @@
     group: "{{ ansible_user }}"
   tags:
     - init
-    - always
+    - never
 
 - name: enable ssh-agent and Add key to ssh-agent
   shell: |
@@ -48,13 +48,16 @@
     ssh-add /home/{{ ansible_user }}/.ssh/id_ed25519
   tags:
     - init
-    - always
+    - never
     
 - name: pull from git
   git:
     repo: git@github.com:Alex-Lont/docker-server.git
     dest:  /home/{{ ansible_user }}
+    key_file: /home/{{ ansible_user }}/.ssh/id_ed25519
     update: yes
-    version: master
+    version: main
+    clone: false
+    accept_hostkey: true
   tags:
     - always
