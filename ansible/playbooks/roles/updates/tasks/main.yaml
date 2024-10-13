@@ -2,6 +2,8 @@
   apt:
     update_cache: yes
     upgrade: yes
+    clean: yes
+    autoremove: yes
   tags:
     - always
 
