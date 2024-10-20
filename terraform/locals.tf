@@ -37,7 +37,9 @@ locals{
     "tdarr",
     "speed",
     "notes",
-    "ansible"
+    "ansible",
+    "books",
+    "audiobook"
   ]
   base_cname = [
     "nextcloud",
