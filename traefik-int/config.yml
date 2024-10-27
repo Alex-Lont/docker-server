@@ -172,7 +172,24 @@ http:
         - https-redirectscheme
       tls: {}
       service: ansible
-
+    calibre:
+      entryPoints:
+        - "https"
+      rule: "Host(`books.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: calibre
+    audiobookshelf:
+      entryPoints:
+        - "https"
+      rule: "Host(`audiobook.docker.lontiotlabz.homes`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: audiobookshelf
 
 #endregion
 #region services
@@ -272,6 +289,17 @@ http:
         servers:
           - url: "http://192.168.30.31:3000"
         passHostHeader: true
+    calibre:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.31:8080"
+        passHostHeader: true
+    audiobookshelf:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.31:13378"
+        passHostHeader: true
+
 
 #endregion
   middlewares:

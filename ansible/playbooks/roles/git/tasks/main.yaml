@@ -52,6 +52,7 @@
     
 - name: pull from git
   git:
+    become: false
     repo: git@github.com:Alex-Lont/docker-server.git
     dest:  /home/{{ ansible_user }}
     key_file: /home/{{ ansible_user }}/.ssh/id_ed25519
