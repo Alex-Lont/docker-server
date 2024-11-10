@@ -10,6 +10,8 @@ services:
     ports:
       - 90:80
       - 443:443
+      - 1883:1883
+      - 8883:8883
     environment:
       - CF_API_EMAIL=${CF_API_EMAIL}
       - CF_API_KEY=${CF_API_KEY}
@@ -73,7 +75,7 @@ services:
       - traefik.http.routers.ntfy-secure.service=ntfy
       - traefik.http.services.ntfy.loadbalancer.server.port=80
       - traefik.docker.network=proxy
-      
+
 networks:
   proxy:
     driver: bridge
