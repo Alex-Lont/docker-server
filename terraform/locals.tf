@@ -48,13 +48,11 @@ locals{
     "warden",
     "traefik",
     "plex",
-    "homeassistant"
+    "homeassistant",
+    "mqtt"
   ]
   public_url = toset([
     "www",
-    "nextcloud",
-    "warden",
-    "plex",
     "homeassistant"
   ])
 }
