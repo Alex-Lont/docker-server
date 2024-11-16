@@ -51,14 +51,11 @@
     - never
     
 - name: pull from git
+  become: false
   git:
-    become: false
     repo: git@github.com:Alex-Lont/docker-server.git
-    dest:  /home/{{ ansible_user }}
+    dest:  /home/{{ ansible_user }}/docker-server
     key_file: /home/{{ ansible_user }}/.ssh/id_ed25519
-    update: yes
-    version: main
-    clone: false
     accept_hostkey: true
   tags:
     - always

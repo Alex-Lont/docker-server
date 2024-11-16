@@ -28,10 +28,6 @@ docker:
       ansible_host: 192.168.30.34
       ansible_user: ubuntu
 
-    tartarus:
-      ansible_host: 192.168.30.35
-      ansible_user: ubuntu
-
 init:
   hosts:  
     intital:
