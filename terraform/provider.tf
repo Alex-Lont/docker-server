@@ -22,7 +22,6 @@ provider "pihole" {
   api_token = var.pihole_sec_token
 }
 
-
 provider "cloudflare" {
   api_token = var.cloudflare_api_token
 }
