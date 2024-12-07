@@ -12,120 +12,6 @@
   ],
   "apps": [
     {
-      "id": "6aca6924-02e6-485b-a191-9f3df9bd2b61",
-      "name": "AliExpress",
-      "url": "https://www.aliexpress.com/",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/PapirusDevelopmentTeam/papirus_icons/src/apps_aliexpress.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://www.aliexpress.com/"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 4,
-            "y": 8
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "42f5588f-1bf6-4606-9f5c-dbf450e008c3",
-      "name": "Sonarr",
-      "url": "https://sonarr.docker.lontiotlabz.homes",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/sonarr.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://sonarr.docker.lontiotlabz.homes"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 7,
-            "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 2,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "sonarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "57d1fd6c61894aa2b4e5a6b65b7b4104"
-          }
-        ]
-      }
-    },
-    {
       "id": "0f573e8d-f3c8-4ecd-baf5-550befaaba9a",
       "name": "Youtube",
       "url": "https://www.youtube.com/",
@@ -507,65 +393,6 @@
         "md": {
           "location": {
             "x": 3,
-            "y": 3
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "6532d86f-56fa-4afe-9e15-d0afc674a3eb",
-      "name": "Bitwarden",
-      "url": "https://warden.lontiotlabz.homes",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/bitwarden.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://warden.lontiotlabz.homes"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 10,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 4,
             "y": 3
           },
           "size": {
@@ -1834,60 +1661,6 @@
       }
     },
     {
-      "id": "f3684dce-0285-4bf3-8b8f-418500baad11",
-      "name": "Proxmox",
-      "url": "https://proxmox.home.lontiotlabz.homes",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/proxmox.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://proxmox.home.lontiotlabz.homes"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 1,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
       "id": "1740f7a7-a04c-41d5-a381-1e7892128e6b",
       "name": "Jackett",
       "url": "https://jackett.docker.lontiotlabz.homes",
@@ -1929,60 +1702,6 @@
           "location": {
             "x": 3,
             "y": 0
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "2b2f89b7-c9f1-47e6-aaa9-a17b6556152a",
-      "name": "omada",
-      "url": "https://192.168.7.12:8043",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/omada.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://omada.home.lontiotlabz.homes"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-            "y": 1
           },
           "size": {
             "width": 1,
@@ -3152,6 +2871,287 @@
           "location": {
             "x": 1,
             "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "6aca6924-02e6-485b-a191-9f3df9bd2b61",
+      "name": "AliExpress",
+      "url": "https://www.aliexpress.com/",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/PapirusDevelopmentTeam/papirus_icons/src/apps_aliexpress.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://www.aliexpress.com/"
+      },
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 4,
+            "y": 8
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 2
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "f3684dce-0285-4bf3-8b8f-418500baad11",
+      "name": "Proxmox",
+      "url": "https://proxmox.home.lontiotlabz.homes",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/proxmox.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://proxmox.home.lontiotlabz.homes"
+      },
+      "area": {
+        "type": "sidebar",
+        "properties": {
+          "location": "right"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 1,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "6532d86f-56fa-4afe-9e15-d0afc674a3eb",
+      "name": "Bitwarden",
+      "url": "https://vault.bitwarden.com/#/login",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/bitwarden.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://vault.bitwarden.com/#/login"
+      },
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 10,
+            "y": 2
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 4,
+            "y": 3
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "42f5588f-1bf6-4606-9f5c-dbf450e008c3",
+      "name": "Sonarr",
+      "url": "https://sonarr.docker.lontiotlabz.homes",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/sonarr.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://sonarr.docker.lontiotlabz.homes"
+      },
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 7,
+            "y": 0
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 2,
+            "y": 2
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": "sonarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "57d1fd6c61894aa2b4e5a6b65b7b4104"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2b2f89b7-c9f1-47e6-aaa9-a17b6556152a",
+      "name": "omada",
+      "url": "https://192.168.7.12:8043",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/omada.png",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://omada.home.lontiotlabz.homes"
+      },
+      "area": {
+        "type": "sidebar",
+        "properties": {
+          "location": "right"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 2
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 1,
+            "y": 1
           },
           "size": {
             "width": 1,
