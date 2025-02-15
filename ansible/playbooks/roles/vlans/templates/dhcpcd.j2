@@ -1,0 +1,7 @@
+{% for item in vlan_dict %}
+interface eth0.{{ item.vlan }}
+static ip_address={{ item.ip_address }}
+static routers={{ item.router }}
+static domain_name_servers=127.0.0.1
+
+{% endfor %}

@@ -1,0 +1,6 @@
+{% for item in vlan_dict %}
+auto eth0.{{ item.vlan }}
+iface eth0.{{ item.vlan }} inet manual
+    vlan-raw-device eth0
+    
+{% endfor %}
