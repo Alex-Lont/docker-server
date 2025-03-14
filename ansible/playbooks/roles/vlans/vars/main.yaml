@@ -1,0 +1,4 @@
+vlan_dict:
+    - vlan: 1111
+      ip_address: 172.168.69.0/24
+      router: 172.168.69.1
