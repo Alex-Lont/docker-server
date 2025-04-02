@@ -4,7 +4,7 @@ http:
     homeassistant:
       entryPoints:
         - "https"
-      rule: "Host(`homeassistant.lontiotlabz.homes`)"
+      rule: "Host(`homeassistant.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -14,7 +14,7 @@ http:
     #   entryPoints:
     #     - "mqttsecure"
     #     - "mqtt"
-    #   rule: "Host(`mqtt.lontiotlabz.homes`)"
+    #   rule: "Host(`mqtt.lontiotlabs.au`)"
     #   # middlewares:
     #   #   - default-headers
     #   tls: {}
@@ -22,7 +22,7 @@ http:
     plex:
       entryPoints:
         - "https"
-      rule: "Host(`plex.lontiotlabz.homes`)"
+      rule: "Host(`plex.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -31,7 +31,7 @@ http:
     nextcloud:
       entryPoints:
         - "https"
-      rule: "Host(`nextcloud.lontiotlabz.homes`)"
+      rule: "Host(`nextcloud.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - nextcloud-secure-headers
@@ -41,7 +41,7 @@ http:
     aio:
       entryPoints:
         - "https"
-      rule: "Host(`nextcloudaio.lontiotlabz.homes`)"
+      rule: "Host(`nextcloudaio.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -50,7 +50,7 @@ http:
     warden:
       entryPoints:
         - "https"
-      rule: "Host(`warden.lontiotlabz.homes`)"
+      rule: "Host(`warden.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
