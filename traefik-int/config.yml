@@ -4,7 +4,7 @@ http:
     proxmox:
       entryPoints:
         - "https"
-      rule: "Host(`proxmox.home.lontiotlabz.homes`)"
+      rule: "Host(`proxmox.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -13,7 +13,7 @@ http:
     truenas:
       entryPoints:
         - "https"
-      rule: "Host(`truenas.home.lontiotlabz.homes`)"
+      rule: "Host(`truenas.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -22,7 +22,7 @@ http:
     omada:
       entryPoints:
         - "https"
-      rule: "Host(`omada.home.lontiotlabz.homes`)"
+      rule: "Host(`omada.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -31,7 +31,7 @@ http:
     pihole:
       entryPoints:
         - "https"
-      rule: "Host(`pihole.home.lontiotlabz.homes`)"
+      rule: "Host(`pihole.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -40,7 +40,7 @@ http:
     pihole-backup:
       entryPoints:
         - "https"
-      rule: "Host(`pihole-backup.home.lontiotlabz.homes`)"
+      rule: "Host(`pihole-backup.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -49,7 +49,7 @@ http:
     qbit:
       entryPoints:
         - "https"
-      rule: "Host(`qbit.docker.lontiotlabz.homes`)"
+      rule: "Host(`qbit.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -58,7 +58,7 @@ http:
     sonarr:
       entryPoints:
         - "https"
-      rule: "Host(`sonarr.docker.lontiotlabz.homes`)"
+      rule: "Host(`sonarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -67,7 +67,7 @@ http:
     radarr:
       entryPoints:
         - "https"
-      rule: "Host(`radarr.docker.lontiotlabz.homes`)"
+      rule: "Host(`radarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -76,7 +76,7 @@ http:
     jackett:
       entryPoints:
         - "https"
-      rule: "Host(`jackett.docker.lontiotlabz.homes`)"
+      rule: "Host(`jackett.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -85,7 +85,7 @@ http:
     bazarr:
       entryPoints:
         - "https"
-      rule: "Host(`bazarr.docker.lontiotlabz.homes`)"
+      rule: "Host(`bazarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -94,7 +94,7 @@ http:
     tdarr:
       entryPoints:
         - "https"
-      rule: "Host(`tdarr.docker.lontiotlabz.homes`)"
+      rule: "Host(`tdarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -103,7 +103,7 @@ http:
     speed:
       entryPoints:
         - "https"
-      rule: "Host(`speed.docker.lontiotlabz.homes`)"
+      rule: "Host(`speed.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -112,7 +112,7 @@ http:
     raklora:
       entryPoints:
         - "https"
-      rule: "Host(`rak.iot.lontiotlabz.homes`)"
+      rule: "Host(`rak.iot.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -121,7 +121,7 @@ http:
     milesight:
       entryPoints:
         - "https"
-      rule: "Host(`milesight.iot.lontiotlabz.homes`)"
+      rule: "Host(`milesight.iot.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -130,7 +130,7 @@ http:
     nvr:
       entryPoints:
         - "https"
-      rule: "Host(`nvr.iot.lontiotlabz.homes`)"
+      rule: "Host(`nvr.iot.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -139,7 +139,7 @@ http:
     notes:
       entryPoints:
         - "https"
-      rule: "Host(`notes.docker.lontiotlabz.homes`)"
+      rule: "Host(`notes.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -148,7 +148,7 @@ http:
     organiser:
       entryPoints:
         - "https"
-      rule: "Host(`organiser.docker.lontiotlabz.homes`)"
+      rule: "Host(`organiser.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -157,7 +157,7 @@ http:
     tablet:
       entryPoints:
         - "https"
-      rule: "Host(`tablet.iot.lontiotlabz.homes`)"
+      rule: "Host(`tablet.iot.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -166,7 +166,7 @@ http:
     ansible:
       entryPoints:
         - "https"
-      rule: "Host(`ansible.docker.lontiotlabz.homes`)"
+      rule: "Host(`ansible.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -175,7 +175,7 @@ http:
     calibre:
       entryPoints:
         - "https"
-      rule: "Host(`books.docker.lontiotlabz.homes`)"
+      rule: "Host(`books.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -184,7 +184,7 @@ http:
     audiobookshelf:
       entryPoints:
         - "https"
-      rule: "Host(`audiobook.docker.lontiotlabz.homes`)"
+      rule: "Host(`audiobook.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
