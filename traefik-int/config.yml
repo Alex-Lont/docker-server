@@ -190,7 +190,16 @@ http:
         - https-redirectscheme
       tls: {}
       service: audiobookshelf
-
+    aio:
+      entryPoints:
+        - "https"
+      rule: "Host(`nextcloudaio.docker.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: aio
+      
 #endregion
 #region services
   services:
@@ -298,6 +307,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.30.31:13378"
+        passHostHeader: true
+    aio:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.30.34:8080"
         passHostHeader: true
 
 
