@@ -1,0 +1,76 @@
+- hosts: artemis
+  roles:
+    - role : pihole-config
+      vars:
+        dns:
+          - ip: 192.168.7.10
+            domain: lontiotlabz.homes
+          - ip: 192.168.7.11
+            domain: iot.lontiotlabz.homes
+          - ip: 192.168.7.11
+            domain: docker.lontiotlabz.homes
+          - ip: 192.168.7.11
+            domain: home.lontiotlabz.homes
+          - ip: 192.168.7.11
+            domain: virtual.lontiotlabz.homes
+        cname:
+          - domain: pihole.home.lontiotlabz.homes
+            target: home.lontiotlabz.homes
+          - domain: proxmox.home.lontiotlabz.homes
+            target: home.lontiotlabz.homes
+          - domain: truenas.home.lontiotlabz.homes
+            target: home.lontiotlabz.homes
+          - domain: rak.iot.lontiotlabz.homes
+            target: iot.lontiotlabz.homes
+          - domain: traefik.home.lontiotlabz.homes
+            target: home.lontiotlabz.homes
+          - domain: pihole-backup.home.lontiotlabz.homes
+            target: home.lontiotlabz.homes
+          - domain: nvr.iot.lontiotlabz.homes
+            target: iot.lontiotlabz.homes
+          - domain: tablet.iot.lontiotlabz.homes
+            target: iot.lontiotlabz.homes
+          - domain: omada.home.lontiotlabz.homes
+            target: home.lontiotlabz.homes
+          - domain: milesight.iot.lontiotlabz.homes
+            target: iot.lontiotlabz.homes
+          - domain: qbit.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: tdarr.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: speed.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: sonarr.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: notes.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: jackett.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: ansible.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: organiser.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: bazarr.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: home.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: radarr.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: nextcloudaio.lontiotlabz.homes
+            target: lontiotlabz.homes
+          - domain: traefik.lontiotlabz.homes
+            target: lontiotlabz.homes
+          - domain: nextcloud.lontiotlabz.homes
+            target: lontiotlabz.homes
+          - domain: notify.lontiotlabz.homes
+            target: lontiotlabz.homes
+          - domain: plex.lontiotlabz.homes
+            target: lontiotlabz.homes
+          - domain: homeassistant.lontiotlabz.homes
+            target: lontiotlabz.homes
+          - domain: audiobook.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: books.docker.lontiotlabz.homes
+            target: docker.lontiotlabz.homes
+          - domain: mqtt.lontiotlabz.homes
+            target: lontiotlabz.homes

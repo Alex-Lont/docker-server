@@ -1,0 +1,5 @@
+hosts = [
+    {% for item in dns %}
+    "{{ item.ip }} {{ item.domain }}",
+    {% endfor %}
+]

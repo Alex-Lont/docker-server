@@ -2,7 +2,7 @@
   become: true
   roles:
     - updates   #restart
-    - pihole
+    - pihole-update
     - git
     - nvidia
     - role: nvidia-driver

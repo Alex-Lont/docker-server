@@ -29,6 +29,6 @@ docker:
       ansible_user: ubuntu
 
 init:
-  hosts:  
-    intital:
-      ansible_host: 192.168.10.104
+  hosts:
+    init:
+      ansible_host: 10.0.14.5

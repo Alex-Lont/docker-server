@@ -10,8 +10,6 @@ services:
       - PUID=${PUID}
       - VERSION=docker
       - PLEX_CLAIM=${PLEX_CLAIM}
-      - NVIDIA_DRIVER_CAPABILITIES=all
-      - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - ${config}/plex:/config
       - ${tv}:/tv
@@ -46,8 +44,6 @@ services:
       - nodeID=MyInternalNode
       - nodeIP=0.0.0.0
       - nodePort=8267
-      - NVIDIA_DRIVER_CAPABILITIES=all
-      - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - ${config}/tdarr/server:/app/server
       - ${config}/tdarr/config:/app/configs

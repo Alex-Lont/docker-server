@@ -1,0 +1,5 @@
+cnameRecords = [
+    {% for item in cname %}
+    "{{ item.domain }},{{ item.target }}"
+    {% endfor %}
+]

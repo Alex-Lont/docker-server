@@ -8,11 +8,11 @@
     - ssh       
     - apt       #vm, docker
     - vscode        
-    - git       #init
+    # - git       #init
     - docker    
-    - role: nfs
-      vars:
-        nas: 192.168.7.18
+    # - role: nfs
+    #   vars:
+    #     nas: 10.0.14.14
     - role: ufw       #DNS, torrent, plex, nextcloud  
       vars: 
         proxy_int: 192.168.7.10

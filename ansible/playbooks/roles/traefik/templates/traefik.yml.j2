@@ -1,0 +1,58 @@
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+log:
+  level: ERROR
+
+api:
+  dashboard: true
+
+entryPoints:
+  http:
+    address: :90
+    http:
+      redirections:
+        entryPoint:
+          to: https
+          scheme: https
+  https:
+    address: :443
+
+serversTransport:
+  insecureSkipVerify: true
+
+{% if {{ ansible_facts['hostname'] }} == "athena" %}
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: true
+  file:
+    filename: /config-ext.yml
+{% if {{ ansible_facts['hostname'] }} == "apollo" %}
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: true
+  file:
+    filename: /config-ext.yml
+{% else %}
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    filename: /config.yml
+{% endif %}
+
+certificatesResolvers:
+  cloudflare:
+    acme:
+      email: "{{ email }}"
+      storage: acme.json
+      dnsChallenge:
+        provider: cloudflare
+        delayBeforeCheck: 5
+        resolvers:
+          - "1.1.1.1:53"
+          - "1.0.0.1:53"

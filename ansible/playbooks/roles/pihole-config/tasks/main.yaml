@@ -1,0 +1,34 @@
+---
+# - name: Create DNS records in config
+#   become: true
+#   ansible.builtin.replace:
+#     before: '[dhcp]'
+#     path: /etc/pihole/pihole.toml
+#     regexp: 'hosts = (\[(?:\[??[^\[]*?\]))'
+#     replace: "{{ lookup('template', 'pihole-dns.j2') }}"
+#     backup: true
+#     group: "pihole"
+#     owner: "pihole"
+#   when: dns is defined
+#   notify: FTL Restart
+#   tags:
+#     - always
+
+# - debug:
+#     msg: "{{ lookup('template', 'pihole-dns.j2') }}"
+
+- name: Create CNAME records in config
+  become: true
+  ansible.builtin.replace:
+    path: /etc/pihole/pihole.toml
+    regexp: cnameRecords = (\[(?:\[??[^\[]*?\]))
+    replace: "{{ lookup('template', 'pihole-cname.j2') }}"
+    group: "pihole"
+    owner: "pihole"
+  when: cname is defined
+  notify: FTL Restart
+  tags:
+    - always 
+
+- debug:
+    msg: "{{ lookup('template', 'pihole-cname.j2') }}"
