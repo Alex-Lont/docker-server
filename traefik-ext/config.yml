@@ -10,15 +10,6 @@ http:
         - https-redirectscheme
       tls: {}
       service: homeassistant
-    # mqtt:
-    #   entryPoints:
-    #     - "mqttsecure"
-    #     - "mqtt"
-    #   rule: "Host(`mqtt.lontiotlabs.au`)"
-    #   # middlewares:
-    #   #   - default-headers
-    #   tls: {}
-    #   service: mqtt
     plex:
       entryPoints:
         - "https"
@@ -38,24 +29,7 @@ http:
         - https-redirectscheme
       tls: {}
       service: nextcloud
-    aio:
-      entryPoints:
-        - "https"
-      rule: "Host(`nextcloudaio.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: aio
-    warden:
-      entryPoints:
-        - "https"
-      rule: "Host(`warden.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: warden
+
 #endregion
 #region services
   services:
@@ -64,12 +38,6 @@ http:
         servers:
           - url: "http://192.168.10.12:8123"
         passHostHeader: true
-    # mqtt:
-    #   loadBalancer:
-    #     servers:
-    #       - url: "http://192.168.10.14:1883"
-    #       - url: "http://192.168.10.14:8883"
-    #     passHostHeader: true
     plex:
       loadBalancer:
         servers:
@@ -80,17 +48,6 @@ http:
         servers:
           - url: "http://192.168.30.34:11000"
         passHostHeader: true
-    aio:
-      loadBalancer:
-        servers:
-          - url: "https://192.168.30.34:8080"
-        passHostHeader: true
-    warden:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.7.11:8080"
-        passHostHeader: true
-
 
 #endregion
   middlewares:
