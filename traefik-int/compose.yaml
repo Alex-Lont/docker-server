@@ -76,7 +76,6 @@ services:
       - traefik.http.services.homarr.loadbalancer.server.port=7575
       - traefik.docker.network=proxy
 
-
   ntfy:
     container_name: ntfy
     image: binwiederhier/ntfy
