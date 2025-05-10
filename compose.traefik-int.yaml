@@ -16,9 +16,9 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yml:/traefik.yml:ro
-      - ./config.yml:/config.yml:ro
-      - ./acme.json:/acme.json
+      - ./traefik/traefik.yml:/traefik.yml:ro
+      - ./traefik/config-int.yml:/config.yml:ro
+      - ./traefik/acme-int.json:/acme.json
     command: 
       --providers.docker=true
       --providers.docker.exposedByDefault=false
@@ -34,20 +34,22 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.home.${DOMAIN}`)"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.virtual.${DOMAIN}`)"
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
       - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.home.${DOMAIN}`)"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.virtual.${DOMAIN}`)"
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
       - "traefik.http.routers.traefik-secure.tls.domains[0].main=home.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.home.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.tls.domains[1].main=iot.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.tls.domains[1].sans=*.iot.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[2].main=docker.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.docker.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].main=virtual.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.virtual.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[3].main=${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[3].sans=*.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
   homarr:
@@ -55,9 +57,9 @@ services:
     image: ghcr.io/ajnart/homarr:latest
     restart: unless-stopped
     volumes:
-      - ../homarr/config:/app/data/configs
-      - ../homarr/data:/data 
-      - ../homarr/icons:/app/public/icons 
+      - ./homarr/config:/app/data/configs
+      - ./homarr/data:/data 
+      - ./homarr/icons:/app/public/icons 
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - BASE_URL=home.docker.${DOMAIN}
@@ -66,11 +68,11 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.homarr.entrypoints=http
-      - traefik.http.routers.homarr.rule=Host(`home.docker.${DOMAIN}`)
+      - traefik.http.routers.homarr.rule=Host(`home.${DOMAIN}`)
       - traefik.http.middlewares.homarr-https-redirect.redirectscheme.scheme=https
       - traefik.http.routers.homarr.middlewares=homarr-https-redirect
       - traefik.http.routers.homarr-secure.entrypoints=https
-      - traefik.http.routers.homarr-secure.rule=Host(`home.docker.${DOMAIN}`)
+      - traefik.http.routers.homarr-secure.rule=Host(`home.${DOMAIN}`)
       - traefik.http.routers.homarr-secure.tls=true
       - traefik.http.routers.homarr-secure.service=homarr
       - traefik.http.services.homarr.loadbalancer.server.port=7575

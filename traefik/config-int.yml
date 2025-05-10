@@ -171,24 +171,24 @@ http:
         - https-redirectscheme
       tls: {}
       service: ansible
-    # calibre:
-    #   entryPoints:
-    #     - "https"
-    #   rule: "Host(`books.virtual.lontiotlabs.au`)"
-    #   middlewares:
-    #     - default-headers
-    #     - https-redirectscheme
-    #   tls: {}
-    #   service: calibre
-    # audiobookshelf:
-    #   entryPoints:
-    #     - "https"
-    #   rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
-    #   middlewares:
-    #     - default-headers
-    #     - https-redirectscheme
-    #   tls: {}
-    #   service: audiobookshelf
+    calibre:
+      entryPoints:
+        - "https"
+      rule: "Host(`books.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: calibre
+    audiobookshelf:
+      entryPoints:
+        - "https"
+      rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: audiobookshelf
     aio:
       entryPoints:
         - "https"
@@ -217,7 +217,7 @@ http:
     truenas:
       loadBalancer:
         servers:
-          - url: "https://192.168.7.14"
+          - url: "https://10.0.14.14"
         passHostHeader: true
     omada:
       loadBalancer:
@@ -304,16 +304,16 @@ http:
         servers:
           - url: "http://10.0.14.4:3000"
         passHostHeader: true
-    # calibre:
-    #   loadBalancer:
-    #     servers:
-    #       - url: "http://10.0.14.4:8080"
-    #     passHostHeader: true
-    # audiobookshelf:
-    #   loadBalancer:
-    #     servers:
-    #       - url: "http://10.0.14.4:13378"
-    #     passHostHeader: true
+    calibre:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8080"
+        passHostHeader: true
+    audiobookshelf:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:13378"
+        passHostHeader: true
     aio:
       loadBalancer:
         servers:
