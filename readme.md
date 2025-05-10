@@ -54,11 +54,11 @@ docker compose -f compose.traefik-int.yaml pull
 
 - [Traefik](https://hub.docker.com/_/traefik)
 - [Homarr](https://github.com/ajnart/homarr)
+- [Ntfy]{binwiederhier/ntfy}
 
 ### Traefik-ext
 
 - [Traefik](https://hub.docker.com/_/traefik)
-- [Ntfy]{binwiederhier/ntfy}
 
 ## Traefik
 

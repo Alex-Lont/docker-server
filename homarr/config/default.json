@@ -68,7 +68,7 @@
     {
       "id": "888454cf-4463-468f-96d2-7c63c778c360",
       "name": "Radarr",
-      "url": "https://radarr.docker.lontiotlabs.au",
+      "url": "https://radarr.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/radarr.png",
         "appNameStatus": "normal",
@@ -84,7 +84,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://radarr.docker.lontiotlabs.au"
+        "externalUrl": "https://radarr.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -468,7 +468,7 @@
     {
       "id": "15e32237-33eb-4109-a02a-94e7e8b21c2e",
       "name": "Speed Test",
-      "url": "https://speed.docker.lontiotlabs.au",
+      "url": "https://speed.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/librespeed.png",
         "appNameStatus": "normal",
@@ -484,7 +484,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://speed.docker.lontiotlabs.au"
+        "externalUrl": "https://speed.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -522,7 +522,7 @@
     {
       "id": "89e473de-3583-4933-a23c-400a8b7de1d9",
       "name": "Notes",
-      "url": "https://notes.docker.lontiotlabs.au/",
+      "url": "https://notes.virtual.lontiotlabs.au/",
       "appearance": {
         "iconUrl": "https://play-lh.googleusercontent.com/0WzNnQJyEuOyvkZvYVpGkQJEvOfEF9kBnbLnLQioqUAX_DlV6wP8hyH8BgVBHQa1V9A=w240-h480-rw",
         "appNameStatus": "normal",
@@ -543,7 +543,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://notes.docker.lontiotlabs.au/"
+        "externalUrl": "https://notes.virtual.lontiotlabs.au/"
       },
       "area": {
         "type": "wrapper",
@@ -640,7 +640,7 @@
     {
       "id": "0d3b72ec-f925-4296-b966-1dc160694559",
       "name": "Qbit",
-      "url": "https://qbit.docker.lontiotlabs.au",
+      "url": "https://qbit.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/qbittorrent.png",
         "appNameStatus": "normal",
@@ -656,7 +656,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://qbit.docker.lontiotlabs.au"
+        "externalUrl": "https://qbit.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -705,7 +705,7 @@
     {
       "id": "984415fb-d804-4f7b-89be-9c17d3f2f59d",
       "name": "Tdarr",
-      "url": "https://tdarr.docker.lontiotlabs.au",
+      "url": "https://tdarr.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/tdarr.png",
         "appNameStatus": "normal",
@@ -721,7 +721,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://tdarr.docker.lontiotlabs.au"
+        "externalUrl": "https://tdarr.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -759,7 +759,7 @@
     {
       "id": "89b9f82c-bffb-46e2-81fe-1659669800b7",
       "name": "PiHole",
-      "url": "https://pihole.home.lontiotlabs.au/admin",
+      "url": "https://pihole.virtual.lontiotlabs.au/admin",
       "appearance": {
         "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png",
         "appNameStatus": "normal",
@@ -775,7 +775,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://pihole.home.lontiotlabs.au/admin"
+        "externalUrl": "https://pihole.virtual.lontiotlabs.au/admin"
       },
       "area": {
         "type": "wrapper",
@@ -813,7 +813,7 @@
     {
       "id": "8e108e17-635f-44c8-b395-a4dd389751a3",
       "name": "PiHole-Backup",
-      "url": "https://pihole-backup.home.lontiotlabs.au/admin",
+      "url": "https://pihole-backup.virtual.lontiotlabs.au/admin",
       "appearance": {
         "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png",
         "appNameStatus": "normal",
@@ -829,7 +829,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://pihole-backup.home.lontiotlabs.au/admin"
+        "externalUrl": "https://pihole-backup.virtual.lontiotlabs.au/admin"
       },
       "area": {
         "type": "wrapper",
@@ -1496,7 +1496,7 @@
     {
       "id": "1740f7a7-a04c-41d5-a381-1e7892128e6b",
       "name": "Jackett",
-      "url": "https://jackett.docker.lontiotlabs.au",
+      "url": "https://jackett.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/jackett.png",
         "appNameStatus": "normal",
@@ -1512,7 +1512,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://jackett.docker.lontiotlabs.au"
+        "externalUrl": "https://jackett.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -1550,7 +1550,7 @@
     {
       "id": "7bf8a7b1-282d-4976-982c-38079007af38",
       "name": "Bazarr",
-      "url": "https://bazarr.docker.lontiotlabs.au",
+      "url": "https://bazarr.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/bazarr.png",
         "appNameStatus": "normal",
@@ -1566,7 +1566,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://bazarr.docker.lontiotlabs.au"
+        "externalUrl": "https://bazarr.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -1717,7 +1717,7 @@
     {
       "id": "10eafeef-d1c9-4731-8b49-bdd43c9713a1",
       "name": "Traefik-int",
-      "url": "https://traefik.home.lontiotlabs.au/dashboard/#",
+      "url": "https://traefik.virtual.lontiotlabs.au/dashboard/#",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png",
         "appNameStatus": "normal",
@@ -1733,7 +1733,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://traefik.home.lontiotlabs.au/dashboard/#/"
+        "externalUrl": "https://traefik.virtual.lontiotlabs.au/dashboard/#/"
       },
       "area": {
         "type": "sidebar",
@@ -1884,7 +1884,7 @@
     {
       "id": "4ba2194c-7028-4cb7-bee0-fdb55901c3c5",
       "name": "Semaphore",
-      "url": "https://ansible.docker.lontiotlabs.au",
+      "url": "https://ansible.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://avatars.githubusercontent.com/u/98574287?v=4",
         "appNameStatus": "normal",
@@ -1905,7 +1905,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://ansible.docker.lontiotlabs.au/"
+        "externalUrl": "https://ansible.virtual.lontiotlabs.au/"
       },
       "area": {
         "type": "sidebar",
@@ -2379,10 +2379,10 @@
     },
     {
       "id": "0f66e55f-be55-4ff6-bfe6-417c4c93c242",
-      "name": "Home Assistant",
-      "url": "https://homeassistant.lontiotlabs.au",
+      "name": "virtual Assistant",
+      "url": "https://virtualassistant.lontiotlabs.au",
       "appearance": {
-        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/2048px-Home_Assistant_Logo.svg.png",
+        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/virtual_Assistant_Logo.svg/2048px-virtual_Assistant_Logo.svg.png",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2396,7 +2396,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://homeassistant.lontiotlabs.au"
+        "externalUrl": "https://virtualassistant.lontiotlabs.au"
       },
       "area": {
         "type": "sidebar",
@@ -2552,7 +2552,7 @@
     {
       "id": "148c442b-e026-4842-8f16-ad0614bf769a",
       "name": "Truenas",
-      "url": "https://truenas.home.lontiotlabs.au/",
+      "url": "https://truenas.lontiotlabs.au/",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/truenas.png",
         "appNameStatus": "normal",
@@ -2568,7 +2568,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://truenas.home.lontiotlabs.au/"
+        "externalUrl": "https://truenas.virtual.lontiotlabs.au/"
       },
       "area": {
         "type": "sidebar",
@@ -2660,7 +2660,7 @@
     {
       "id": "f3684dce-0285-4bf3-8b8f-418500baad11",
       "name": "Proxmox",
-      "url": "https://proxmox.home.lontiotlabs.au",
+      "url": "https://proxmox.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/proxmox.png",
         "appNameStatus": "normal",
@@ -2676,7 +2676,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://proxmox.home.lontiotlabs.au"
+        "externalUrl": "https://proxmox.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "sidebar",
@@ -2773,7 +2773,7 @@
     {
       "id": "42f5588f-1bf6-4606-9f5c-dbf450e008c3",
       "name": "Sonarr",
-      "url": "https://sonarr.docker.lontiotlabs.au",
+      "url": "https://sonarr.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/sonarr.png",
         "appNameStatus": "normal",
@@ -2789,7 +2789,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://sonarr.docker.lontiotlabs.au"
+        "externalUrl": "https://sonarr.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -2849,7 +2849,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://omada.home.lontiotlabs.au"
+        "externalUrl": "https://omada.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "sidebar",
@@ -2995,7 +2995,7 @@
     {
       "id": "d021f2af-5d2f-49e4-aa13-6566c5e5a1ee",
       "name": "Organizr",
-      "url": "https://organiser.docker.lontiotlabs.au",
+      "url": "https://organiser.virtual.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/organizr.png",
         "appNameStatus": "normal",
@@ -3011,7 +3011,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://organiser.docker.lontiotlabs.au"
+        "externalUrl": "https://organiser.virtual.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
@@ -3466,7 +3466,7 @@
       "layout": {
         "enabledLeftSidebar": false,
         "enabledRightSidebar": true,
-        "enabledDocker": true,
+        "home": true,
         "enabledPing": false,
         "enabledSearchbar": true
       },
