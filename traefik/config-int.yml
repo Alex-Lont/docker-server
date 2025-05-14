@@ -171,24 +171,24 @@ http:
         - https-redirectscheme
       tls: {}
       service: ansible
-    calibre:
-      entryPoints:
-        - "https"
-      rule: "Host(`books.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: calibre
-    audiobookshelf:
-      entryPoints:
-        - "https"
-      rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: audiobookshelf
+    # calibre:
+    #   entryPoints:
+    #     - "https"
+    #   rule: "Host(`books.virtual.lontiotlabs.au`)"
+    #   middlewares:
+    #     - default-headers
+    #     - https-redirectscheme
+    #   tls: {}
+    #   service: calibre
+    # audiobookshelf:
+    #   entryPoints:
+    #     - "https"
+    #   rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
+    #   middlewares:
+    #     - default-headers
+    #     - https-redirectscheme
+    #   tls: {}
+    #   service: audiobookshelf
     aio:
       entryPoints:
         - "https"
