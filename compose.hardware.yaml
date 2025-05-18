@@ -15,12 +15,6 @@ services:
       - ${tv}:/tv
       - ${movies}:/movies
       - ${config}/transcode/plex:/transcode
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities:
-              - gpu
 
   tdarr:
     container_name: tdarr
@@ -52,12 +46,12 @@ services:
       - ${movies}:/movies
       - ${videos}:/videos
       - ${config}/transcode/tdarr:/temp
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities:
-                - gpu
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - capabilities:
+  #               - gpu
 
 networks:
   docker:
