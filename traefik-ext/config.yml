@@ -27,16 +27,16 @@ http:
         - https-redirectscheme
       tls: {}
       service: plex
-    nextcloud:
-      entryPoints:
-        - "https"
-      rule: "Host(`nextcloud.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - nextcloud-secure-headers
-        - https-redirectscheme
-      tls: {}
-      service: nextcloud
+    # nextcloud:
+    #   entryPoints:
+    #     - "https"
+    #   rule: "Host(`nextcloud.lontiotlabs.au`)"
+    #   middlewares:
+    #     - default-headers
+    #     - nextcloud-secure-headers
+    #     - https-redirectscheme
+    #   tls: {}
+    #   service: nextcloud
 
   services:
     homeassistant:
@@ -55,11 +55,11 @@ http:
         servers:
           - url: "http://10.0.14.6:32400"
         passHostHeader: true
-    nextcloud:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.5:11000"
-        passHostHeader: true
+    # nextcloud:
+    #   loadBalancer:
+    #     servers:
+    #       - url: "http://10.0.14.5:11000"
+    #     passHostHeader: true
 
   middlewares:
     https-redirectscheme:
