@@ -16,11 +16,13 @@ services:
       - ${movies}:/movies
       - ${config}/transcode/plex:/transcode
 
+
   tdarr:
     container_name: tdarr
     image: 'ghcr.io/haveagitgat/tdarr:latest'
     restart: unless-stopped
-    network_mode: bridge
+    networks: 
+      - docker
     privileged: true
     ports:
       - 8265:8265 # webUI port
@@ -46,13 +48,6 @@ services:
       - ${movies}:/movies
       - ${videos}:/videos
       - ${config}/transcode/tdarr:/temp
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - capabilities:
-  #               - gpu
-
 networks:
   docker:
     driver: bridge

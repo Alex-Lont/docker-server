@@ -51,6 +51,8 @@ services:
   flatnotes:
     container_name: flatnotes
     image: dullage/flatnotes:latest
+    networks:
+      - docker
     environment:
       PUID: ${PUID}
       PGID: ${PGID}
