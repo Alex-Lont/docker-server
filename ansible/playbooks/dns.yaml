@@ -1,4 +1,4 @@
-- hosts: artemis
+- hosts: artemis, apollo
   roles:
     - role : pihole-config
       vars:
@@ -8,23 +8,25 @@
           - ip: 192.168.7.11
             domain: iot.lontiotlabs.au
           - ip: 192.168.7.11
-            domain: virtual.lontiotlabs.au
+            domain: home.lontiotlabs.au 
           - ip: 192.168.7.11
-            domain: truenas.lontiotlabs.au
+            domain: virtual.lontiotlabs.au
           - ip: 192.168.7.11
             domain: omada.lontiotlabs.au 
           - ip: 192.168.7.11
-            domain: ntfy.lontiotlabs.au 
+            domain: notify.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: pihole.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: pihole-backup.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: truenas.lontiotlabs.au
         cname:
-          - domain: pihole.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
           - domain: proxmox.virtual.lontiotlabs.au
             target: virtual.lontiotlabs.au
           - domain: rak.iot.lontiotlabs.au
             target: iot.lontiotlabs.au
           - domain: traefik.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: pihole-backup.virtual.lontiotlabs.au
             target: virtual.lontiotlabs.au
           - domain: nvr.iot.lontiotlabs.au
             target: iot.lontiotlabs.au
@@ -50,8 +52,6 @@
             target: virtual.lontiotlabs.au
           - domain: bazarr.virtual.lontiotlabs.au
             target: virtual.lontiotlabs.au
-          - domain: virtual.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
           - domain: radarr.virtual.lontiotlabs.au
             target: virtual.lontiotlabs.au
           - domain: nextcloudaio.lontiotlabs.au
@@ -59,8 +59,6 @@
           - domain: traefik.lontiotlabs.au
             target: lontiotlabs.au
           - domain: nextcloud.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: notify.lontiotlabs.au
             target: lontiotlabs.au
           - domain: plex.lontiotlabs.au
             target: lontiotlabs.au
