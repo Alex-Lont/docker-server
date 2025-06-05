@@ -1,0 +1,6 @@
+---
+# handlers file for roles/log2ram
+- name: Restart log2ram  
+  ansible.builtin.service:
+    name: log2ram
+    state: restarted
