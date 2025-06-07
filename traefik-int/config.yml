@@ -144,15 +144,6 @@ http:
         - https-redirectscheme
       tls: {}
       service: notes
-    organiser:
-      entryPoints:
-        - "https"
-      rule: "Host(`organiser.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: organiser
     tablet:
       entryPoints:
         - "https"
@@ -171,24 +162,24 @@ http:
         - https-redirectscheme
       tls: {}
       service: ansible
-    # calibre:
-    #   entryPoints:
-    #     - "https"
-    #   rule: "Host(`books.virtual.lontiotlabs.au`)"
-    #   middlewares:
-    #     - default-headers
-    #     - https-redirectscheme
-    #   tls: {}
-    #   service: calibre
-    # audiobookshelf:
-    #   entryPoints:
-    #     - "https"
-    #   rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
-    #   middlewares:
-    #     - default-headers
-    #     - https-redirectscheme
-    #   tls: {}
-    #   service: audiobookshelf
+    calibre:
+      entryPoints:
+        - "https"
+      rule: "Host(`books.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: calibre
+    audiobookshelf:
+      entryPoints:
+        - "https"
+      rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: audiobookshelf
     aio:
       entryPoints:
         - "https"
@@ -207,6 +198,51 @@ http:
         - https-redirectscheme
       tls: {}
       service: zigbee
+    dumbpad:
+      entryPoints:
+        - "https"
+      rule: "Host(`pad.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbpad
+    dumbdrop:
+      entryPoints:
+        - "https"
+      rule: "Host(`drop.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbdrop
+    dumbassets:
+      entryPoints:
+        - "https"
+      rule: "Host(`assets.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbassets
+    dumbdo:
+      entryPoints:
+        - "https"
+      rule: "Host(`todo.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbdo
+    dumbbudget:
+      entryPoints:
+        - "https"
+      rule: "Host(`budget.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbbudget
 
   services:
     proxmox:
@@ -289,11 +325,6 @@ http:
         servers:
           - url: "http://10.0.14.4:8000"
         passHostHeader: true
-    organiser:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:9090"
-        passHostHeader: true
     tablet:
       loadBalancer:
         servers:
@@ -307,7 +338,7 @@ http:
     calibre:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8080"
+          - url: "http://10.0.14.4:8088"
         passHostHeader: true
     audiobookshelf:
       loadBalancer:
@@ -324,6 +355,33 @@ http:
         servers:
           - url: "https://10.0.14.5"
         passHostHeader: true
+    dumbpad:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3001"
+        passHostHeader: true
+    dumbdrop:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3002"
+        passHostHeader: true
+    dumbassets:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3003"
+        passHostHeader: true
+    dumbdo:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3004"
+        passHostHeader: true
+    dumbbudget:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3005"
+        passHostHeader: true
+
+
 
   middlewares:
     https-redirectscheme:

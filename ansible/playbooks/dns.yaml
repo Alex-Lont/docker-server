@@ -72,3 +72,13 @@
             target: lontiotlabs.au
           - domain: zigbee.iot.lontiotlabs.au
             target: iot.lontiotlabs.au
+          - domain: pad.virtual.lontiotlabs.au
+            target: virtual.lontiotlabs.au
+          - domain: drop.virtual.lontiotlabs.au
+            target: virtual.lontiotlabs.au
+          - domain: assets.virtual.lontiotlabs.au
+            target: virtual.lontiotlabs.au
+          - domain: todo.virtual.lontiotlabs.au
+            target: virtual.lontiotlabs.au
+          - domain: budget.virtual.lontiotlabs.au
+            target: virtual.lontiotlabs.au
