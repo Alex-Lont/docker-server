@@ -78,42 +78,32 @@ services:
       - traefik.http.services.homarr.loadbalancer.server.port=7575
       - traefik.docker.network=proxy
 
-  ntfy:
-    container_name: ntfy
-    image: binwiederhier/ntfy
+  organizr:
+    container_name: organizr
+    hostname: organizr
+    image: organizr/organizr:latest
     restart: unless-stopped
-    command:
-      - serve
-    environment:
-      - TZ=${TZ}  
-      - NTFY_BASE_URL=https://notify.${DOMAIN}
-      # - NTFY_AUTH_DEFAULT_ACCESS=deny-all
-      # - NTFY_ENABLE_LOGIN=true
-      - NTFY_BEHIND_PROXY=true
-      - NTFY_SMTP_SERVER_LISTEN=:25
-      - NTFY_SMTP_SERVER_DOMAIN=${DOMAIN}
-      - NTFY_CACHE_FILE=/var/cache/ntfy/cache.db
-      - NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
-      - NTFY_ATTACHMENT_CACHE_DIR=/var/cache/ntfy/attachments
-      - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
-    user: ${PUID}:${PGID} 
-    volumes:
-      - ${config}/ntfy/cache:/var/cache/ntfy
-      - ${config}/ntfy/auth:/var/lib/ntfy
-      - ${config}/ntfy/cache/attachments:/var/cache/ntfy/attachments
     networks:
       - proxy
+    volumes:
+      - ${config}/organizr:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - branch=v2-master
+      - fpm=true
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ntfy.entrypoints=http
-      - traefik.http.routers.ntfy.rule=Host(`notify.${DOMAIN}`)
-      - traefik.http.middlewares.ntfy-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.ntfy.middlewares=ntfy-https-redirect
-      - traefik.http.routers.ntfy-secure.entrypoints=https
-      - traefik.http.routers.ntfy-secure.rule=Host(`notify.${DOMAIN}`)
-      - traefik.http.routers.ntfy-secure.tls=true
-      - traefik.http.routers.ntfy-secure.service=ntfy
-      - traefik.http.services.ntfy.loadbalancer.server.port=80
+      - traefik.http.routers.organiser.entrypoints=http
+      - traefik.http.routers.organiser.rule=Host(`organiser.virtual.${DOMAIN}`)
+      - traefik.http.middlewares.organiser-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.organiser.middlewares=organiser-https-redirect
+      - traefik.http.routers.organiser-secure.entrypoints=https
+      - traefik.http.routers.organiser-secure.rule=Host(`home.${DOMAIN}`)
+      - traefik.http.routers.organiser-secure.tls=true
+      - traefik.http.routers.organiser-secure.service=organiser
+      - traefik.http.services.organiser.loadbalancer.server.organiser=80
       - traefik.docker.network=proxy
 
 networks:
