@@ -62,7 +62,7 @@ services:
       - ./../homarr/icons:/app/public/icons 
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - BASE_URL=home.docker.${DOMAIN}
+      - BASE_URL=home.${DOMAIN}
     networks:
       - proxy
     labels:
@@ -103,7 +103,7 @@ services:
       - traefik.http.routers.organiser-secure.rule=Host(`home.${DOMAIN}`)
       - traefik.http.routers.organiser-secure.tls=true
       - traefik.http.routers.organiser-secure.service=organiser
-      - traefik.http.services.organiser.loadbalancer.server.organiser=80
+      - traefik.http.services.organiser.loadbalancer.server.organiser=8080
       - traefik.docker.network=proxy
 
 networks:
