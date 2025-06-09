@@ -95,15 +95,15 @@ services:
       - fpm=true
     labels:
       - traefik.enable=true
-      - traefik.http.routers.organiser.entrypoints=http
-      - traefik.http.routers.organiser.rule=Host(`organiser.virtual.${DOMAIN}`)
-      - traefik.http.middlewares.organiser-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.organiser.middlewares=organiser-https-redirect
-      - traefik.http.routers.organiser-secure.entrypoints=https
-      - traefik.http.routers.organiser-secure.rule=Host(`home.${DOMAIN}`)
-      - traefik.http.routers.organiser-secure.tls=true
-      - traefik.http.routers.organiser-secure.service=organiser
-      - traefik.http.services.organiser.loadbalancer.server.organiser=8080
+      - traefik.http.routers.organizr.entrypoints=http
+      - traefik.http.routers.organizr.rule=Host(`organiser.virtual.${DOMAIN}`)
+      - traefik.http.middlewares.organizr-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.organizr.middlewares=organizr-https-redirect
+      - traefik.http.routers.organizr-secure.entrypoints=https
+      - traefik.http.routers.organizr-secure.rule=Host(`organiser.virtual.${DOMAIN}`)
+      - traefik.http.routers.organizr-secure.tls=true
+      - traefik.http.routers.organizr-secure.service=organizr
+      - traefik.http.services.organizr.loadbalancer.server.port=80
       - traefik.docker.network=proxy
 
 networks:
