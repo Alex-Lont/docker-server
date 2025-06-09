@@ -17,7 +17,7 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
 #@xscreensaver -no-splash
-@chromium-browser http://127.0.0.1/#Homepage --kiosk --force-device-scale-factor=0.75
+@chromium-browser https://organiser.virtual.lontiotlabs.au/#Homepage --kiosk --force-device-scale-factor=0.75
 @xset s noblank
 @xset s off
 @xset s -dpmsr
