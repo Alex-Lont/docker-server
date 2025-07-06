@@ -1,4 +1,5 @@
 http:
+ #region routers 
   routers:
     homeassistant:
       entryPoints:
@@ -9,15 +10,6 @@ http:
         - https-redirectscheme
       tls: {}
       service: homeassistant
-    # mqtt:
-    #   entryPoints:
-    #     - "mqttsecure"
-    #     - "mqtt"
-    #   rule: "Host(`mqtt.lontiotlabs.au`)"
-    #   # middlewares:
-    #   #   - default-headers
-    #   tls: {}
-    #   service: mqtt
     plex:
       entryPoints:
         - "https"
@@ -27,40 +19,35 @@ http:
         - https-redirectscheme
       tls: {}
       service: plex
-    # nextcloud:
-    #   entryPoints:
-    #     - "https"
-    #   rule: "Host(`nextcloud.lontiotlabs.au`)"
-    #   middlewares:
-    #     - default-headers
-    #     - nextcloud-secure-headers
-    #     - https-redirectscheme
-    #   tls: {}
-    #   service: nextcloud
+    nextcloud:
+      entryPoints:
+        - "https"
+      rule: "Host(`nextcloud.lontiotlabs.au`)"
+      middlewares:
+        - nextcloud-chain
+      tls: {}
+      service: nextcloud
 
+#endregion
+#region services
   services:
     homeassistant:
       loadBalancer:
         servers:
           - url: "http://192.168.10.12:8123"
         passHostHeader: true
-    # mqtt:
-    #   loadBalancer:
-    #     servers:
-    #       - url: "http://192.168.10.14:1883"
-    #       - url: "http://192.168.10.14:8883"
-    #     passHostHeader: true
     plex:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.6:32400"
+          - url: "http://10.0.14.4:32400"
         passHostHeader: true
-    # nextcloud:
-    #   loadBalancer:
-    #     servers:
-    #       - url: "http://10.0.14.5:11000"
-    #     passHostHeader: true
+    nextcloud:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.5:11000"
+        passHostHeader: true
 
+#endregion
   middlewares:
     https-redirectscheme:
       redirectScheme:
@@ -72,6 +59,13 @@ http:
         hostsProxyHeaders:
           - "X-Forwarded-Host"
         referrerPolicy: "same-origin"
+
+    nextcloud-chain:
+      chain:
+        middlewares:
+          # - ... (e.g. rate limiting middleware)
+          - https-redirectscheme
+          - nextcloud-secure-headers
 
     default-headers:
       headers:

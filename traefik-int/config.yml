@@ -174,7 +174,7 @@ http:
     audiobookshelf:
       entryPoints:
         - "https"
-      rule: "Host(`audiobook.virtual.lontiotlabs.au`)"
+      rule: "Host(`audiobook.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -210,7 +210,7 @@ http:
     dumbdrop:
       entryPoints:
         - "https"
-      rule: "Host(`drop.virtual.lontiotlabs.au`)"
+      rule: "Host(`drop.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -243,6 +243,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: dumbbudget
+    lidarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`lidarr.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: lidarr
 
   services:
     proxmox:
@@ -380,8 +389,11 @@ http:
         servers:
           - url: "http://10.0.14.4:3005"
         passHostHeader: true
-
-
+    lidarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8686"
+        passHostHeader: true
 
   middlewares:
     https-redirectscheme:

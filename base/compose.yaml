@@ -1,37 +1,4 @@
 services:
-  audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:latest
-    container_name: audiobookshelf
-    restart: unless-stopped
-    ports:
-      - 13378:80
-    volumes:
-      - ${book}/audiobooks:/audiobooks
-      - ${book}/podcasts:/podcasts
-      - ${config}/config:/config
-      - ${book}/metadata:/metadata
-    environment:
-      - TZ=${TZ}
-
-  calibre:
-    image: lscr.io/linuxserver/calibre:latest
-    container_name: calibre
-    privileged: true
-    security_opt:
-      - seccomp:unconfined 
-    environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
-    volumes:
-      - ${config}/calibre/config:/config
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 8088:8080
-      - 8181:8181
-      - 8081:8081
-    restart: unless-stopped
-
   speedtest:
     image: henrywhitaker3/speedtest-tracker:latest
     container_name: speedtest
