@@ -21,64 +21,21 @@
             domain: pihole-backup.lontiotlabs.au 
           - ip: 192.168.7.11
             domain: truenas.lontiotlabs.au
+          - ip: 192.168.7.11
+            domain: alerts.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: audiobook.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: drop.lontiotlabs.au       
+          - ip: 192.168.7.11
+            domain: alerts.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: gotify.lontiotlabs.au 
+
         cname:
-          - domain: proxmox.virtual.lontiotlabs.au
+          - domain: "*.virtual.lontiotlabs.au"
             target: virtual.lontiotlabs.au
-          - domain: rak.iot.lontiotlabs.au
+          - domain: "*.iot.lontiotlabs.au"
             target: iot.lontiotlabs.au
-          - domain: traefik.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: nvr.iot.lontiotlabs.au
-            target: iot.lontiotlabs.au
-          - domain: tablet.iot.lontiotlabs.au
-            target: iot.lontiotlabs.au
-          - domain: milesight.iot.lontiotlabs.au
-            target: iot.lontiotlabs.au
-          - domain: qbit.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: tdarr.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: speed.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: sonarr.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: notes.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: jackett.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: ansible.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: organiser.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: bazarr.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: radarr.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: nextcloudaio.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: traefik.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: nextcloud.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: plex.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: homeassistant.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: audiobook.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: books.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: mqtt.lontiotlabs.au
-            target: lontiotlabs.au
-          - domain: zigbee.iot.lontiotlabs.au
-            target: iot.lontiotlabs.au
-          - domain: pad.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: drop.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: assets.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: todo.virtual.lontiotlabs.au
-            target: virtual.lontiotlabs.au
-          - domain: budget.virtual.lontiotlabs.au
+          - domain: "*.virtual.lontiotlabs.au"
             target: virtual.lontiotlabs.au
