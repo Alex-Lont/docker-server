@@ -82,7 +82,6 @@ services:
     environment:
       SITE_TITLE: DumbPad
       BASE_URL: https://pad.virtual.lontiotlabs.au
-      # PORT: 3001
 
   dumbdrop:
     image: dumbwareio/dumbdrop:latest
@@ -112,7 +111,6 @@ services:
     volumes:
       - ${config}/dumbasset:/app/data
     environment:
-      PORT: 3003
       NODE_ENV: production
       DEBUG: False
       SITE_TITLE: DumbAssets
