@@ -147,6 +147,17 @@ services:
       SITE_TITLE: DumbBudget
       INSTANCE_NAME: My Account 
 
+  dumbkan:
+    image: dumbwareio/dumbkan:latest
+    container_name: dumbkan
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+      - 3006:3000
+    volumes:
+      - ${config}/kanban:/app/data
+
 networks:
   docker:
     driver: bridge

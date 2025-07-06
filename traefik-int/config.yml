@@ -243,6 +243,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: dumbbudget
+    dumbkan:
+      entryPoints:
+        - "https"
+      rule: "Host(`kanban.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbkan
     lidarr:
       entryPoints:
         - "https"
@@ -388,6 +397,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.0.14.4:3005"
+        passHostHeader: true
+    dumbkan:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3006"
         passHostHeader: true
     lidarr:
       loadBalancer:
