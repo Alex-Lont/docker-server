@@ -13,19 +13,11 @@ pihole:
 docker:
   hosts:
     hestia:
-      ansible_host: 192.168.30.31
-      ansible_user: ubuntu
-
-    hermes:
-      ansible_host: 192.168.30.32
-      ansible_user: ubuntu
-
-    dionysus:
-      ansible_host: 192.168.30.33
+      ansible_host: 10.0.14.4
       ansible_user: ubuntu
 
     demeter:
-      ansible_host: 192.168.30.34
+      ansible_host: 10.0.14.5
       ansible_user: ubuntu
 
 init:
