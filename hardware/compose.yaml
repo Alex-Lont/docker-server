@@ -16,7 +16,6 @@ services:
       - ${movies}:/movies
       - ${config}/transcode/plex:/transcode
 
-
   tdarr:
     container_name: tdarr
     image: 'ghcr.io/haveagitgat/tdarr:latest'
@@ -48,6 +47,7 @@ services:
       - ${movies}:/movies
       - ${videos}:/videos
       - ${config}/transcode/tdarr:/temp
+      
 networks:
   docker:
     driver: bridge
