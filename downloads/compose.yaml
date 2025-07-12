@@ -107,10 +107,10 @@ services:
     ports:
       - 13378:80
     volumes:
-      - ${book}/audiobooks:/audiobooks
-      - ${book}/podcasts:/podcasts
+      - ${audiobooks}/audiobooks:/audiobooks
+      - ${podcasts}/podcasts:/podcasts
       - ${config}/config:/config
-      - ${book}/metadata:/metadata
+      - ${audiobooks}/metadata:/metadata
     environment:
       - TZ=${TZ}
 
@@ -128,6 +128,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${config}/calibre/config:/config
+      - ${books}:/books
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 8088:8080
@@ -146,7 +147,7 @@ services:
       - TZ=${TZ}
     volumes:
       - ${config}/lidarr:/config
-      - ${media}:/music
+      - ${music}:/music
       - ${downloads}:/downloads
     ports:
       - 8686:8686
@@ -154,6 +155,7 @@ services:
 
   navidrome:
     image: deluan/navidrome:latest
+    container_name: namedrome
     user: ${PUID}:${PGID} # should be owner of volumes
     networks:
       - docker   
@@ -162,7 +164,9 @@ services:
       - 4533:4533
     volumes:
       - ${config}/navidrome:/data 
-      - ${media}:/music
+      - ${music}:/music
+      - ${audiobooks}/audiobooks:/audiobooks
+      - ${podcasts}/podcasts:/podcasts
 
 networks:
   docker:
