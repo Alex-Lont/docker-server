@@ -107,9 +107,9 @@ services:
     ports:
       - 13378:80
     volumes:
-      - ${audiobooks}/audiobooks:/audiobooks
-      - ${podcasts}/podcasts:/podcasts
-      - ${config}/config:/config
+      - ${audiobooks}:/audiobooks
+      - ${podcasts}:/podcasts
+      - ${config}/audiobookshelf/config:/config
       - ${audiobooks}/metadata:/metadata
     environment:
       - TZ=${TZ}
@@ -165,8 +165,8 @@ services:
     volumes:
       - ${config}/navidrome:/data 
       - ${music}:/music
-      - ${audiobooks}/audiobooks:/audiobooks
-      - ${podcasts}/podcasts:/podcasts
+      - ${audiobooks}:/audiobooks
+      - ${podcasts}:/podcasts
 
 networks:
   docker:
