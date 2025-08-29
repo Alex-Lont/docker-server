@@ -88,7 +88,7 @@ Port forwarding for 443 to machine running this stack.
 ### Update manually via watch tower
 
 ```bash
-docker run -d /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once --cleanup
+docker run --detach --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once --cleanup
 ```
 
 ## VPN Apps
