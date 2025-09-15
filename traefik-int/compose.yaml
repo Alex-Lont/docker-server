@@ -63,6 +63,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - BASE_URL=home.${DOMAIN}
+      - SECRET_ENCRYPTION_KEY=${SECRET_ENCRYPTION_KEY}
     networks:
       - proxy
     labels:
