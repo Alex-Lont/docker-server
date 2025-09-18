@@ -261,6 +261,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: lidarr
+    donetick:
+      entryPoints:
+        - "https"
+      rule: "Host(`donetick.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: donetick
 
   services:
     proxmox:
@@ -407,6 +416,11 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.0.14.4:8686"
+        passHostHeader: true
+    donetick:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:2021"
         passHostHeader: true
 
   middlewares:
