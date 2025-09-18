@@ -156,6 +156,21 @@ services:
     volumes:
       - ${config}/kanban:/app/data
 
+  donetick:
+    image: donetick/donetick:latest
+    container_name: donetick
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+      - 2021:2021
+    volumes:
+      - ${config}/donetick/data:/donetick-data
+      - ${config}/donetick/config:/config
+    environment:
+      DT_ENV: selfhosted
+      DT_SQLITE_PATH: /donetick-data/donetick.db
+
 networks:
   docker:
     driver: bridge
