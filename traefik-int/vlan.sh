@@ -14,7 +14,6 @@ nmcli con mod VLAN20 ipv4.address 10.0.20.11/28
 nmcli con mod VLAN20 ipv4.gateway 10.0.20.1
 nmcli con mod VLAN20 ipv4.dns 127.0.0.1
 nmcli con up VLAN20
-nmcli con up VLAN30
 nmcli con add type vlan con-name VLAN30 dev eth0 id 30
 nmcli con mod VLAN30 ipv4.address 172.16.30.1/26
 nmcli con mod VLAN30 ipv4.gateway 172.16.30.1
