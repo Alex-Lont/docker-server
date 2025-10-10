@@ -129,7 +129,7 @@ http:
     nvr:
       entryPoints:
         - "https"
-      rule: "Host(`nvr.iot.lontiotlabs.au`)"
+      rule: "Host(`nvr.camera.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -345,7 +345,7 @@ http:
     nvr:
       loadBalancer:
         servers:
-          - url: "https://192.168.10.5"
+          - url: "https://172.16.30.5"
         passHostHeader: true
     notes:
       loadBalancer:
