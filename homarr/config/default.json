@@ -72,14 +72,19 @@
       "appearance": {
         "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png",
         "appNameStatus": "normal",
+        "appNameFontSize": 16,
         "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
+        "lineClampAppName": 1
       },
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -133,7 +138,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -418,12 +428,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -477,7 +482,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -649,7 +659,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -762,7 +777,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -870,7 +890,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -1150,12 +1175,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -1235,8 +1255,14 @@
         }
       },
       "integration": {
-        "type": null,
-        "properties": []
+        "type": "plex",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "XVDwZYwx6ft6sbDiV4qG"
+          }
+        ]
       }
     },
     {
@@ -1520,8 +1546,19 @@
         }
       },
       "integration": {
-        "type": null,
-        "properties": []
+        "type": "qBittorrent",
+        "properties": [
+          {
+            "field": "username",
+            "type": "public",
+            "value": "admin"
+          },
+          {
+            "field": "password",
+            "type": "private",
+            "value": "adminadmin"
+          }
+        ]
       }
     },
     {
@@ -1538,7 +1575,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -1598,7 +1640,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -1765,7 +1812,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -1832,9 +1884,9 @@
         "externalUrl": "https://tablet.iot.lontiotlabs.au/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -1938,12 +1990,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -1951,9 +1998,9 @@
         "externalUrl": "https://traefik.lontiotlabs.au/dashboard/#/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -2005,9 +2052,9 @@
         "externalUrl": "https://www.digikey.com.au/"
       },
       "area": {
-        "type": "wrapper",
+        "type": "sidebar",
         "properties": {
-          "id": "default"
+          "location": "right"
         }
       },
       "shape": {
@@ -2051,12 +2098,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -2064,9 +2106,9 @@
         "externalUrl": "https://ansible.docker.lontiotlabs.au/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -2278,7 +2320,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -2431,7 +2478,7 @@
       "name": "Truenas",
       "url": "https://truenas.home.lontiotlabs.au/",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/truenas.png",
+        "iconUrl": "https://www.dumbware.io/software/DumbDrop/dumbdrop.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2440,7 +2487,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -2456,18 +2508,8 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 0,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
             "x": 1,
-            "y": 0
+            "y": 5
           },
           "size": {
             "width": 1,
@@ -2530,8 +2572,14 @@
         }
       },
       "integration": {
-        "type": null,
-        "properties": []
+        "type": "sonarr",
+        "properties": [
+          {
+            "field": "apiKey",
+            "type": "private",
+            "value": "57d1fd6c61894aa2b4e5a6b65b7b4104"
+          }
+        ]
       }
     },
     {
@@ -2539,7 +2587,7 @@
       "name": "Proxmox",
       "url": "https://proxmox.home.lontiotlabs.au",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/proxmox.png",
+        "iconUrl": "https://www.dumbware.io/software/DumbDo/dumbdo.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2548,7 +2596,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -2565,17 +2618,7 @@
         "lg": {
           "location": {
             "x": 1,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 1
+            "y": 4
           },
           "size": {
             "width": 1,
@@ -2697,11 +2740,11 @@
       }
     },
     {
-      "id": "2b2f89b7-c9f1-47e6-aaa9-a17b6556152a",
-      "name": "omada",
-      "url": "https://192.168.7.12:8043",
+      "id": "c6d1f214-5545-4279-aedb-f059dda70ee8",
+      "name": "Kanban",
+      "url": "https://kanban.virtual.lontiotlabs.au",
       "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/omada.png",
+        "iconUrl": "https://www.dumbware.io/software/DumbKan/dumbkan.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2710,7 +2753,159 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://kanban.virtual.lontiotlabs.au"
+      },
+      "area": {
+        "type": "sidebar",
+        "properties": {
+          "location": "right"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 7
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "4afbe541-79e7-48be-994a-10bd0bc2edd0",
+      "name": "Calibre",
+      "url": "https://books.virtual.lontiotlabs.au",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/calibre-web.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://books.virtual.lontiotlabs.au"
+      },
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 5,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "9594c743-4d33-4946-a7d2-87cfab739629",
+      "name": "IT-Tool",
+      "url": "https://it-tools.tech",
+      "appearance": {
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/it-tools-light.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://it-tools.tech/"
+      },
+      "area": {
+        "type": "sidebar",
+        "properties": {
+          "location": "right"
+        }
+      },
+      "shape": {
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 8
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "9416a608-8e42-46fb-a8e8-8249fac457b6",
+      "name": "Reolink",
+      "url": "https://nvr.camera.lontiotlabs.au",
+      "appearance": {
+        "iconUrl": "https://play-lh.googleusercontent.com/Tw6F1NidIp4yqzM8J2Eul923mrK0l5qxkqbnGybtOxU6torgHZo5VQ4bwICr0RAgF7Y",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -2726,8 +2921,8 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 0,
-            "y": 2
+            "x": 1,
+            "y": 8
           },
           "size": {
             "width": 1,
@@ -2737,7 +2932,7 @@
         "md": {
           "location": {
             "x": 1,
-            "y": 1
+            "y": 2
           },
           "size": {
             "width": 1,
@@ -2792,8 +2987,47 @@
             "width": 1,
             "height": 1
           }
-        },
-        "md": {
+        }
+      },
+      "integration": {
+        "type": null,
+        "properties": []
+      }
+    },
+    {
+      "id": "11e9024f-d91b-4fbb-8473-525ea7c0dabc",
+      "name": "Budget",
+      "url": "https://budget.virtual.lontiotlabs.au",
+      "appearance": {
+        "iconUrl": "https://www.dumbware.io/software/DumbBudget/dumbbudget.svg",
+        "appNameStatus": "normal",
+        "positionAppName": "column",
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
+      },
+      "network": {
+        "enabledStatusChecker": true,
+        "statusCodes": [
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
+        ]
+      },
+      "behaviour": {
+        "isOpeningNewTab": true,
+        "externalUrl": "https://budget.virtual.lontiotlabs.au"
+      },
+      "area": {
+        "type": "sidebar",
+        "properties": {
+          "location": "right"
+        }
+      },
+      "shape": {
+        "lg": {
           "location": {
             "x": 4,
             "y": 4
@@ -2810,11 +3044,11 @@
       }
     },
     {
-      "id": "23163220-bc19-45fc-bbf6-6cb8d0d2506e",
-      "name": "Commbank",
-      "url": "https://www.commbank.com.au/retail/netbank/home/",
+      "id": "89e473de-3583-4933-a23c-400a8b7de1d9",
+      "name": "Notes",
+      "url": "https://notes.virtual.lontiotlabs.au/",
       "appearance": {
-        "iconUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Commonwealth_Bank_logo_2020.svg/1200px-Commonwealth_Bank_logo_2020.svg.png",
+        "iconUrl": "https://play-lh.googleusercontent.com/0WzNnQJyEuOyvkZvYVpGkQJEvOfEF9kBnbLnLQioqUAX_DlV6wP8hyH8BgVBHQa1V9A=w240-h480-rw",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2823,24 +3057,29 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://www.commbank.com.au/retail/netbank/home/"
+        "externalUrl": "https://notes.virtual.lontiotlabs.au/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
         "lg": {
           "location": {
-            "x": 1,
-            "y": 2
+            "x": 6,
+            "y": 1
           },
           "size": {
             "width": 1,
@@ -2849,8 +3088,8 @@
         },
         "md": {
           "location": {
-            "x": 0,
-            "y": 2
+            "x": 3,
+            "y": 4
           },
           "size": {
             "width": 1,
@@ -2885,9 +3124,9 @@
         "externalUrl": "https://qbit.docker.lontiotlabs.au"
       },
       "area": {
-        "type": "wrapper",
+        "type": "sidebar",
         "properties": {
-          "id": "default"
+          "location": "right"
         }
       },
       "shape": {
@@ -2933,7 +3172,7 @@
       "name": "Reolink",
       "url": "https://nvr.iot.lontiotlabs.au",
       "appearance": {
-        "iconUrl": "https://play-lh.googleusercontent.com/Tw6F1NidIp4yqzM8J2Eul923mrK0l5qxkqbnGybtOxU6torgHZo5VQ4bwICr0RAgF7Y",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/nextcloud-blue.svg",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2963,8 +3202,8 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 1,
-            "y": 3
+            "x": 0,
+            "y": 2
           },
           "size": {
             "width": 1,
@@ -2973,8 +3212,8 @@
         },
         "md": {
           "location": {
-            "x": 1,
-            "y": 2
+            "x": 0,
+            "y": 5
           },
           "size": {
             "width": 1,
@@ -3001,12 +3240,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -3068,9 +3302,9 @@
         "externalUrl": "https://tdarr.docker.lontiotlabs.au"
       },
       "area": {
-        "type": "wrapper",
+        "type": "sidebar",
         "properties": {
-          "id": "default"
+          "location": "right"
         }
       },
       "shape": {
@@ -3195,6 +3429,59 @@
             "y": 0
           },
           "size": {
+            "width": 2,
+            "height": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
+      "type": "weather",
+      "properties": {
+        "displayInFahrenheit": false,
+        "location": {
+          "name": "Mill Park",
+          "latitude": -37.66667,
+          "longitude": 145.06667
+        },
+        "displayCityName": true,
+        "displayWeekly": false,
+        "forecastDays": 5
+      },
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 1
+          }
+        },
+        "sm": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 1
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 2,
+            "y": 0
+          },
+          "size": {
             "width": 3,
             "height": 2
           }
@@ -3249,49 +3536,6 @@
       }
     },
     {
-      "id": "26221dc7-af16-44d0-9b14-170f86efceb3",
-      "type": "dlspeed",
-      "properties": {},
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "sm": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 2
-          }
-        },
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 2
-          }
-        },
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 6
-          },
-          "size": {
-            "width": 4,
-            "height": 2
-          }
-        }
-      }
-    },
-    {
       "id": "eda06754-8ef4-42ec-bdd3-72f05cd3d476",
       "type": "torrents-status",
       "properties": {
@@ -3336,26 +3580,16 @@
             "y": 3
           },
           "size": {
-            "width": 7,
-            "height": 3
+            "width": 5,
+            "height": 2
           }
         }
       }
     },
     {
-      "id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
-      "type": "weather",
-      "properties": {
-        "displayInFahrenheit": false,
-        "location": {
-          "name": "Mill Park",
-          "latitude": -37.66667,
-          "longitude": 145.06667
-        },
-        "displayCityName": true,
-        "displayWeekly": false,
-        "forecastDays": 5
-      },
+      "id": "26221dc7-af16-44d0-9b14-170f86efceb3",
+      "type": "dlspeed",
+      "properties": {},
       "area": {
         "type": "wrapper",
         "properties": {
@@ -3363,6 +3597,16 @@
         }
       },
       "shape": {
+        "sm": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 2
+          }
+        },
         "md": {
           "location": {
             "x": 0,
@@ -3370,23 +3614,13 @@
           },
           "size": {
             "width": 2,
-            "height": 1
-          }
-        },
-        "sm": {
-          "location": {
-            "x": 1,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 1
+            "height": 2
           }
         },
         "lg": {
           "location": {
-            "x": 3,
-            "y": 0
+            "x": 0,
+            "y": 6
           },
           "size": {
             "width": 4,

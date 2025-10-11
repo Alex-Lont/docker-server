@@ -1,0 +1,41 @@
+- hosts: artemis, apollo
+  roles:
+    - role : pihole-config
+      vars:
+        dns:
+          - ip: 192.168.7.10
+            domain: lontiotlabs.au
+          - ip: 192.168.7.11
+            domain: iot.lontiotlabs.au
+          - ip: 192.168.7.11
+            domain: home.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: virtual.lontiotlabs.au
+          - ip: 192.168.7.11
+            domain: omada.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: notify.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: pihole.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: pihole-backup.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: truenas.lontiotlabs.au
+          - ip: 192.168.7.11
+            domain: alerts.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: audiobook.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: drop.lontiotlabs.au       
+          - ip: 192.168.7.11
+            domain: alerts.lontiotlabs.au 
+          - ip: 192.168.7.11
+            domain: gotify.lontiotlabs.au 
+
+        cname:
+          - domain: "*.virtual.lontiotlabs.au"
+            target: virtual.lontiotlabs.au
+          - domain: "*.iot.lontiotlabs.au"
+            target: iot.lontiotlabs.au
+          - domain: "*.virtual.lontiotlabs.au"
+            target: virtual.lontiotlabs.au

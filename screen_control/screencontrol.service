@@ -1,0 +1,14 @@
+[Unit]
+Description=Screen control script
+After=multi-user.target
+StartLimitIntervalSec=10
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/screencontrol
+ExecStart=/usr/bin/python /home/pi/screencontrol/screen.py 
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,5 +1,4 @@
 http:
- #region routers 
   routers:
     proxmox:
       entryPoints:
@@ -206,12 +205,12 @@ http:
     proxmox:
       loadBalancer:
         servers:
-          - url: "https://192.168.7.20:8006"
+          - url: "https://10.0.14.2:8006"
         passHostHeader: true
     truenas:
       loadBalancer:
         servers:
-          - url: "https://192.168.7.18"
+          - url: "https://10.0.14.14"
         passHostHeader: true
     omada:
       loadBalancer:
@@ -231,82 +230,127 @@ http:
     qbit:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.32:8080"
+          - url: "http://10.0.14.4:8080"
         passHostHeader: true
     sonarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.32:8989"
+          - url: "http://10.0.14.4:8989"
         passHostHeader: true
     radarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.32:7878"
+          - url: "http://10.0.14.4:7878"
         passHostHeader: true
     jackett:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.32:9117"
+          - url: "http://10.0.14.4:9117"
         passHostHeader: true
     bazarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.32:6767"
+          - url: "http://10.0.14.4:6767"
         passHostHeader: true
     tdarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.33:8265"
+          - url: "http://10.0.14.4:8265"
         passHostHeader: true
     speed:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.31:8765"
+          - url: "http://10.0.14.4:8765"
         passHostHeader: true
     raklora:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.20"
+          - url: "http://192.168.10.6"
         passHostHeader: true
     milesight:
       loadBalancer:
         servers:
-          - url: "https://192.168.10.21"
+          - url: "https://192.168.10.7"
         passHostHeader: true
     nvr:
       loadBalancer:
         servers:
-          - url: "https://192.168.10.22"
+          - url: "https://172.16.30.5"
         passHostHeader: true
     notes:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.31:8000"
-        passHostHeader: true
-    organiser:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.30.31:9090"
+          - url: "http://10.0.14.4:8000"
         passHostHeader: true
     tablet:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.15:2323"
+          - url: "http://192.168.10.3:2323"
         passHostHeader: true
     ansible:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.31:3000"
+          - url: "http://10.0.14.4:3000"
         passHostHeader: true
     calibre:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.31:8080"
+          - url: "http://10.0.14.4:8088"
         passHostHeader: true
     audiobookshelf:
       loadBalancer:
         servers:
-          - url: "http://192.168.30.31:13378"
+          - url: "http://10.0.14.4:13378"
+        passHostHeader: true
+    aio:
+      loadBalancer:
+        servers:
+          - url: "https://10.0.14.5:8080"
+        passHostHeader: true
+    zigbee:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.4"
+        passHostHeader: true
+    dumbpad:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3001"
+        passHostHeader: true
+    dumbdrop:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3002"
+        passHostHeader: true
+    dumbassets:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3003"
+        passHostHeader: true
+    dumbdo:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3004"
+        passHostHeader: true
+    dumbbudget:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3005"
+        passHostHeader: true
+    dumbkan:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3006"
+        passHostHeader: true
+    lidarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8686"
+        passHostHeader: true
+    donetick:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:2021"
         passHostHeader: true
     aio:
       loadBalancer:
@@ -314,8 +358,6 @@ http:
           - url: "https://192.168.30.34:8080"
         passHostHeader: true
 
-
-#endregion
   middlewares:
     https-redirectscheme:
       redirectScheme:

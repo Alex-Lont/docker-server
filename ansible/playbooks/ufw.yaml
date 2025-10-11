@@ -1,9 +1,9 @@
 - name: ufw
-  hosts: pihole, docker
+  hosts: init
   become: true
   roles:
     - role: ufw       #DNS, torrent, plex, nextcloud  
       vars: 
         proxy_int: 192.168.7.10
         proxy_ext: 192.168.7.11
-        nas: 192.168.30.18
+        nas: 10.0.14.14
