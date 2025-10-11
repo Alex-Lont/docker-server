@@ -27,15 +27,6 @@ http:
         - nextcloud-chain
       tls: {}
       service: nextcloud
-    navidrome:
-      entryPoints:
-        - "https"
-      rule: "Host(`music.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: navidrome
 
 #endregion
 #region services
@@ -54,11 +45,6 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.0.14.5:11000"
-        passHostHeader: true
-    navidrome:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:4533"
         passHostHeader: true
 
 #endregion
