@@ -12,19 +12,11 @@
   ],
   "apps": [
     {
-<<<<<<< Updated upstream
-      "id": "89b9f82c-bffb-46e2-81fe-1659669800b7",
-      "name": "PiHole",
-      "url": "https://pihole.home.lontiotlabs.au/admin",
-      "appearance": {
-        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png",
-=======
       "id": "af8660b2-28e3-455e-a63c-39dd8bf2103e",
       "name": "Particle",
       "url": "https://console.particle.io",
       "appearance": {
         "iconUrl": "https://www.electronicwings.com/storage/PlatformSection/TopicContent/352/description/particle-vertical.png",
->>>>>>> Stashed changes
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -33,25 +25,17 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-<<<<<<< Updated upstream
-          "200"
-=======
           "200",
           "301",
           "302",
           "304",
           "307",
           "308"
->>>>>>> Stashed changes
         ]
       },
       "behaviour": {
         "isOpeningNewTab": true,
-<<<<<<< Updated upstream
-        "externalUrl": "https://pihole.home.lontiotlabs.au/admin"
-=======
         "externalUrl": "https://console.particle.io/"
->>>>>>> Stashed changes
       },
       "area": {
         "type": "wrapper",
@@ -62,13 +46,8 @@
       "shape": {
         "lg": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 8,
-            "y": 1
-=======
             "x": 11,
             "y": 7
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -78,129 +57,7 @@
         "md": {
           "location": {
             "x": 1,
-<<<<<<< Updated upstream
-            "y": 5
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "8e108e17-635f-44c8-b395-a4dd389751a3",
-      "name": "PiHole-Backup",
-      "url": "https://pihole-backup.home.lontiotlabs.au/admin",
-      "appearance": {
-        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Pi-hole_Logo.png",
-        "appNameStatus": "normal",
-        "appNameFontSize": 16,
-        "positionAppName": "column",
-        "lineClampAppName": 1
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://pihole-backup.home.lontiotlabs.au/admin"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 9,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 2,
-            "y": 5
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "1dd8ea9d-ab99-49df-bb65-9529b0a803e3",
-      "name": "Prime",
-      "url": "https://www.primevideo.com/",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/PapirusDevelopmentTeam/papirus_icons/src/apps_amazon_prime_video.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://www.primevideo.com/"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 6,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 3,
-            "y": 5
-=======
             "y": 6
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -249,11 +106,7 @@
         "lg": {
           "location": {
             "x": 8,
-<<<<<<< Updated upstream
-            "y": 7
-=======
             "y": 6
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -277,181 +130,6 @@
       }
     },
     {
-<<<<<<< Updated upstream
-      "id": "aa9fdfc4-5875-4c1c-869e-ed4029348620",
-      "name": "Lora",
-      "url": "https://rak.iot.lontiotlabs.au/cgi-bin/luci",
-      "appearance": {
-        "iconUrl": "https://hackster.imgix.net/uploads/attachments/670831/untitled_design_(1)_Owo51ooXAa.png?auto=compress%2Cformat",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://rak.iot.lontiotlabs.au/cgi-bin/luci"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 11,
-            "y": 6
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 5,
-            "y": 5
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "9debb992-0fbb-46b3-b387-47282865e747",
-      "name": "Milesight",
-      "url": "https://milesight.iot.lontiotlabs.au/",
-      "appearance": {
-        "iconUrl": "https://play-lh.googleusercontent.com/hRl4JVfhjMWJmDGl3xfqZVXPEGlgqzKOJTauC3_9-WYtDaeRMcl_O56xTO9C7oV9FrJm=w240-h480-rw",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://milesight.iot.lontiotlabs.au/"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 11,
-            "y": 7
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 6
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "423ad622-32ef-42ba-b1f7-59994e785684",
-      "name": "Azure",
-      "url": "https://ms.portal.azure.com/",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/azure.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://ms.portal.azure.com/"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 10,
-            "y": 8
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 2,
-            "y": 6
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-=======
->>>>>>> Stashed changes
       "id": "4a0bcab9-1012-4147-a15e-04211fb3c974",
       "name": "Thingiverse",
       "url": "https://www.thingiverse.com",
@@ -465,7 +143,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -519,12 +202,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -696,12 +374,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -814,12 +487,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -927,12 +595,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -1212,7 +875,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -1292,14 +960,8 @@
         }
       },
       "integration": {
-        "type": "plex",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "XVDwZYwx6ft6sbDiV4qG"
-          }
-        ]
+        "type": null,
+        "properties": []
       }
     },
     {
@@ -1583,19 +1245,8 @@
         }
       },
       "integration": {
-        "type": "qBittorrent",
-        "properties": [
-          {
-            "field": "username",
-            "type": "public",
-            "value": "admin"
-          },
-          {
-            "field": "password",
-            "type": "private",
-            "value": "adminadmin"
-          }
-        ]
+        "type": null,
+        "properties": []
       }
     },
     {
@@ -1612,12 +1263,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -1677,12 +1323,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -1849,12 +1490,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -1921,9 +1557,9 @@
         "externalUrl": "https://tablet.iot.lontiotlabs.au/"
       },
       "area": {
-        "type": "wrapper",
+        "type": "sidebar",
         "properties": {
-          "id": "default"
+          "location": "right"
         }
       },
       "shape": {
@@ -2027,7 +1663,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -2035,9 +1676,9 @@
         "externalUrl": "https://traefik.lontiotlabs.au/dashboard/#/"
       },
       "area": {
-        "type": "wrapper",
+        "type": "sidebar",
         "properties": {
-          "id": "default"
+          "location": "right"
         }
       },
       "shape": {
@@ -2089,9 +1730,9 @@
         "externalUrl": "https://www.digikey.com.au/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -2135,7 +1776,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -2143,9 +1789,9 @@
         "externalUrl": "https://ansible.docker.lontiotlabs.au/"
       },
       "area": {
-        "type": "wrapper",
+        "type": "sidebar",
         "properties": {
-          "id": "default"
+          "location": "right"
         }
       },
       "shape": {
@@ -2357,12 +2003,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -2515,7 +2156,7 @@
       "name": "Truenas",
       "url": "https://truenas.home.lontiotlabs.au/",
       "appearance": {
-        "iconUrl": "https://www.dumbware.io/software/DumbDrop/dumbdrop.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/truenas.png",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2524,12 +2165,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -2545,8 +2181,18 @@
       "shape": {
         "lg": {
           "location": {
+            "x": 0,
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
             "x": 1,
-            "y": 5
+            "y": 0
           },
           "size": {
             "width": 1,
@@ -2609,14 +2255,8 @@
         }
       },
       "integration": {
-        "type": "sonarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "57d1fd6c61894aa2b4e5a6b65b7b4104"
-          }
-        ]
+        "type": null,
+        "properties": []
       }
     },
     {
@@ -2624,7 +2264,7 @@
       "name": "Proxmox",
       "url": "https://proxmox.home.lontiotlabs.au",
       "appearance": {
-        "iconUrl": "https://www.dumbware.io/software/DumbDo/dumbdo.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/proxmox.png",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2633,12 +2273,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -2655,7 +2290,17 @@
         "lg": {
           "location": {
             "x": 1,
-            "y": 4
+            "y": 1
+          },
+          "size": {
+            "width": 1,
+            "height": 1
+          }
+        },
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 1
           },
           "size": {
             "width": 1,
@@ -2777,11 +2422,11 @@
       }
     },
     {
-      "id": "c6d1f214-5545-4279-aedb-f059dda70ee8",
-      "name": "Kanban",
-      "url": "https://kanban.virtual.lontiotlabs.au",
+      "id": "2b2f89b7-c9f1-47e6-aaa9-a17b6556152a",
+      "name": "omada",
+      "url": "https://192.168.7.12:8043",
       "appearance": {
-        "iconUrl": "https://www.dumbware.io/software/DumbKan/dumbkan.svg",
+        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/omada.png",
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -2790,159 +2435,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://kanban.virtual.lontiotlabs.au"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 7
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "4afbe541-79e7-48be-994a-10bd0bc2edd0",
-      "name": "Calibre",
-      "url": "https://books.virtual.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/calibre-web.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://books.virtual.lontiotlabs.au"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 5,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "9594c743-4d33-4946-a7d2-87cfab739629",
-      "name": "IT-Tool",
-      "url": "https://it-tools.tech",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/it-tools-light.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://it-tools.tech/"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 0,
-            "y": 8
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "9416a608-8e42-46fb-a8e8-8249fac457b6",
-      "name": "Reolink",
-      "url": "https://nvr.camera.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://play-lh.googleusercontent.com/Tw6F1NidIp4yqzM8J2Eul923mrK0l5qxkqbnGybtOxU6torgHZo5VQ4bwICr0RAgF7Y",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -2958,8 +2451,8 @@
       "shape": {
         "lg": {
           "location": {
-            "x": 1,
-            "y": 8
+            "x": 0,
+            "y": 2
           },
           "size": {
             "width": 1,
@@ -2969,7 +2462,7 @@
         "md": {
           "location": {
             "x": 1,
-            "y": 2
+            "y": 1
           },
           "size": {
             "width": 1,
@@ -3024,47 +2517,8 @@
             "width": 1,
             "height": 1
           }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "11e9024f-d91b-4fbb-8473-525ea7c0dabc",
-      "name": "Budget",
-      "url": "https://budget.virtual.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://www.dumbware.io/software/DumbBudget/dumbbudget.svg",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://budget.virtual.lontiotlabs.au"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-        }
-      },
-      "shape": {
-        "lg": {
+        },
+        "md": {
           "location": {
             "x": 4,
             "y": 4
@@ -3081,94 +2535,9 @@
       }
     },
     {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      "id": "23163220-bc19-45fc-bbf6-6cb8d0d2506e",
-      "name": "Commbank",
-      "url": "https://www.commbank.com.au/retail/netbank/home/",
-      "appearance": {
-        "iconUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Commonwealth_Bank_logo_2020.svg/1200px-Commonwealth_Bank_logo_2020.svg.png",
-=======
       "id": "0d3b72ec-f925-4296-b966-1dc160694559",
       "name": "Qbit",
       "url": "https://qbit.virtual.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/qbittorrent.png",
->>>>>>> Stashed changes
-=======
-      "id": "89e473de-3583-4933-a23c-400a8b7de1d9",
-      "name": "Notes",
-      "url": "https://notes.virtual.lontiotlabs.au/",
-      "appearance": {
-        "iconUrl": "https://play-lh.googleusercontent.com/0WzNnQJyEuOyvkZvYVpGkQJEvOfEF9kBnbLnLQioqUAX_DlV6wP8hyH8BgVBHQa1V9A=w240-h480-rw",
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        "externalUrl": "https://www.commbank.com.au/retail/netbank/home/"
-=======
-        "externalUrl": "https://notes.virtual.lontiotlabs.au/"
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-<<<<<<< HEAD
-          "location": "right"
-=======
-        "externalUrl": "https://qbit.virtual.lontiotlabs.au"
-=======
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 6,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 3,
-            "y": 4
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "0d3b72ec-f925-4296-b966-1dc160694559",
-      "name": "Qbit",
-      "url": "https://qbit.docker.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/qbittorrent.png",
         "appNameStatus": "normal",
@@ -3184,26 +2553,17 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://qbit.docker.lontiotlabs.au"
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
+        "externalUrl": "https://qbit.virtual.lontiotlabs.au"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-<<<<<<< HEAD
           "id": "default"
->>>>>>> Stashed changes
-=======
-          "location": "right"
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
         }
       },
       "shape": {
         "lg": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 1,
-=======
             "x": 9,
             "y": 0
           },
@@ -3244,11 +2604,7 @@
       "name": "Photos",
       "url": "https://photos.google.com/",
       "appearance": {
-<<<<<<< HEAD
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/google-photos.png",
-=======
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/nextcloud-blue.svg",
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -3278,12 +2634,7 @@
       "shape": {
         "lg": {
           "location": {
-<<<<<<< HEAD
             "x": 11,
->>>>>>> Stashed changes
-=======
-            "x": 0,
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
             "y": 2
           },
           "size": {
@@ -3293,18 +2644,8 @@
         },
         "md": {
           "location": {
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            "x": 0,
-            "y": 2
-=======
             "x": 3,
             "y": 3
->>>>>>> Stashed changes
-=======
-            "x": 0,
-            "y": 5
->>>>>>> ea832df3fbdfa4ee2810aae591ab7700ed6cc21f
           },
           "size": {
             "width": 1,
@@ -3318,11 +2659,6 @@
       }
     },
     {
-<<<<<<< Updated upstream
-      "id": "0d3b72ec-f925-4296-b966-1dc160694559",
-      "name": "Qbit",
-      "url": "https://qbit.docker.lontiotlabs.au",
-=======
       "id": "4ef5286a-a4eb-4f61-a7e6-c2860fd6d7c4",
       "name": "AGL",
       "url": "https://myaccount.agl.com.au/",
@@ -3336,7 +2672,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -3817,7 +3158,6 @@
       "id": "7bf8a7b1-282d-4976-982c-38079007af38",
       "name": "Bazarr",
       "url": "https://bazarr.virtual.lontiotlabs.au",
->>>>>>> Stashed changes
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/qbittorrent.png",
         "appNameStatus": "normal",
@@ -3854,8 +3194,6 @@
         },
         "md": {
           "location": {
-<<<<<<< Updated upstream
-=======
             "x": 4,
             "y": 0
           },
@@ -4078,149 +3416,6 @@
         },
         "md": {
           "location": {
-            "x": 2,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": "sonarr",
-        "properties": [
-          {
-            "field": "apiKey",
-            "type": "private",
-            "value": "57d1fd6c61894aa2b4e5a6b65b7b4104"
-          }
-        ]
-      }
-    },
-    {
-      "id": "0f573e8d-f3c8-4ecd-baf5-550befaaba9a",
-      "name": "Youtube",
-      "url": "https://www.youtube.com/",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/youtube.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://www.youtube.com/"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 8,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 3,
-            "y": 2
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-<<<<<<< Updated upstream
-        "type": "qBittorrent",
-        "properties": [
-          {
-            "field": "username",
-            "type": "public",
-            "value": "admin"
-          },
-          {
-            "field": "password",
-            "type": "private",
-            "value": "adminadmin"
-          }
-        ]
-      }
-    },
-    {
-      "id": "9416a608-8e42-46fb-a8e8-8249fac457b6",
-      "name": "Reolink",
-      "url": "https://nvr.iot.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://play-lh.googleusercontent.com/Tw6F1NidIp4yqzM8J2Eul923mrK0l5qxkqbnGybtOxU6torgHZo5VQ4bwICr0RAgF7Y",
-=======
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "d021f2af-5d2f-49e4-aa13-6566c5e5a1ee",
-      "name": "Organizr",
-      "url": "https://organiser.virtual.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/organizr.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://organiser.virtual.lontiotlabs.au"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
->>>>>>> Stashed changes
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 7,
-            "y": 1
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
             "x": 4,
             "y": 2
           },
@@ -4330,10 +3525,8 @@
       "shape": {
         "lg": {
           "location": {
->>>>>>> Stashed changes
             "x": 5,
             "y": 4
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -4342,29 +3535,6 @@
         }
       },
       "integration": {
-<<<<<<< Updated upstream
-        "type": "qBittorrent",
-        "properties": [
-          {
-            "field": "username",
-            "type": "public",
-            "value": "admin"
-          },
-          {
-            "field": "password",
-            "type": "private",
-            "value": "adminadmin"
-          }
-        ]
-      }
-    },
-    {
-      "id": "9416a608-8e42-46fb-a8e8-8249fac457b6",
-      "name": "Reolink",
-      "url": "https://nvr.iot.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://play-lh.googleusercontent.com/Tw6F1NidIp4yqzM8J2Eul923mrK0l5qxkqbnGybtOxU6torgHZo5VQ4bwICr0RAgF7Y",
-=======
         "type": null,
         "properties": []
       }
@@ -4375,7 +3545,6 @@
       "url": "https://music.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/navidrome-light.svg",
->>>>>>> Stashed changes
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -4394,41 +3563,18 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-<<<<<<< Updated upstream
-        "externalUrl": "https://nvr.iot.lontiotlabs.au"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-=======
         "externalUrl": "https://music.lontiotlabs.au"
       },
       "area": {
         "type": "wrapper",
         "properties": {
           "id": "default"
->>>>>>> Stashed changes
         }
       },
       "shape": {
         "lg": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 1,
-            "y": 3
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
-          "location": {
-            "x": 1,
-=======
             "x": 6,
->>>>>>> Stashed changes
             "y": 2
           },
           "size": {
@@ -4443,19 +3589,11 @@
       }
     },
     {
-<<<<<<< Updated upstream
-      "id": "f54c1972-ec9d-4cbc-9609-9b64b00579a7",
-      "name": "nextcloud",
-      "url": "https://nextcloud.lontiotlabs.au",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/nextcloud-blue.svg",
-=======
       "id": "89e473de-3583-4933-a23c-400a8b7de1d9",
       "name": "Notes",
       "url": "https://notes.virtual.lontiotlabs.au/",
       "appearance": {
         "iconUrl": "https://play-lh.googleusercontent.com/0WzNnQJyEuOyvkZvYVpGkQJEvOfEF9kBnbLnLQioqUAX_DlV6wP8hyH8BgVBHQa1V9A=w240-h480-rw",
->>>>>>> Stashed changes
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -4464,38 +3602,29 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
         "isOpeningNewTab": true,
-<<<<<<< Updated upstream
-        "externalUrl": "https://nextcloud.lontiotlabs.au"
-      },
-      "area": {
-        "type": "sidebar",
-        "properties": {
-          "location": "right"
-=======
         "externalUrl": "https://notes.virtual.lontiotlabs.au/"
       },
       "area": {
         "type": "wrapper",
         "properties": {
           "id": "default"
->>>>>>> Stashed changes
         }
       },
       "shape": {
         "lg": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 0,
-            "y": 3
-=======
             "x": 6,
             "y": 1
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -4504,13 +3633,8 @@
         },
         "md": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 0,
-            "y": 5
-=======
             "x": 3,
             "y": 4
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -4524,21 +3648,15 @@
       }
     },
     {
-<<<<<<< Updated upstream
-      "id": "984415fb-d804-4f7b-89be-9c17d3f2f59d",
-      "name": "Tdarr",
-      "url": "https://tdarr.docker.lontiotlabs.au",
-=======
       "id": "1dd8ea9d-ab99-49df-bb65-9529b0a803e3",
       "name": "Prime",
       "url": "https://www.primevideo.com/",
->>>>>>> Stashed changes
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/tdarr.png",
         "appNameStatus": "normal",
-        "appNameFontSize": 16,
         "positionAppName": "column",
-        "lineClampAppName": 1
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
       },
       "network": {
         "enabledStatusChecker": true,
@@ -4558,16 +3676,6 @@
       },
       "shape": {
         "lg": {
-          "location": {
-            "x": 11,
-            "y": 3
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        },
-        "md": {
           "location": {
             "x": 11,
             "y": 1
@@ -4596,11 +3704,6 @@
     {
       "id": "10eafeef-d1c9-4731-8b49-bdd43c9713a1",
       "name": "Traefik-int",
-<<<<<<< Updated upstream
-      "url": "https://traefik.home.lontiotlabs.au/dashboard/#",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png",
-=======
       "url": "https://traefik.virtual.lontiotlabs.au/dashboard/#",
       "appearance": {
         "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png",
@@ -4717,7 +3820,6 @@
       "url": "https://tablet.iot.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://play-lh.googleusercontent.com/1PCzLvQR-NVM3iZOKwdukbn495S11wenLr0P1FB31Igr50zgQeTyMDhFAJh1yKuM",
->>>>>>> Stashed changes
         "appNameStatus": "normal",
         "positionAppName": "column",
         "lineClampAppName": 1,
@@ -4731,9 +3833,6 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-<<<<<<< Updated upstream
-        "externalUrl": "https://traefik.home.lontiotlabs.au/dashboard/#/"
-=======
         "externalUrl": "https://tablet.iot.lontiotlabs.au/"
       },
       "area": {
@@ -4837,7 +3936,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -4935,12 +4039,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -4994,12 +4093,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -5025,12 +4119,8 @@
         },
         "md": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 0,
-            "y": 3
-=======
             "x": 1,
-            "y": 2
+            "y": 0
           },
           "size": {
             "width": 1,
@@ -5119,9 +4209,9 @@
         "externalUrl": "https://www.scorptec.com.au/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -5154,7 +4244,7 @@
     {
       "id": "9416a608-8e42-46fb-a8e8-8249fac457b6",
       "name": "Reolink",
-      "url": "https://nvr.camera.lontiotlabs.au",
+      "url": "https://nvr.lontiotlabs.au",
       "appearance": {
         "iconUrl": "https://play-lh.googleusercontent.com/Tw6F1NidIp4yqzM8J2Eul923mrK0l5qxkqbnGybtOxU6torgHZo5VQ4bwICr0RAgF7Y",
         "appNameStatus": "normal",
@@ -5175,8 +4265,7 @@
       },
       "behaviour": {
         "isOpeningNewTab": true,
-        "externalUrl": "https://nvr.camera.lontiotlabs.au"
->>>>>>> Stashed changes
+        "externalUrl": "https://nvr.lontiotlabs.au"
       },
       "area": {
         "type": "sidebar",
@@ -5187,11 +4276,7 @@
       "shape": {
         "lg": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 0,
-=======
             "x": 1,
->>>>>>> Stashed changes
             "y": 4
           },
           "size": {
@@ -5201,10 +4286,6 @@
         },
         "md": {
           "location": {
-<<<<<<< Updated upstream
-            "x": 0,
-            "y": 3
-=======
             "x": 1,
             "y": 2
           },
@@ -5246,9 +4327,9 @@
         "externalUrl": "https://www.pccasegear.com/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -5611,7 +4692,12 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200"
+          "200",
+          "301",
+          "302",
+          "304",
+          "307",
+          "308"
         ]
       },
       "behaviour": {
@@ -5737,7 +4823,6 @@
           "location": {
             "x": 10,
             "y": 6
->>>>>>> Stashed changes
           },
           "size": {
             "width": 1,
@@ -5797,50 +4882,6 @@
           "location": {
             "x": 11,
             "y": 6
-          },
-          "size": {
-            "width": 1,
-            "height": 1
-          }
-        }
-      },
-      "integration": {
-        "type": null,
-        "properties": []
-      }
-    },
-    {
-      "id": "10eafeef-d1c9-4731-8b49-bdd43c9713a1",
-      "name": "Traefik-int",
-      "url": "https://traefik.virtual.lontiotlabs.au/dashboard/#",
-      "appearance": {
-        "iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/traefik.png",
-        "appNameStatus": "normal",
-        "positionAppName": "column",
-        "lineClampAppName": 1,
-        "appNameFontSize": 16
-      },
-      "network": {
-        "enabledStatusChecker": true,
-        "statusCodes": [
-          "200"
-        ]
-      },
-      "behaviour": {
-        "isOpeningNewTab": true,
-        "externalUrl": "https://traefik.virtual.lontiotlabs.au/dashboard/#/"
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "lg": {
-          "location": {
-            "x": 10,
-            "y": 3
           },
           "size": {
             "width": 1,
@@ -5926,12 +4967,7 @@
       "network": {
         "enabledStatusChecker": true,
         "statusCodes": [
-          "200",
-          "301",
-          "302",
-          "304",
-          "307",
-          "308"
+          "200"
         ]
       },
       "behaviour": {
@@ -5939,9 +4975,9 @@
         "externalUrl": "https://ms.portal.azure.com/"
       },
       "area": {
-        "type": "sidebar",
+        "type": "wrapper",
         "properties": {
-          "location": "right"
+          "id": "default"
         }
       },
       "shape": {
@@ -6032,9 +5068,9 @@
       "appearance": {
         "iconUrl": "https://djeqr6to3dedg.cloudfront.net/repo-logos/dumbwareio/dumbkan/live/logo-1742671338215.png",
         "appNameStatus": "normal",
-        "appNameFontSize": 16,
         "positionAppName": "column",
-        "lineClampAppName": 1
+        "lineClampAppName": 1,
+        "appNameFontSize": 16
       },
       "network": {
         "enabledStatusChecker": true,
@@ -6115,59 +5151,6 @@
             "y": 0
           },
           "size": {
-            "width": 2,
-            "height": 2
-          }
-        }
-      }
-    },
-    {
-      "id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
-      "type": "weather",
-      "properties": {
-        "displayInFahrenheit": false,
-        "location": {
-          "name": "Mill Park",
-          "latitude": -37.66667,
-          "longitude": 145.06667
-        },
-        "displayCityName": true,
-        "displayWeekly": false,
-        "forecastDays": 5
-      },
-      "area": {
-        "type": "wrapper",
-        "properties": {
-          "id": "default"
-        }
-      },
-      "shape": {
-        "md": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 1
-          }
-        },
-        "sm": {
-          "location": {
-            "x": 1,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 1
-          }
-        },
-        "lg": {
-          "location": {
-            "x": 2,
-            "y": 0
-          },
-          "size": {
             "width": 3,
             "height": 2
           }
@@ -6222,6 +5205,49 @@
       }
     },
     {
+      "id": "26221dc7-af16-44d0-9b14-170f86efceb3",
+      "type": "dlspeed",
+      "properties": {},
+      "area": {
+        "type": "wrapper",
+        "properties": {
+          "id": "default"
+        }
+      },
+      "shape": {
+        "sm": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 2
+          }
+        },
+        "md": {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 2
+          }
+        },
+        "lg": {
+          "location": {
+            "x": 0,
+            "y": 6
+          },
+          "size": {
+            "width": 4,
+            "height": 2
+          }
+        }
+      }
+    },
+    {
       "id": "eda06754-8ef4-42ec-bdd3-72f05cd3d476",
       "type": "torrents-status",
       "properties": {
@@ -6266,16 +5292,26 @@
             "y": 3
           },
           "size": {
-            "width": 5,
-            "height": 2
+            "width": 7,
+            "height": 3
           }
         }
       }
     },
     {
-      "id": "26221dc7-af16-44d0-9b14-170f86efceb3",
-      "type": "dlspeed",
-      "properties": {},
+      "id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
+      "type": "weather",
+      "properties": {
+        "displayInFahrenheit": false,
+        "location": {
+          "name": "Mill Park",
+          "latitude": -37.66667,
+          "longitude": 145.06667
+        },
+        "displayCityName": true,
+        "displayWeekly": false,
+        "forecastDays": 5
+      },
       "area": {
         "type": "wrapper",
         "properties": {
@@ -6283,16 +5319,6 @@
         }
       },
       "shape": {
-        "sm": {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "size": {
-            "width": 2,
-            "height": 2
-          }
-        },
         "md": {
           "location": {
             "x": 0,
@@ -6300,13 +5326,23 @@
           },
           "size": {
             "width": 2,
-            "height": 2
+            "height": 1
+          }
+        },
+        "sm": {
+          "location": {
+            "x": 1,
+            "y": 0
+          },
+          "size": {
+            "width": 2,
+            "height": 1
           }
         },
         "lg": {
           "location": {
-            "x": 0,
-            "y": 6
+            "x": 3,
+            "y": 0
           },
           "size": {
             "width": 4,
