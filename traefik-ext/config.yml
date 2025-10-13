@@ -19,14 +19,6 @@ http:
         - https-redirectscheme
       tls: {}
       service: plex
-    nextcloud:
-      entryPoints:
-        - "https"
-      rule: "Host(`nextcloud.lontiotlabs.au`)"
-      middlewares:
-        - nextcloud-chain
-      tls: {}
-      service: nextcloud
 
 #endregion
 #region services
@@ -41,11 +33,6 @@ http:
         servers:
           - url: "http://10.0.14.4:32400"
         passHostHeader: true
-    nextcloud:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.5:11000"
-        passHostHeader: true
 
 #endregion
   middlewares:
@@ -53,19 +40,6 @@ http:
       redirectScheme:
         scheme: https
         permanent: true
-
-    nextcloud-secure-headers:
-      headers:
-        hostsProxyHeaders:
-          - "X-Forwarded-Host"
-        referrerPolicy: "same-origin"
-
-    nextcloud-chain:
-      chain:
-        middlewares:
-          # - ... (e.g. rate limiting middleware)
-          - https-redirectscheme
-          - nextcloud-secure-headers
 
     default-headers:
       headers:
