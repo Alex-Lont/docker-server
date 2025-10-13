@@ -1,0 +1,410 @@
+2025-08-03 21:22:23,402 INFO <module>(22) ***************Starting***************
+2025-08-03 21:22:23,403 INFO screenstatus(59) current status: 1
+2025-08-03 21:22:23,403 INFO screenstatus(67) correct state
+2025-08-03 21:22:23,403 INFO checktime(52) sleeping
+2025-08-03 21:22:23,404 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:23:23,404 INFO screenstatus(59) current status: 1
+2025-08-03 21:23:23,404 INFO screenstatus(67) correct state
+2025-08-03 21:23:23,404 INFO checktime(52) sleeping
+2025-08-03 21:23:23,404 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:24:23,405 INFO screenstatus(59) current status: 1
+2025-08-03 21:24:23,405 INFO screenstatus(67) correct state
+2025-08-03 21:24:23,405 INFO checktime(52) sleeping
+2025-08-03 21:24:23,405 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:25:23,405 INFO screenstatus(59) current status: 1
+2025-08-03 21:25:23,406 INFO screenstatus(67) correct state
+2025-08-03 21:25:23,406 INFO checktime(52) sleeping
+2025-08-03 21:25:23,406 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:26:23,406 INFO screenstatus(59) current status: 1
+2025-08-03 21:26:23,406 INFO screenstatus(67) correct state
+2025-08-03 21:26:23,406 INFO checktime(52) sleeping
+2025-08-03 21:26:23,406 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:27:23,407 INFO screenstatus(59) current status: 1
+2025-08-03 21:27:23,407 INFO screenstatus(67) correct state
+2025-08-03 21:27:23,407 INFO checktime(52) sleeping
+2025-08-03 21:27:23,407 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:28:23,407 INFO screenstatus(59) current status: 1
+2025-08-03 21:28:23,408 INFO screenstatus(67) correct state
+2025-08-03 21:28:23,408 INFO checktime(52) sleeping
+2025-08-03 21:28:23,408 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:29:23,408 INFO screenstatus(59) current status: 1
+2025-08-03 21:29:23,408 INFO screenstatus(67) correct state
+2025-08-03 21:29:23,408 INFO checktime(52) sleeping
+2025-08-03 21:29:23,408 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:30:23,409 INFO screenstatus(59) current status: 1
+2025-08-03 21:30:23,409 INFO screenstatus(67) correct state
+2025-08-03 21:30:23,409 INFO checktime(52) sleeping
+2025-08-03 21:30:23,409 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:31:23,409 INFO screenstatus(59) current status: 1
+2025-08-03 21:31:23,410 INFO screenstatus(67) correct state
+2025-08-03 21:31:23,410 INFO checktime(52) sleeping
+2025-08-03 21:31:23,410 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:32:23,410 INFO screenstatus(59) current status: 1
+2025-08-03 21:32:23,410 INFO screenstatus(67) correct state
+2025-08-03 21:32:23,410 INFO checktime(52) sleeping
+2025-08-03 21:32:23,410 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:33:23,411 INFO screenstatus(59) current status: 1
+2025-08-03 21:33:23,411 INFO screenstatus(67) correct state
+2025-08-03 21:33:23,439 INFO checktime(52) sleeping
+2025-08-03 21:33:23,440 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:34:23,440 INFO screenstatus(59) current status: 1
+2025-08-03 21:34:23,440 INFO screenstatus(67) correct state
+2025-08-03 21:34:23,440 INFO checktime(52) sleeping
+2025-08-03 21:34:23,440 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:35:23,440 INFO screenstatus(59) current status: 1
+2025-08-03 21:35:23,441 INFO screenstatus(67) correct state
+2025-08-03 21:35:23,441 INFO checktime(52) sleeping
+2025-08-03 21:35:23,441 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:36:23,441 INFO screenstatus(59) current status: 1
+2025-08-03 21:36:23,441 INFO screenstatus(67) correct state
+2025-08-03 21:36:23,441 INFO checktime(52) sleeping
+2025-08-03 21:36:23,442 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:37:23,442 INFO screenstatus(59) current status: 1
+2025-08-03 21:37:23,442 INFO screenstatus(67) correct state
+2025-08-03 21:37:23,442 INFO checktime(52) sleeping
+2025-08-03 21:37:23,442 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:38:23,443 INFO screenstatus(59) current status: 1
+2025-08-03 21:38:23,443 INFO screenstatus(67) correct state
+2025-08-03 21:38:23,443 INFO checktime(52) sleeping
+2025-08-03 21:38:23,443 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:39:23,443 INFO screenstatus(59) current status: 1
+2025-08-03 21:39:23,443 INFO screenstatus(67) correct state
+2025-08-03 21:39:23,444 INFO checktime(52) sleeping
+2025-08-03 21:39:23,444 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:40:23,444 INFO screenstatus(59) current status: 1
+2025-08-03 21:40:23,444 INFO screenstatus(67) correct state
+2025-08-03 21:40:23,444 INFO checktime(52) sleeping
+2025-08-03 21:40:23,444 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:41:23,445 INFO screenstatus(59) current status: 1
+2025-08-03 21:41:23,445 INFO screenstatus(67) correct state
+2025-08-03 21:41:23,445 INFO checktime(52) sleeping
+2025-08-03 21:41:23,445 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:42:23,445 INFO screenstatus(59) current status: 1
+2025-08-03 21:42:23,445 INFO screenstatus(67) correct state
+2025-08-03 21:42:23,445 INFO checktime(52) sleeping
+2025-08-03 21:42:23,446 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:43:23,446 INFO screenstatus(59) current status: 1
+2025-08-03 21:43:23,446 INFO screenstatus(67) correct state
+2025-08-03 21:43:23,446 INFO checktime(52) sleeping
+2025-08-03 21:43:23,446 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:44:23,446 INFO screenstatus(59) current status: 1
+2025-08-03 21:44:23,447 INFO screenstatus(67) correct state
+2025-08-03 21:44:23,447 INFO checktime(52) sleeping
+2025-08-03 21:44:23,447 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:45:23,447 INFO screenstatus(59) current status: 1
+2025-08-03 21:45:23,447 INFO screenstatus(67) correct state
+2025-08-03 21:45:23,447 INFO checktime(52) sleeping
+2025-08-03 21:45:23,447 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:46:23,448 INFO screenstatus(59) current status: 1
+2025-08-03 21:46:23,448 INFO screenstatus(67) correct state
+2025-08-03 21:46:23,448 INFO checktime(52) sleeping
+2025-08-03 21:46:23,448 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:47:23,448 INFO screenstatus(59) current status: 1
+2025-08-03 21:47:23,449 INFO screenstatus(67) correct state
+2025-08-03 21:47:23,449 INFO checktime(52) sleeping
+2025-08-03 21:47:23,449 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:48:23,449 INFO screenstatus(59) current status: 1
+2025-08-03 21:48:23,449 INFO screenstatus(67) correct state
+2025-08-03 21:48:23,449 INFO checktime(52) sleeping
+2025-08-03 21:48:23,450 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:49:23,450 INFO screenstatus(59) current status: 1
+2025-08-03 21:49:23,450 INFO screenstatus(67) correct state
+2025-08-03 21:49:23,450 INFO checktime(52) sleeping
+2025-08-03 21:49:23,450 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:50:23,450 INFO screenstatus(59) current status: 1
+2025-08-03 21:50:23,451 INFO screenstatus(67) correct state
+2025-08-03 21:50:23,451 INFO checktime(52) sleeping
+2025-08-03 21:50:23,451 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:51:23,451 INFO screenstatus(59) current status: 1
+2025-08-03 21:51:23,451 INFO screenstatus(67) correct state
+2025-08-03 21:51:23,451 INFO checktime(52) sleeping
+2025-08-03 21:51:23,452 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:52:23,452 INFO screenstatus(59) current status: 1
+2025-08-03 21:52:23,452 INFO screenstatus(67) correct state
+2025-08-03 21:52:23,452 INFO checktime(52) sleeping
+2025-08-03 21:52:23,452 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:53:23,452 INFO screenstatus(59) current status: 1
+2025-08-03 21:53:23,453 INFO screenstatus(67) correct state
+2025-08-03 21:53:23,453 INFO checktime(52) sleeping
+2025-08-03 21:53:23,453 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:54:23,482 INFO screenstatus(59) current status: 1
+2025-08-03 21:54:23,482 INFO screenstatus(67) correct state
+2025-08-03 21:54:23,482 INFO checktime(52) sleeping
+2025-08-03 21:54:23,482 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:55:23,482 INFO screenstatus(59) current status: 1
+2025-08-03 21:55:23,483 INFO screenstatus(67) correct state
+2025-08-03 21:55:23,483 INFO checktime(52) sleeping
+2025-08-03 21:55:23,483 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:56:23,483 INFO screenstatus(59) current status: 1
+2025-08-03 21:56:23,483 INFO screenstatus(67) correct state
+2025-08-03 21:56:23,483 INFO checktime(52) sleeping
+2025-08-03 21:56:23,483 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:57:23,484 INFO screenstatus(59) current status: 1
+2025-08-03 21:57:23,484 INFO screenstatus(67) correct state
+2025-08-03 21:57:23,484 INFO checktime(52) sleeping
+2025-08-03 21:57:23,484 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:58:23,484 INFO screenstatus(59) current status: 1
+2025-08-03 21:58:23,484 INFO screenstatus(67) correct state
+2025-08-03 21:58:23,484 INFO checktime(52) sleeping
+2025-08-03 21:58:23,484 INFO checktime(53) Status pin 21 is 0
+2025-08-03 21:59:23,485 INFO screenstatus(59) current status: 1
+2025-08-03 21:59:23,485 INFO screenstatus(67) correct state
+2025-08-03 21:59:23,485 INFO checktime(52) sleeping
+2025-08-03 21:59:23,485 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:00:23,485 INFO screenstatus(59) current status: 1
+2025-08-03 22:00:23,485 INFO screenstatus(67) correct state
+2025-08-03 22:00:23,485 INFO checktime(52) sleeping
+2025-08-03 22:00:23,485 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:01:23,486 INFO screenstatus(59) current status: 1
+2025-08-03 22:01:23,486 INFO screenstatus(67) correct state
+2025-08-03 22:01:23,486 INFO checktime(52) sleeping
+2025-08-03 22:01:23,486 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:02:23,486 INFO screenstatus(59) current status: 1
+2025-08-03 22:02:23,486 INFO screenstatus(67) correct state
+2025-08-03 22:02:23,487 INFO checktime(52) sleeping
+2025-08-03 22:02:23,487 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:03:23,487 INFO screenstatus(59) current status: 1
+2025-08-03 22:03:23,487 INFO screenstatus(67) correct state
+2025-08-03 22:03:23,487 INFO checktime(52) sleeping
+2025-08-03 22:03:23,487 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:04:23,488 INFO screenstatus(59) current status: 1
+2025-08-03 22:04:23,488 INFO screenstatus(67) correct state
+2025-08-03 22:04:23,488 INFO checktime(52) sleeping
+2025-08-03 22:04:23,488 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:05:23,488 INFO screenstatus(59) current status: 1
+2025-08-03 22:05:23,488 INFO screenstatus(67) correct state
+2025-08-03 22:05:23,489 INFO checktime(52) sleeping
+2025-08-03 22:05:23,489 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:06:23,489 INFO screenstatus(59) current status: 1
+2025-08-03 22:06:23,489 INFO screenstatus(67) correct state
+2025-08-03 22:06:23,489 INFO checktime(52) sleeping
+2025-08-03 22:06:23,489 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:07:23,490 INFO screenstatus(59) current status: 1
+2025-08-03 22:07:23,490 INFO screenstatus(67) correct state
+2025-08-03 22:07:23,490 INFO checktime(52) sleeping
+2025-08-03 22:07:23,490 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:08:23,490 INFO screenstatus(59) current status: 1
+2025-08-03 22:08:23,490 INFO screenstatus(67) correct state
+2025-08-03 22:08:23,491 INFO checktime(52) sleeping
+2025-08-03 22:08:23,491 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:09:23,491 INFO screenstatus(59) current status: 1
+2025-08-03 22:09:23,491 INFO screenstatus(67) correct state
+2025-08-03 22:09:23,491 INFO checktime(52) sleeping
+2025-08-03 22:09:23,491 INFO checktime(53) Status pin 21 is 0
+2025-08-03 22:10:23,492 INFO screenstatus(59) current status: 1
+2025-08-03 22:10:23,492 INFO screenstatus(67) correct state
+2025-08-03 22:10:23,492 INFO checktime(52) sleeping
+2025-08-03 22:10:23,492 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:09:14,073 INFO <module>(22) ***************Starting***************
+2025-08-04 21:09:14,074 INFO screenstatus(59) current status: 1
+2025-08-04 21:09:14,074 INFO screenstatus(67) correct state
+2025-08-04 21:09:14,075 INFO checktime(52) sleeping
+2025-08-04 21:09:14,075 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:10:14,075 INFO screenstatus(59) current status: 1
+2025-08-04 21:10:14,075 INFO screenstatus(67) correct state
+2025-08-04 21:10:14,075 INFO checktime(52) sleeping
+2025-08-04 21:10:14,075 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:11:14,075 INFO screenstatus(59) current status: 1
+2025-08-04 21:11:14,076 INFO screenstatus(67) correct state
+2025-08-04 21:11:14,076 INFO checktime(52) sleeping
+2025-08-04 21:11:14,076 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:12:14,076 INFO screenstatus(59) current status: 1
+2025-08-04 21:12:14,076 INFO screenstatus(67) correct state
+2025-08-04 21:12:14,076 INFO checktime(52) sleeping
+2025-08-04 21:12:14,076 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:13:14,077 INFO screenstatus(59) current status: 1
+2025-08-04 21:13:14,077 INFO screenstatus(67) correct state
+2025-08-04 21:13:14,077 INFO checktime(52) sleeping
+2025-08-04 21:13:14,077 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:14:14,077 INFO screenstatus(59) current status: 1
+2025-08-04 21:14:14,077 INFO screenstatus(67) correct state
+2025-08-04 21:14:14,077 INFO checktime(52) sleeping
+2025-08-04 21:14:14,078 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:15:14,078 INFO screenstatus(59) current status: 1
+2025-08-04 21:15:14,078 INFO screenstatus(67) correct state
+2025-08-04 21:15:14,078 INFO checktime(52) sleeping
+2025-08-04 21:15:14,078 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:16:14,078 INFO screenstatus(59) current status: 1
+2025-08-04 21:16:14,079 INFO screenstatus(67) correct state
+2025-08-04 21:16:14,079 INFO checktime(52) sleeping
+2025-08-04 21:16:14,079 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:17:14,079 INFO screenstatus(59) current status: 1
+2025-08-04 21:17:14,079 INFO screenstatus(67) correct state
+2025-08-04 21:17:14,079 INFO checktime(52) sleeping
+2025-08-04 21:17:14,079 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:18:14,080 INFO screenstatus(59) current status: 1
+2025-08-04 21:18:14,080 INFO screenstatus(67) correct state
+2025-08-04 21:18:14,080 INFO checktime(52) sleeping
+2025-08-04 21:18:14,080 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:19:14,080 INFO screenstatus(59) current status: 1
+2025-08-04 21:19:14,080 INFO screenstatus(67) correct state
+2025-08-04 21:19:14,081 INFO checktime(52) sleeping
+2025-08-04 21:19:14,081 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:20:14,081 INFO screenstatus(59) current status: 1
+2025-08-04 21:20:14,081 INFO screenstatus(67) correct state
+2025-08-04 21:20:14,081 INFO checktime(52) sleeping
+2025-08-04 21:20:14,081 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:21:14,082 INFO screenstatus(59) current status: 1
+2025-08-04 21:21:14,082 INFO screenstatus(67) correct state
+2025-08-04 21:21:14,082 INFO checktime(52) sleeping
+2025-08-04 21:21:14,082 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:22:14,082 INFO screenstatus(59) current status: 1
+2025-08-04 21:22:14,082 INFO screenstatus(67) correct state
+2025-08-04 21:22:14,082 INFO checktime(52) sleeping
+2025-08-04 21:22:14,082 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:23:14,083 INFO screenstatus(59) current status: 1
+2025-08-04 21:23:14,083 INFO screenstatus(67) correct state
+2025-08-04 21:23:14,083 INFO checktime(52) sleeping
+2025-08-04 21:23:14,083 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:24:14,083 INFO screenstatus(59) current status: 1
+2025-08-04 21:24:14,084 INFO screenstatus(67) correct state
+2025-08-04 21:24:14,084 INFO checktime(52) sleeping
+2025-08-04 21:24:14,084 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:25:14,084 INFO screenstatus(59) current status: 1
+2025-08-04 21:25:14,084 INFO screenstatus(67) correct state
+2025-08-04 21:25:14,084 INFO checktime(52) sleeping
+2025-08-04 21:25:14,084 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:26:14,084 INFO screenstatus(59) current status: 1
+2025-08-04 21:26:14,085 INFO screenstatus(67) correct state
+2025-08-04 21:26:14,085 INFO checktime(52) sleeping
+2025-08-04 21:26:14,085 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:27:14,085 INFO screenstatus(59) current status: 1
+2025-08-04 21:27:14,085 INFO screenstatus(67) correct state
+2025-08-04 21:27:14,085 INFO checktime(52) sleeping
+2025-08-04 21:27:14,085 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:28:14,086 INFO screenstatus(59) current status: 1
+2025-08-04 21:28:14,086 INFO screenstatus(67) correct state
+2025-08-04 21:28:14,086 INFO checktime(52) sleeping
+2025-08-04 21:28:14,086 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:29:14,086 INFO screenstatus(59) current status: 1
+2025-08-04 21:29:14,086 INFO screenstatus(67) correct state
+2025-08-04 21:29:14,087 INFO checktime(52) sleeping
+2025-08-04 21:29:14,087 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:30:14,087 INFO screenstatus(59) current status: 1
+2025-08-04 21:30:14,087 INFO screenstatus(67) correct state
+2025-08-04 21:30:14,087 INFO checktime(52) sleeping
+2025-08-04 21:30:14,087 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:31:14,087 INFO screenstatus(59) current status: 1
+2025-08-04 21:31:14,088 INFO screenstatus(67) correct state
+2025-08-04 21:31:14,088 INFO checktime(52) sleeping
+2025-08-04 21:31:14,088 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:32:14,088 INFO screenstatus(59) current status: 1
+2025-08-04 21:32:14,088 INFO screenstatus(67) correct state
+2025-08-04 21:32:14,088 INFO checktime(52) sleeping
+2025-08-04 21:32:14,089 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:33:14,089 INFO screenstatus(59) current status: 1
+2025-08-04 21:33:14,089 INFO screenstatus(67) correct state
+2025-08-04 21:33:14,089 INFO checktime(52) sleeping
+2025-08-04 21:33:14,089 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:34:14,089 INFO screenstatus(59) current status: 1
+2025-08-04 21:34:14,090 INFO screenstatus(67) correct state
+2025-08-04 21:34:14,090 INFO checktime(52) sleeping
+2025-08-04 21:34:14,090 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:35:14,090 INFO screenstatus(59) current status: 1
+2025-08-04 21:35:14,090 INFO screenstatus(67) correct state
+2025-08-04 21:35:14,090 INFO checktime(52) sleeping
+2025-08-04 21:35:14,090 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:36:14,091 INFO screenstatus(59) current status: 1
+2025-08-04 21:36:14,091 INFO screenstatus(67) correct state
+2025-08-04 21:36:14,091 INFO checktime(52) sleeping
+2025-08-04 21:36:14,091 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:37:14,091 INFO screenstatus(59) current status: 1
+2025-08-04 21:37:14,091 INFO screenstatus(67) correct state
+2025-08-04 21:37:14,091 INFO checktime(52) sleeping
+2025-08-04 21:37:14,092 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:38:14,092 INFO screenstatus(59) current status: 1
+2025-08-04 21:38:14,092 INFO screenstatus(67) correct state
+2025-08-04 21:38:14,092 INFO checktime(52) sleeping
+2025-08-04 21:38:14,092 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:39:14,092 INFO screenstatus(59) current status: 1
+2025-08-04 21:39:14,093 INFO screenstatus(67) correct state
+2025-08-04 21:39:14,093 INFO checktime(52) sleeping
+2025-08-04 21:39:14,093 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:40:14,093 INFO screenstatus(59) current status: 1
+2025-08-04 21:40:14,093 INFO screenstatus(67) correct state
+2025-08-04 21:40:14,093 INFO checktime(52) sleeping
+2025-08-04 21:40:14,093 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:41:14,094 INFO screenstatus(59) current status: 1
+2025-08-04 21:41:14,094 INFO screenstatus(67) correct state
+2025-08-04 21:41:14,094 INFO checktime(52) sleeping
+2025-08-04 21:41:14,094 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:42:14,094 INFO screenstatus(59) current status: 1
+2025-08-04 21:42:14,094 INFO screenstatus(67) correct state
+2025-08-04 21:42:14,094 INFO checktime(52) sleeping
+2025-08-04 21:42:14,095 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:43:14,095 INFO screenstatus(59) current status: 1
+2025-08-04 21:43:14,095 INFO screenstatus(67) correct state
+2025-08-04 21:43:14,095 INFO checktime(52) sleeping
+2025-08-04 21:43:14,095 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:44:14,095 INFO screenstatus(59) current status: 1
+2025-08-04 21:44:14,096 INFO screenstatus(67) correct state
+2025-08-04 21:44:14,096 INFO checktime(52) sleeping
+2025-08-04 21:44:14,096 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:45:14,096 INFO screenstatus(59) current status: 1
+2025-08-04 21:45:14,096 INFO screenstatus(67) correct state
+2025-08-04 21:45:14,096 INFO checktime(52) sleeping
+2025-08-04 21:45:14,097 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:46:14,097 INFO screenstatus(59) current status: 1
+2025-08-04 21:46:14,097 INFO screenstatus(67) correct state
+2025-08-04 21:46:14,097 INFO checktime(52) sleeping
+2025-08-04 21:46:14,097 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:47:14,097 INFO screenstatus(59) current status: 1
+2025-08-04 21:47:14,098 INFO screenstatus(67) correct state
+2025-08-04 21:47:14,098 INFO checktime(52) sleeping
+2025-08-04 21:47:14,098 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:48:14,098 INFO screenstatus(59) current status: 1
+2025-08-04 21:48:14,098 INFO screenstatus(67) correct state
+2025-08-04 21:48:14,098 INFO checktime(52) sleeping
+2025-08-04 21:48:14,099 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:49:14,099 INFO screenstatus(59) current status: 1
+2025-08-04 21:49:14,099 INFO screenstatus(67) correct state
+2025-08-04 21:49:14,099 INFO checktime(52) sleeping
+2025-08-04 21:49:14,099 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:50:14,099 INFO screenstatus(59) current status: 1
+2025-08-04 21:50:14,100 INFO screenstatus(67) correct state
+2025-08-04 21:50:14,100 INFO checktime(52) sleeping
+2025-08-04 21:50:14,100 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:51:14,100 INFO screenstatus(59) current status: 1
+2025-08-04 21:51:14,100 INFO screenstatus(67) correct state
+2025-08-04 21:51:14,100 INFO checktime(52) sleeping
+2025-08-04 21:51:14,101 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:52:14,101 INFO screenstatus(59) current status: 1
+2025-08-04 21:52:14,101 INFO screenstatus(67) correct state
+2025-08-04 21:52:14,101 INFO checktime(52) sleeping
+2025-08-04 21:52:14,101 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:53:14,101 INFO screenstatus(59) current status: 1
+2025-08-04 21:53:14,102 INFO screenstatus(67) correct state
+2025-08-04 21:53:14,102 INFO checktime(52) sleeping
+2025-08-04 21:53:14,102 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:54:14,102 INFO screenstatus(59) current status: 1
+2025-08-04 21:54:14,102 INFO screenstatus(67) correct state
+2025-08-04 21:54:14,102 INFO checktime(52) sleeping
+2025-08-04 21:54:14,102 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:55:14,103 INFO screenstatus(59) current status: 1
+2025-08-04 21:55:14,103 INFO screenstatus(67) correct state
+2025-08-04 21:55:14,103 INFO checktime(52) sleeping
+2025-08-04 21:55:14,103 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:56:14,103 INFO screenstatus(59) current status: 1
+2025-08-04 21:56:14,104 INFO screenstatus(67) correct state
+2025-08-04 21:56:14,104 INFO checktime(52) sleeping
+2025-08-04 21:56:14,104 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:57:14,104 INFO screenstatus(59) current status: 1
+2025-08-04 21:57:14,104 INFO screenstatus(67) correct state
+2025-08-04 21:57:14,104 INFO checktime(52) sleeping
+2025-08-04 21:57:14,104 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:58:14,105 INFO screenstatus(59) current status: 1
+2025-08-04 21:58:14,105 INFO screenstatus(67) correct state
+2025-08-04 21:58:14,105 INFO checktime(52) sleeping
+2025-08-04 21:58:14,105 INFO checktime(53) Status pin 21 is 0
+2025-08-04 21:59:14,105 INFO screenstatus(59) current status: 1
+2025-08-04 21:59:14,105 INFO screenstatus(67) correct state
+2025-08-04 21:59:14,105 INFO checktime(52) sleeping
+2025-08-04 21:59:14,106 INFO checktime(53) Status pin 21 is 0
+2025-08-04 22:00:14,106 INFO screenstatus(59) current status: 1
+2025-08-04 22:00:14,106 INFO screenstatus(67) correct state
+2025-08-04 22:00:14,106 INFO checktime(52) sleeping
+2025-08-04 22:00:14,106 INFO checktime(53) Status pin 21 is 0
+2025-08-04 22:01:14,106 INFO screenstatus(59) current status: 1
+2025-08-04 22:01:14,107 INFO screenstatus(67) correct state
+2025-08-04 22:01:14,107 INFO checktime(52) sleeping
+2025-08-04 22:01:14,107 INFO checktime(53) Status pin 21 is 0

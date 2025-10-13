@@ -1,9 +1,10 @@
 http:
+ #region routers 
   routers:
     proxmox:
       entryPoints:
         - "https"
-      rule: "Host(`proxmox.virtual.lontiotlabs.au`)"
+      rule: "Host(`proxmox.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -12,7 +13,7 @@ http:
     truenas:
       entryPoints:
         - "https"
-      rule: "Host(`truenas.lontiotlabs.au`)"
+      rule: "Host(`truenas.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -21,7 +22,7 @@ http:
     omada:
       entryPoints:
         - "https"
-      rule: "Host(`omada.lontiotlabs.au`)"
+      rule: "Host(`omada.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -30,7 +31,7 @@ http:
     pihole:
       entryPoints:
         - "https"
-      rule: "Host(`pihole.lontiotlabs.au`)"
+      rule: "Host(`pihole.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -39,7 +40,7 @@ http:
     pihole-backup:
       entryPoints:
         - "https"
-      rule: "Host(`pihole-backup.lontiotlabs.au`)"
+      rule: "Host(`pihole-backup.home.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -48,7 +49,7 @@ http:
     qbit:
       entryPoints:
         - "https"
-      rule: "Host(`qbit.virtual.lontiotlabs.au`)"
+      rule: "Host(`qbit.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -57,7 +58,7 @@ http:
     sonarr:
       entryPoints:
         - "https"
-      rule: "Host(`sonarr.virtual.lontiotlabs.au`)"
+      rule: "Host(`sonarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -66,7 +67,7 @@ http:
     radarr:
       entryPoints:
         - "https"
-      rule: "Host(`radarr.virtual.lontiotlabs.au`)"
+      rule: "Host(`radarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -75,7 +76,7 @@ http:
     jackett:
       entryPoints:
         - "https"
-      rule: "Host(`jackett.virtual.lontiotlabs.au`)"
+      rule: "Host(`jackett.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -84,7 +85,7 @@ http:
     bazarr:
       entryPoints:
         - "https"
-      rule: "Host(`bazarr.virtual.lontiotlabs.au`)"
+      rule: "Host(`bazarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -93,7 +94,7 @@ http:
     tdarr:
       entryPoints:
         - "https"
-      rule: "Host(`tdarr.virtual.lontiotlabs.au`)"
+      rule: "Host(`tdarr.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -102,7 +103,7 @@ http:
     speed:
       entryPoints:
         - "https"
-      rule: "Host(`speed.virtual.lontiotlabs.au`)"
+      rule: "Host(`speed.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -129,7 +130,7 @@ http:
     nvr:
       entryPoints:
         - "https"
-      rule: "Host(`nvr.camera.lontiotlabs.au`)"
+      rule: "Host(`nvr.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -138,12 +139,21 @@ http:
     notes:
       entryPoints:
         - "https"
-      rule: "Host(`notes.virtual.lontiotlabs.au`)"
+      rule: "Host(`notes.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
       tls: {}
       service: notes
+    organiser:
+      entryPoints:
+        - "https"
+      rule: "Host(`organiser.docker.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: organiser
     tablet:
       entryPoints:
         - "https"
@@ -156,7 +166,7 @@ http:
     ansible:
       entryPoints:
         - "https"
-      rule: "Host(`ansible.virtual.lontiotlabs.au`)"
+      rule: "Host(`ansible.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -165,7 +175,7 @@ http:
     calibre:
       entryPoints:
         - "https"
-      rule: "Host(`books.virtual.lontiotlabs.au`)"
+      rule: "Host(`books.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -174,7 +184,7 @@ http:
     audiobookshelf:
       entryPoints:
         - "https"
-      rule: "Host(`audiobook.lontiotlabs.au`)"
+      rule: "Host(`audiobook.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
@@ -183,104 +193,25 @@ http:
     aio:
       entryPoints:
         - "https"
-      rule: "Host(`nextcloudaio.virtual.lontiotlabs.au`)"
+      rule: "Host(`nextcloudaio.docker.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
       tls: {}
       service: aio
-    zigbee:
-      entryPoints:
-        - "https"
-      rule: "Host(`zigbee.iot.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: zigbee
-    dumbpad:
-      entryPoints:
-        - "https"
-      rule: "Host(`pad.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: dumbpad
-    dumbdrop:
-      entryPoints:
-        - "https"
-      rule: "Host(`drop.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: dumbdrop
-    dumbassets:
-      entryPoints:
-        - "https"
-      rule: "Host(`assets.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: dumbassets
-    dumbdo:
-      entryPoints:
-        - "https"
-      rule: "Host(`todo.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: dumbdo
-    dumbbudget:
-      entryPoints:
-        - "https"
-      rule: "Host(`budget.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: dumbbudget
-    dumbkan:
-      entryPoints:
-        - "https"
-      rule: "Host(`kanban.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: dumbkan
-    lidarr:
-      entryPoints:
-        - "https"
-      rule: "Host(`lidarr.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: lidarr
-    donetick:
-      entryPoints:
-        - "https"
-      rule: "Host(`donetick.virtual.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: donetick
-
+      
+#endregion
+#region services
   services:
     proxmox:
       loadBalancer:
         servers:
-          - url: "https://10.0.14.2:8006"
+          - url: "https://192.168.7.20:8006"
         passHostHeader: true
     truenas:
       loadBalancer:
         servers:
-          - url: "https://10.0.14.14"
+          - url: "https://192.168.7.18"
         passHostHeader: true
     omada:
       loadBalancer:
@@ -300,129 +231,91 @@ http:
     qbit:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8080"
+          - url: "http://192.168.30.32:8080"
         passHostHeader: true
     sonarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8989"
+          - url: "http://192.168.30.32:8989"
         passHostHeader: true
     radarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:7878"
+          - url: "http://192.168.30.32:7878"
         passHostHeader: true
     jackett:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:9117"
+          - url: "http://192.168.30.32:9117"
         passHostHeader: true
     bazarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:6767"
+          - url: "http://192.168.30.32:6767"
         passHostHeader: true
     tdarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8265"
+          - url: "http://192.168.30.33:8265"
         passHostHeader: true
     speed:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8765"
+          - url: "http://192.168.30.31:8765"
         passHostHeader: true
     raklora:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.6"
+          - url: "http://192.168.10.20"
         passHostHeader: true
     milesight:
       loadBalancer:
         servers:
-          - url: "https://192.168.10.7"
+          - url: "https://192.168.10.21"
         passHostHeader: true
     nvr:
       loadBalancer:
         servers:
-          - url: "https://172.16.30.5"
+          - url: "https://192.168.10.22"
         passHostHeader: true
     notes:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8000"
+          - url: "http://192.168.30.31:8000"
+        passHostHeader: true
+    organiser:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.30.31:9090"
         passHostHeader: true
     tablet:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.3:2323"
+          - url: "http://192.168.10.15:2323"
         passHostHeader: true
     ansible:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:3000"
+          - url: "http://192.168.30.31:3000"
         passHostHeader: true
     calibre:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8088"
+          - url: "http://192.168.10.31:8080"
         passHostHeader: true
     audiobookshelf:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:13378"
+          - url: "http://192.168.30.31:13378"
         passHostHeader: true
     aio:
       loadBalancer:
         servers:
-          - url: "https://10.0.14.5:8080"
-        passHostHeader: true
-    zigbee:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.10.4"
-        passHostHeader: true
-    dumbpad:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:3001"
-        passHostHeader: true
-    dumbdrop:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:3002"
-        passHostHeader: true
-    dumbassets:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:3003"
-        passHostHeader: true
-    dumbdo:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:3004"
-        passHostHeader: true
-    dumbbudget:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:3005"
-        passHostHeader: true
-    dumbkan:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:3006"
-        passHostHeader: true
-    lidarr:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:8686"
-        passHostHeader: true
-    donetick:
-      loadBalancer:
-        servers:
-          - url: "http://10.0.14.4:2021"
+          - url: "https://192.168.30.34:8080"
         passHostHeader: true
 
+
+#endregion
   middlewares:
     https-redirectscheme:
       redirectScheme:

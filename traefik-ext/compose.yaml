@@ -36,96 +36,46 @@ services:
       - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
-  gotify:
-    image: gotify/server
-    container_name: gotify
+  ntfy:
+    container_name: ntfy
+    image: binwiederhier/ntfy
     restart: unless-stopped
+    command:
+      - serve
+    user: ${PUID}:${PGID} 
+    environment:
+      - TZ=${TZ}  
+      - NTFY_BASE_URL=https://notify.${DOMAIN}
+      # - NTFY_AUTH_DEFAULT_ACCESS=deny-all
+      # - NTFY_ENABLE_LOGIN=true
+      - NTFY_BEHIND_PROXY=true
+      - NTFY_SMTP_SERVER_LISTEN=:25
+      - NTFY_SMTP_SERVER_DOMAIN=${DOMAIN}
+      - NTFY_CACHE_FILE=/var/cache/ntfy/cache.db
+      - NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
+      - NTFY_ATTACHMENT_CACHE_DIR=/var/cache/ntfy/attachments
+      - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+      - NTFY_WEB_PUSH_FILE=/var/lib/ntfy/webpush.db
+      - NTFY_WEB_PUSH_EMAIL_ADDRESS=notify@lontiotlabs.au
+
+    volumes:
+      - ${config}/ntfy/cache:/var/cache/ntfy
+      - ${config}/ntfy/auth:/var/lib/ntfy
+      - ${config}/ntfy/cache/attachments:/var/cache/ntfy/attachments
     networks:
       - proxy
-    environment:
-      GOTIFY_DATABASE_DIALECT: sqlite3
-      GOTIFY_DATABASE_CONNECTION: data/gotify.db
-      GOTIFY_DEFAULTUSER_NAME: admin
-      GOTIFY_DEFAULTUSER_PASS: admin
-    volumes:
-      - ${config}/gotify:/app/data
     labels:
       - traefik.enable=true
-      - traefik.http.routers.gotify.entrypoints=http
-      - traefik.http.routers.gotify.rule=Host(`gotify.${DOMAIN}`)
-      - traefik.http.middlewares.gotify-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.gotify.middlewares=gotify-https-redirect
-      - traefik.http.routers.gotify-secure.entrypoints=https
-      - traefik.http.routers.gotify-secure.rule=Host(`gotify.${DOMAIN}`)
-      - traefik.http.routers.gotify-secure.tls=true
-      - traefik.http.routers.gotify-secure.service=gotify
-      - traefik.http.services.gotify.loadbalancer.server.port=80
+      - traefik.http.routers.ntfy.entrypoints=http
+      - traefik.http.routers.ntfy.rule=Host(`notify.${DOMAIN}`)
+      - traefik.http.middlewares.ntfy-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.ntfy.middlewares=ntfy-https-redirect
+      - traefik.http.routers.ntfy-secure.entrypoints=https
+      - traefik.http.routers.ntfy-secure.rule=Host(`notify.${DOMAIN}`)
+      - traefik.http.routers.ntfy-secure.tls=true
+      - traefik.http.routers.ntfy-secure.service=ntfy
+      - traefik.http.services.ntfy.loadbalancer.server.port=80
       - traefik.docker.network=proxy
-
-  # netalertx:
-  #   image: ghcr.io/jokob-sk/netalertx:latest
-  #   container_name: netalertx
-  #   restart: unless-stopped
-  #   network_mode: host
-  #   volumes:
-  #     - ${config}/netalertx/config:/app/config
-  #     - ${config}/netalertx/db:/app/db
-  #   environment:
-  #     TZ: ${TZ}
-  #     PUID: ${PUID}
-  #     PGID: ${PGID}
-  #     LISTEN_ADDR: 0.0.0.0
-  #     # LOADED_PLUGINS: ['PIHOLE','MQTT','NMAP','NSLOOKUP','NTFY','APPRISE']
-  #   labels:
-  #     - traefik.enable=true
-  #     - traefik.http.routers.netalertx.entrypoints=http
-  #     - traefik.http.routers.netalertx.rule=Host(`alerts.${DOMAIN}`)
-  #     - traefik.http.middlewares.netalertx-https-redirect.redirectscheme.scheme=https
-  #     - traefik.http.routers.netalertx.middlewares=netalertx-https-redirect
-  #     - traefik.http.routers.netalertx-secure.entrypoints=https
-  #     - traefik.http.routers.netalertx-secure.rule=Host(`alerts.${DOMAIN}`)
-  #     - traefik.http.routers.netalertx-secure.tls=true
-  #     - traefik.http.routers.netalertx-secure.service=netalertx
-  #     - traefik.http.services.netalertx.loadbalancer.server.port=20211
-  #     - traefik.docker.network=proxy
-
-  # ntfy:
-  #   container_name: ntfy
-  #   image: binwiederhier/ntfy
-  #   restart: unless-stopped
-  #   command:
-  #     - serve
-  #   environment:
-  #     - TZ=${TZ}  
-  #     - NTFY_BASE_URL=https://notify.${DOMAIN}
-  #     # - NTFY_AUTH_DEFAULT_ACCESS=deny-all
-  #     # - NTFY_ENABLE_LOGIN=true
-  #     - NTFY_BEHIND_PROXY=true
-  #     - NTFY_SMTP_SERVER_LISTEN=:25
-  #     - NTFY_SMTP_SERVER_DOMAIN=${DOMAIN}
-  #     - NTFY_CACHE_FILE=/var/cache/ntfy/cache.db
-  #     - NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
-  #     - NTFY_ATTACHMENT_CACHE_DIR=/var/cache/ntfy/attachments
-  #     - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
-  #   user: ${PUID}:${PGID} 
-  #   volumes:
-  #     - ${config}/ntfy/cache:/var/cache/ntfy
-  #     - ${config}/ntfy/auth:/var/lib/ntfy
-  #     - ${config}/ntfy/cache/attachments:/var/cache/ntfy/attachments
-  #   networks:
-  #     - proxy
-  #   labels:
-  #     - traefik.enable=true
-  #     - traefik.http.routers.ntfy.entrypoints=http
-  #     - traefik.http.routers.ntfy.rule=Host(`notify.${DOMAIN}`)
-  #     - traefik.http.middlewares.ntfy-https-redirect.redirectscheme.scheme=https
-  #     - traefik.http.routers.ntfy.middlewares=ntfy-https-redirect
-  #     - traefik.http.routers.ntfy-secure.entrypoints=https
-  #     - traefik.http.routers.ntfy-secure.rule=Host(`notify.${DOMAIN}`)
-  #     - traefik.http.routers.ntfy-secure.tls=true
-  #     - traefik.http.routers.ntfy-secure.service=ntfy
-  #     - traefik.http.services.ntfy.loadbalancer.server.port=80
-  #     - traefik.docker.network=proxy
 
 networks:
   proxy:
