@@ -1,0 +1,42 @@
+- name: Apt install vlan package
+  ansible.builtin.apt:
+    name: 
+      - vlan
+  tags: 
+    - vlan
+    - never
+
+- name: Add 8021q module to /etc/modules
+  ansible.builtin.lineinfile: 
+    path: /etc/modules
+    line: "8021q" 
+  tags: 
+    - vlan
+    - never
+
+- name: Create VLANs interfaces
+  ansible.builtin.template:
+    src: interface.j2
+    dest: /etc/network/interfaces.d/vlans
+  loop: "{{ vlan_dict }}"
+  tags: 
+    - vlan
+    - never
+
+- name: Create VLANs dhcpcd
+  ansible.builtin.blockinfile:
+    path: /etc/dhcpcd.conf
+    block: |
+      {{ lookup('template', 'dhcpcd.j2') }}
+  loop: "{{ vlan_dict }}"
+  tags: 
+    - vlan
+    - never
+
+- name: Restart networking
+  ansible.builtin.service:
+    name: networking
+    state: restarted
+  tags: 
+    - vlan
+    - never

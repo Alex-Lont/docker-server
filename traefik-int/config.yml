@@ -130,11 +130,7 @@ http:
     nvr:
       entryPoints:
         - "https"
-<<<<<<< Updated upstream
-      rule: "Host(`nvr.iot.lontiotlabs.au`)"
-=======
       rule: "Host(`nvr.lontiotlabs.au`)"
->>>>>>> Stashed changes
       middlewares:
         - default-headers
         - https-redirectscheme

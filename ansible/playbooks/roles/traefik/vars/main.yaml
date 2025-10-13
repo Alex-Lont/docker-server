@@ -1,0 +1,3 @@
+user:
+group:
+traefik_dir: ~/docker-server/traefik

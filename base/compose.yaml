@@ -1,36 +1,4 @@
 services:
-  # audiobookshelf:
-  #   image: ghcr.io/advplyr/audiobookshelf:latest
-  #   restart: unless-stopped
-  #   ports:
-  #     - 13378:80
-  #   volumes:
-  #     - ${book}/audiobooks:/audiobooks
-  #     - ${book}/podcasts:/podcasts
-  #     - ${config}/config:/config
-  #     - ${book}/metadata:/metadata
-  #   environment:
-  #     - TZ=${TZ}
-
-  # calibre:
-  #   image: lscr.io/linuxserver/calibre:latest
-  #   container_name: calibre
-  #   privileged: true
-  #   security_opt:
-  #     - seccomp:unconfined #optional
-  #   environment:
-  #     - PGID=${PGID}
-  #     - PUID=${PUID}
-  #     - TZ=${TZ}
-  #   volumes:
-  #     - ${config}/calibre/config:/config
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   ports:
-  #     - 8080:8080
-  #     - 8181:8181
-  #     - 8081:8081
-  #   restart: unless-stopped
-
   speedtest:
     image: henrywhitaker3/speedtest-tracker:latest
     container_name: speedtest
@@ -50,6 +18,8 @@ services:
   flatnotes:
     container_name: flatnotes
     image: dullage/flatnotes:latest
+    networks:
+      - docker
     environment:
       PUID: ${PUID}
       PGID: ${PGID}
@@ -59,24 +29,6 @@ services:
     ports:
       - 8000:8080
     restart: unless-stopped
-
-  organizr:
-    container_name: organizr
-    hostname: organizr
-    image: organizr/organizr:latest
-    restart: unless-stopped
-    networks:
-      - docker
-    volumes:
-      - ${config}/organizr:/config
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - branch=v2-master
-      - fpm=true
-    ports:
-      - 9090:80
 
   mysql:
     image: mysql:8.0
@@ -116,6 +68,108 @@ services:
       SEMAPHORE_ACCESS_KEY_ENCRYPTION: ${KEY_ENCRYPTION}
     depends_on:
       - mysql # for postgres, change to: postgres
+
+  dumbpad:
+    image: dumbwareio/dumbpad:latest
+    container_name: dumbpad
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+      - 3001:3000
+    volumes:
+      - ${config}/dumbpad:/app/data
+    environment:
+      SITE_TITLE: DumbPad
+      BASE_URL: https://pad.virtual.lontiotlabs.au
+
+  dumbdrop:
+    image: dumbwareio/dumbdrop:latest
+    container_name: dumbdrop
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+        - 3002:3000
+    volumes:
+        - ${stuff}/drop:/app/uploads 
+    environment:
+        DUMBDROP_TITLE: DumbDrop
+        MAX_FILE_SIZE: 1024
+        AUTO_UPLOAD: true
+        BASE_URL: https://drop.virtual.lontiotlabs.au
+        APPRISE_URL: ${apprise_url}
+
+  dumbassets:
+    container_name: dumbassets
+    image: dumbwareio/dumbassets:latest
+    restart: unless-stopped
+    networks:
+      - docker
+    ports: 
+      - 3003:3000
+    volumes:
+      - ${config}/dumbasset:/app/data
+    environment:
+      NODE_ENV: production
+      DEBUG: False
+      SITE_TITLE: DumbAssets
+      BASE_URL: https://assets.virtual.lontiotlabs.au
+      APPRISE_URL: ${apprise_url}
+      TZ: ${TZ}
+
+  dumbdo:
+    container_name: dumbdo
+    image: dumbwareio/dumbdo:latest
+    restart: unless-stopped
+    networks:
+      - docker
+    ports: 
+      - 3004:3000
+    volumes:
+      - ${config}/dumbdo:/app/data
+
+  dumbbudget:
+    image: dumbwareio/dumbbudget:latest
+    container_name: dumbbudget
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+      - 3005:3000
+    volumes:
+      - ${config}/budget:/app/data
+    environment:
+      BASE_URL: https://budget.virtual.lontiotlabs.au
+      CURRENCY: AUD
+      SITE_TITLE: DumbBudget
+      INSTANCE_NAME: My Account 
+
+  dumbkan:
+    image: dumbwareio/dumbkan:latest
+    container_name: dumbkan
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+      - 3006:3000
+    volumes:
+      - ${config}/kanban:/app/data
+
+  donetick:
+    image: donetick/donetick:latest
+    container_name: donetick
+    restart: unless-stopped
+    networks:
+      - docker
+    ports:
+      - 2021:2021
+    volumes:
+      - ${config}/donetick/data:/donetick-data
+      - ${config}/donetick/config:/config
+    environment:
+      DT_ENV: selfhosted
+      DT_SQLITE_PATH: /donetick-data/donetick.db
 
 networks:
   docker:

@@ -9,6 +9,8 @@
 - name: Copy SSH config
   ansible.builtin.copy:
     src: sshd_config
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
     dest: /etc/ssh/sshd_config
   tags:
     - always
@@ -16,6 +18,9 @@
 - name: Copy SSH key
   ansible.builtin.copy:
     src: '~/.ssh/id_ed25519'
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
     dest: /home/{{ ansible_user }}/.ssh/id_ed25519
   tags:
     - always
@@ -23,21 +28,10 @@
 - name: Copy SSH Pub key
   ansible.builtin.copy:
     src: '~/.ssh/id_ed25519.pub'
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
     dest: /home/{{ ansible_user }}/.ssh/id_ed25519.pub
-  tags:
-    - always
-
-- name: chmod SSH Key
-  ansible.builtin.file:
-    path: /home/{{ ansible_user }}/.ssh/id_ed25519
-    mode: '0600'   
-  tags:
-    - always
-
-- name: chmod SSH Pub Key
-  ansible.builtin.file:
-    path: /home/{{ ansible_user }}/.ssh/id_ed25519.pub
-    mode: '0600'   
   tags:
     - always
 
