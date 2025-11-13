@@ -12,7 +12,7 @@ services:
       - 443:443
     environment:
       - CF_API_EMAIL=${CF_API_EMAIL}
-      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+      - CF_API_KEY=${CF_API_KEY}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -54,16 +54,14 @@ services:
 
   homarr:
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:latest
+    image: ghcr.io/homarr-labs/homarr:latest
     restart: unless-stopped
     volumes:
-      - ./../homarr/config:/app/data/configs
-      - ./../homarr/data:/data 
-      - ./../homarr/icons:/app/public/icons 
+      - ./../homarr/datadata:/appdata 
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - BASE_URL=home.${DOMAIN}
       - SECRET_ENCRYPTION_KEY=${SECRET_ENCRYPTION_KEY}
+      - ENABLE_DNS_CACHING=true
     networks:
       - proxy
     labels:
@@ -106,7 +104,7 @@ services:
       - traefik.http.routers.organizr-secure.service=organizr
       - traefik.http.services.organizr.loadbalancer.server.port=80
       - traefik.docker.network=proxy
-      
+
 networks:
   proxy:
     driver: bridge

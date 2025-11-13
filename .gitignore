@@ -9,3 +9,4 @@ secret.json
 *.lock.hcl
 *.backup
 *.sqlite
+*.rdb
