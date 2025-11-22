@@ -57,7 +57,6 @@ services:
       - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
       - NTFY_WEB_PUSH_FILE=/var/lib/ntfy/webpush.db
       - NTFY_WEB_PUSH_EMAIL_ADDRESS=notify@lontiotlabs.au
-
     volumes:
       - ${config}/ntfy/cache:/var/cache/ntfy
       - ${config}/ntfy/auth:/var/lib/ntfy
