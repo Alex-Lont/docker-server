@@ -1,0 +1,60 @@
+http:
+  routers:
+    raklora:
+      entryPoints:
+        - "https"
+      rule: "Host(`rak.iot.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: raklora
+    milesight:
+      entryPoints:
+        - "https"
+      rule: "Host(`milesight.iot.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: milesight
+    tablet:
+      entryPoints:
+        - "https"
+      rule: "Host(`tablet.iot.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: tablet
+    zigbee:
+      entryPoints:
+        - "https"
+      rule: "Host(`zigbee.iot.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: zigbee
+
+  services:
+    raklora:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.6"
+        passHostHeader: true
+    milesight:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.10.7"
+        passHostHeader: true
+    tablet:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.3:2323"
+        passHostHeader: true
+    zigbee:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.4"
+        passHostHeader: true

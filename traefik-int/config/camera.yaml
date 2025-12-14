@@ -1,0 +1,116 @@
+http:
+  routers:
+    doorbell:
+      entryPoints:
+        - "https"
+      rule: "Host(`doorbell.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: doorbell
+    garage:
+      entryPoints:
+        - "https"
+      rule: "Host(`garage.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: garage
+    backyard:
+      entryPoints:
+        - "https"
+      rule: "Host(`backyard.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: backyard
+    driveway:
+      entryPoints:
+        - "https"
+      rule: "Host(`driveway.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: driveway
+    alley:
+      entryPoints:
+        - "https"
+      rule: "Host(`alley.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: alley
+    livingroom:
+      entryPoints:
+        - "https"
+      rule: "Host(`livingroom.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: livingroom
+    study:
+      entryPoints:
+        - "https"
+      rule: "Host(`study.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: study
+    familyroom:
+      entryPoints:
+        - "https"
+      rule: "Host(`familyroom.camera.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: familyroom
+
+  services:
+    doorbell:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.3"
+        passHostHeader: true
+    garage:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.4"
+        passHostHeader: true
+    backyard:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.5"
+        passHostHeader: true
+    driveway:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.6"
+        passHostHeader: true
+    alley:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.7"
+        passHostHeader: true
+    livingroom:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.8"
+        passHostHeader: true
+    study:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.9"
+        passHostHeader: true
+    familyroom:
+      loadBalancer:
+        servers:
+          - url: "https://172.16.30.10"
+        passHostHeader: true

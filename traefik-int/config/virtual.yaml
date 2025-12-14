@@ -1,0 +1,144 @@
+http:
+  routers:
+    qbit:
+      entryPoints:
+        - "https"
+      rule: "Host(`qbit.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: qbit
+    sonarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`sonarr.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: sonarr
+    radarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`radarr.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: radarr
+    jackett:
+      entryPoints:
+        - "https"
+      rule: "Host(`jackett.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: jackett
+    bazarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`bazarr.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: bazarr
+    tdarr:
+      entryPoints:
+        - "https"
+      rule: "Host(`tdarr.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: tdarr
+    speed:
+      entryPoints:
+        - "https"
+      rule: "Host(`speed.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: speed
+    notes:
+      entryPoints:
+        - "https"
+      rule: "Host(`notes.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: notes
+    ansible:
+      entryPoints:
+        - "https"
+      rule: "Host(`ansible.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: ansible
+    dumbpad:
+      entryPoints:
+        - "https"
+      rule: "Host(`pad.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbpad
+
+  services:
+    qbit:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8080"
+        passHostHeader: true
+    sonarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8989"
+        passHostHeader: true
+    radarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:7878"
+        passHostHeader: true
+    jackett:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:9117"
+        passHostHeader: true
+    bazarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:6767"
+        passHostHeader: true
+    tdarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8265"
+        passHostHeader: true
+    speed:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8765"
+        passHostHeader: true
+    notes:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:8000"
+        passHostHeader: true
+    ansible:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3000"
+        passHostHeader: true
+    dumbpad:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3001"
+        passHostHeader: true

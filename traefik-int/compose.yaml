@@ -17,7 +17,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/traefik.yml:ro
-      - ./config.yml:/config.yml:ro
+      - ./config:/config:ro
       - ./acme.json:/acme.json
     command: 
       --providers.docker=true
@@ -42,14 +42,14 @@ services:
       - "traefik.http.routers.traefik-secure.rule=Host(`traefik.virtual.${DOMAIN}`)"
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].main=home.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.home.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[1].main=iot.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[1].sans=*.iot.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[2].main=virtual.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.virtual.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[3].main=${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[3].sans=*.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[1].main=camera.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[1].sans=*.camera.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].main=iot.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.iot.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[3].main=virtual.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[3].sans=*.virtual.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
   homarr:
