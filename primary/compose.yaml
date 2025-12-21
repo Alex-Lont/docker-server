@@ -90,6 +90,46 @@ services:
       - traefik.http.services.organizr.loadbalancer.server.port=80
       - traefik.docker.network=proxy
 
+  ntfy:
+    container_name: ntfy
+    image: binwiederhier/ntfy
+    restart: unless-stopped
+    command:
+      - serve
+    user: ${PUID}:${PGID} 
+    networks:
+      - proxy
+    environment:
+      - TZ=${TZ}  
+      - NTFY_BASE_URL=https://notify.${DOMAIN}
+      # - NTFY_AUTH_DEFAULT_ACCESS=deny-all
+      # - NTFY_ENABLE_LOGIN=true
+      - NTFY_BEHIND_PROXY=true
+      - NTFY_SMTP_SERVER_LISTEN=:25
+      - NTFY_SMTP_SERVER_DOMAIN=${DOMAIN}
+      - NTFY_CACHE_FILE=/var/cache/ntfy/cache.db
+      - NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
+      - NTFY_ATTACHMENT_CACHE_DIR=/var/cache/ntfy/attachments
+      - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+      - NTFY_WEB_PUSH_FILE=/var/lib/ntfy/webpush.db
+      - NTFY_WEB_PUSH_EMAIL_ADDRESS=notify@lontiotlabs.au
+    volumes:
+      - ${config}/ntfy/cache:/var/cache/ntfy
+      - ${config}/ntfy/auth:/var/lib/ntfy
+      - ${config}/ntfy/cache/attachments:/var/cache/ntfy/attachments
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ntfy.entrypoints=http
+      - traefik.http.routers.ntfy.rule=Host(`notify.${DOMAIN}`)
+      - traefik.http.middlewares.ntfy-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.ntfy.middlewares=ntfy-https-redirect
+      - traefik.http.routers.ntfy-secure.entrypoints=https
+      - traefik.http.routers.ntfy-secure.rule=Host(`notify.${DOMAIN}`)
+      - traefik.http.routers.ntfy-secure.tls=true
+      - traefik.http.routers.ntfy-secure.service=ntfy
+      - traefik.http.services.ntfy.loadbalancer.server.port=80
+      - traefik.docker.network=proxy
+
   adguard:
     container_name: adguard
     image: adguard/adguardhome:latest
@@ -100,6 +140,7 @@ services:
       - 53:53/udp
       - 53:53/tcp
       - 853:853/tcp
+      - 3000:3000/tcp
     volumes:
       - ${config}/adguard/work:/opt/adguardhome/work
       - ${config}/adguard/conf:/opt/adguardhome/conf

@@ -2,12 +2,14 @@ api:
   dashboard: true
   debug: true
 
+accessLog: true
+
 log:
   level: DEBUG
 
 entryPoints:
   http:
-    address: ":90"
+    address: ":80"
     http:
       redirections:
         entryPoint:
@@ -24,7 +26,8 @@ providers:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
   file:
-    filename: /config.yml
+    directory: /config
+    watch: true
     
 certificatesResolvers:
   cloudflare:

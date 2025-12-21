@@ -8,10 +8,8 @@ services:
     networks:
       - proxy
     ports:
-      - 90:80
+      - 80:80
       - 443:443
-      - 1883:1883
-      - 8883:8883
     environment:
       - CF_API_EMAIL=${CF_API_EMAIL}
       - CF_API_KEY=${CF_API_KEY}
@@ -19,8 +17,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/traefik.yml:ro
+      - ./config:/config:ro
       - ./acme.json:/acme.json
-      - ./config.yml:/config.yml:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
@@ -36,44 +34,32 @@ services:
       - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
-  ntfy:
-    container_name: ntfy
-    image: binwiederhier/ntfy
+  adguard:
+    container_name: adguard
+    image: adguard/adguardhome:latest
     restart: unless-stopped
-    command:
-      - serve
-    user: ${PUID}:${PGID} 
-    environment:
-      - TZ=${TZ}  
-      - NTFY_BASE_URL=https://notify.${DOMAIN}
-      # - NTFY_AUTH_DEFAULT_ACCESS=deny-all
-      # - NTFY_ENABLE_LOGIN=true
-      - NTFY_BEHIND_PROXY=true
-      - NTFY_SMTP_SERVER_LISTEN=:25
-      - NTFY_SMTP_SERVER_DOMAIN=${DOMAIN}
-      - NTFY_CACHE_FILE=/var/cache/ntfy/cache.db
-      - NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
-      - NTFY_ATTACHMENT_CACHE_DIR=/var/cache/ntfy/attachments
-      - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
-      - NTFY_WEB_PUSH_FILE=/var/lib/ntfy/webpush.db
-      - NTFY_WEB_PUSH_EMAIL_ADDRESS=notify@lontiotlabs.au
-    volumes:
-      - ${config}/ntfy/cache:/var/cache/ntfy
-      - ${config}/ntfy/auth:/var/lib/ntfy
-      - ${config}/ntfy/cache/attachments:/var/cache/ntfy/attachments
     networks:
       - proxy
+    ports:
+      - 53:53/udp
+      - 53:53/tcp
+      - 853:853/tcp
+      - 3000:3000/tcp
+    volumes:
+      - ${config}/adguard/work:/opt/adguardhome/work
+      - ${config}/adguard/conf:/opt/adguardhome/conf
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ntfy.entrypoints=http
-      - traefik.http.routers.ntfy.rule=Host(`notify.${DOMAIN}`)
-      - traefik.http.middlewares.ntfy-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.ntfy.middlewares=ntfy-https-redirect
-      - traefik.http.routers.ntfy-secure.entrypoints=https
-      - traefik.http.routers.ntfy-secure.rule=Host(`notify.${DOMAIN}`)
-      - traefik.http.routers.ntfy-secure.tls=true
-      - traefik.http.routers.ntfy-secure.service=ntfy
-      - traefik.http.services.ntfy.loadbalancer.server.port=80
+      - traefik.http.routers.adguard.entrypoints=http
+      - traefik.http.routers.adguard.rule=Host(`dns.${DOMAIN}`)
+      - traefik.http.routers.adguard.middlewares=adguard-https-redirect
+      - traefik.http.middlewares.adguard-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.adguard-secure.entrypoints=https
+      - traefik.http.routers.adguard-secure.rule=Host(`dns.${DOMAIN}`)
+      - traefik.http.routers.adguard-secure.tls=true
+      - traefik.http.routers.adguard-secure.tls.certresolver=cloudflare
+      - traefik.http.routers.adguard-secure.service=adguard
+      - traefik.http.services.adguard.loadbalancer.server.port=80
       - traefik.docker.network=proxy
 
 networks:
