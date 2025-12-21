@@ -125,3 +125,15 @@ touch ~/config/jackett/openvpn/credentials/conf
 
 add vpn username
 add vpn password
+
+## DNS
+
+edit adguard yaml manually to implement DoH
+```yaml
+tls:
+  enabled: true
+  allow_unencrypted_doh: true
+dns:
+  trusted_proxies:
+    - 172.16.0.0/12 # Your Docker network for the reverse proxy
+```

@@ -36,15 +36,6 @@ http:
         - https-redirectscheme
       tls: {}
       service: pihole
-    pihole-backup:
-      entryPoints:
-        - "https"
-      rule: "Host(`pihole-backup.lontiotlabs.au`)"
-      middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: pihole-backup
     nvr:
       entryPoints:
         - "https"
@@ -84,11 +75,6 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.7.10"
-        passHostHeader: true
-    pihole-backup:
-      loadBalancer:
-        servers:
-          - url: "http://192.168.7.11"
         passHostHeader: true
     nvr:
       loadBalancer:

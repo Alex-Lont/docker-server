@@ -2,12 +2,14 @@ api:
   dashboard: true
   debug: true
 
+accessLog: true
+
 log:
   level: DEBUG
 
 entryPoints:
   http:
-    address: ":90"
+    address: ":80"
     http:
       redirections:
         entryPoint:
