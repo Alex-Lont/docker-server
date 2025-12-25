@@ -98,75 +98,75 @@ services:
       - 6767:6767
     restart: unless-stopped
 
-  audiobookshelf:
-    image: ghcr.io/advplyr/audiobookshelf:latest
-    container_name: audiobookshelf
-    restart: unless-stopped
-    networks:
-      - docker
-    ports:
-      - 13378:80
-    volumes:
-      - ${audiobooks}:/audiobooks
-      - ${podcasts}:/podcasts
-      - ${config}/audiobookshelf/config:/config
-      - ${audiobooks}/metadata:/metadata
-    environment:
-      - TZ=${TZ}
+  # audiobookshelf:
+  #   image: ghcr.io/advplyr/audiobookshelf:latest
+  #   container_name: audiobookshelf
+  #   restart: unless-stopped
+  #   networks:
+  #     - docker
+  #   ports:
+  #     - 13378:80
+  #   volumes:
+  #     - ${audiobooks}:/audiobooks
+  #     - ${podcasts}:/podcasts
+  #     - ${config}/audiobookshelf/config:/config
+  #     - ${audiobooks}/metadata:/metadata
+  #   environment:
+  #     - TZ=${TZ}
 
-  calibre:
-    image: lscr.io/linuxserver/calibre:latest
-    container_name: calibre
-    networks:
-      - docker
-    privileged: true
-    security_opt:
-      - seccomp:unconfined 
-    environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
-      - TZ=${TZ}
-    volumes:
-      - ${config}/calibre/config:/config
-      - ${books}:/books
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 8088:8080
-      - 8181:8181
-      - 8081:8081
-    restart: unless-stopped
+  # calibre:
+  #   image: lscr.io/linuxserver/calibre:latest
+  #   container_name: calibre
+  #   networks:
+  #     - docker
+  #   privileged: true
+  #   security_opt:
+  #     - seccomp:unconfined 
+  #   environment:
+  #     - PGID=${PGID}
+  #     - PUID=${PUID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - ${config}/calibre/config:/config
+  #     - ${books}:/books
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   ports:
+  #     - 8088:8080
+  #     - 8181:8181
+  #     - 8081:8081
+  #   restart: unless-stopped
 
-  lidarr:
-    image: lscr.io/linuxserver/lidarr:latest
-    container_name: lidarr
-    networks:
-      - docker
-    environment:
-      - PUID={PUID}
-      - PGID={PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${config}/lidarr:/config
-      - ${music}:/music
-      - ${downloads}:/downloads
-    ports:
-      - 8686:8686
-    restart: unless-stopped
+  # lidarr:
+  #   image: lscr.io/linuxserver/lidarr:latest
+  #   container_name: lidarr
+  #   networks:
+  #     - docker
+  #   environment:
+  #     - PUID={PUID}
+  #     - PGID={PGID}
+  #     - TZ=${TZ}
+  #   volumes:
+  #     - ${config}/lidarr:/config
+  #     - ${music}:/music
+  #     - ${downloads}:/downloads
+  #   ports:
+  #     - 8686:8686
+  #   restart: unless-stopped
 
-  navidrome:
-    image: deluan/navidrome:latest
-    container_name: namedrome
-    user: ${PUID}:${PGID} # should be owner of volumes
-    networks:
-      - docker   
-    restart: unless-stopped
-    ports:
-      - 4533:4533
-    volumes:
-      - ${config}/navidrome:/data 
-      - ${music}:/music
-      - ${audiobooks}:/audiobooks
-      - ${podcasts}:/podcasts
+  # navidrome:
+  #   image: deluan/navidrome:latest
+  #   container_name: namedrome
+  #   user: ${PUID}:${PGID} # should be owner of volumes
+  #   networks:
+  #     - docker   
+  #   restart: unless-stopped
+  #   ports:
+  #     - 4533:4533
+  #   volumes:
+  #     - ${config}/navidrome:/data 
+  #     - ${music}:/music
+  #     - ${audiobooks}:/audiobooks
+  #     - ${podcasts}:/podcasts
 
 networks:
   docker:

@@ -100,61 +100,61 @@ services:
         BASE_URL: https://drop.virtual.lontiotlabs.au
         APPRISE_URL: ${apprise_url}
 
-  dumbassets:
-    container_name: dumbassets
-    image: dumbwareio/dumbassets:latest
-    restart: unless-stopped
-    networks:
-      - docker
-    ports: 
-      - 3003:3000
-    volumes:
-      - ${config}/dumbasset:/app/data
-    environment:
-      NODE_ENV: production
-      DEBUG: False
-      SITE_TITLE: DumbAssets
-      BASE_URL: https://assets.virtual.lontiotlabs.au
-      APPRISE_URL: ${apprise_url}
-      TZ: ${TZ}
+  # dumbassets:
+  #   container_name: dumbassets
+  #   image: dumbwareio/dumbassets:latest
+  #   restart: unless-stopped
+  #   networks:
+  #     - docker
+  #   ports: 
+  #     - 3003:3000
+  #   volumes:
+  #     - ${config}/dumbasset:/app/data
+  #   environment:
+  #     NODE_ENV: production
+  #     DEBUG: False
+  #     SITE_TITLE: DumbAssets
+  #     BASE_URL: https://assets.virtual.lontiotlabs.au
+  #     APPRISE_URL: ${apprise_url}
+  #     TZ: ${TZ}
 
-  dumbdo:
-    container_name: dumbdo
-    image: dumbwareio/dumbdo:latest
-    restart: unless-stopped
-    networks:
-      - docker
-    ports: 
-      - 3004:3000
-    volumes:
-      - ${config}/dumbdo:/app/data
+  # dumbdo:
+  #   container_name: dumbdo
+  #   image: dumbwareio/dumbdo:latest
+  #   restart: unless-stopped
+  #   networks:
+  #     - docker
+  #   ports: 
+  #     - 3004:3000
+  #   volumes:
+  #     - ${config}/dumbdo:/app/data
 
-  dumbbudget:
-    image: dumbwareio/dumbbudget:latest
-    container_name: dumbbudget
-    restart: unless-stopped
-    networks:
-      - docker
-    ports:
-      - 3005:3000
-    volumes:
-      - ${config}/budget:/app/data
-    environment:
-      BASE_URL: https://budget.virtual.lontiotlabs.au
-      CURRENCY: AUD
-      SITE_TITLE: DumbBudget
-      INSTANCE_NAME: My Account 
+  # dumbbudget:
+  #   image: dumbwareio/dumbbudget:latest
+  #   container_name: dumbbudget
+  #   restart: unless-stopped
+  #   networks:
+  #     - docker
+  #   ports:
+  #     - 3005:3000
+  #   volumes:
+  #     - ${config}/budget:/app/data
+  #   environment:
+  #     BASE_URL: https://budget.virtual.lontiotlabs.au
+  #     CURRENCY: AUD
+  #     SITE_TITLE: DumbBudget
+  #     INSTANCE_NAME: My Account 
 
-  dumbkan:
-    image: dumbwareio/dumbkan:latest
-    container_name: dumbkan
-    restart: unless-stopped
-    networks:
-      - docker
-    ports:
-      - 3006:3000
-    volumes:
-      - ${config}/kanban:/app/data
+  # dumbkan:
+  #   image: dumbwareio/dumbkan:latest
+  #   container_name: dumbkan
+  #   restart: unless-stopped
+  #   networks:
+  #     - docker
+  #   ports:
+  #     - 3006:3000
+  #   volumes:
+  #     - ${config}/kanban:/app/data
 
   donetick:
     image: donetick/donetick:latest
