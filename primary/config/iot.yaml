@@ -41,12 +41,12 @@ http:
     raklora:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.6"
+          - url: "http://192.168.10.10"
         passHostHeader: true
     milesight:
       loadBalancer:
         servers:
-          - url: "https://192.168.10.7"
+          - url: "https://192.168.10.11"
         passHostHeader: true
     tablet:
       loadBalancer:
@@ -56,5 +56,5 @@ http:
     zigbee:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.4"
+          - url: "http://192.168.10.8"
         passHostHeader: true
