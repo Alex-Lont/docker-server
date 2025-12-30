@@ -54,6 +54,24 @@ http:
         - https-redirectscheme
       tls: {}
       service: dumbdrop
+    immich:
+      entryPoints:
+        - "https"
+      rule: "Host(`immich.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: immich
+    frigate:
+      entryPoints:
+        - "https"
+      rule: "Host(`frigate.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: frigate
 
   services:
     proxmox:
@@ -85,4 +103,14 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.0.14.4:3002"
+        passHostHeader: true    
+    immich:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:2283"
+        passHostHeader: true
+    frigate:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:5000"
         passHostHeader: true
