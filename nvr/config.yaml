@@ -1,0 +1,280 @@
+mqtt:
+  enabled: false
+
+go2rtc:
+  streams:
+    driveway:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.6:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    driveway_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.6:554/h265Preview_01_sub
+
+    doorbell:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.3:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    doorbell_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.3:554/h265Preview_01_sub
+
+    garage:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.4:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    garage_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.4:554/h265Preview_01_sub
+
+    backyard:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.5:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    backyard_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.5:554/h265Preview_01_main
+
+    alley:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.7:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    alley_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.7:554/h265Preview_01_sub
+
+    living_room:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.8:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    living_room_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.8:554/h265Preview_01_sub
+
+    study:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.9:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    study_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.9:554/h265Preview_01_sub
+
+    family_room:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.10:554/h265Preview_01_main#video=copy#audio=copy#audio=aac
+    family_room_sub:
+      - ffmpeg:rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@172.16.30.10:554/h265Preview_01_sub
+
+# FFmpeg settings
+ffmpeg:
+  hwaccel_args: auto
+  output_args:
+    record: preset-record-generic-audio-aac
+
+# What to detect
+objects:
+  track:
+    - person
+    - car
+    - dog
+  filters:
+    person:
+      min_area: 5000      # Ignore tiny detections
+      max_area: 100000
+      threshold: 0.7      # 70% confidence required
+
+# Recording settings
+record:
+  enabled: true
+  retain:
+    days: 5
+    mode: motion
+  alerts:
+    pre_capture: 5
+    post_capture: 5
+    retain:
+      days: 7
+      mode: motion
+  detections:
+    pre_capture: 5
+    post_capture: 5
+    retain:
+      days: 7
+      mode: motion
+
+# Review settings
+review:
+  alerts:
+    labels:
+      - person
+      - car
+  detections:
+    labels:
+      - person
+      - car
+      - dog
+
+# Optional features (enable as needed)
+semantic_search:
+  enabled: false
+  # model_size: small
+
+face_recognition:
+  enabled: false  # Enable if you want facial recognition
+  # model_size: large
+
+# Audio detection (optional)
+audio:
+  enabled: false  # Enable to detect audio events
+  # listen:
+  #   - bark
+  #   - speech
+
+# === CAMERAS ===
+cameras:
+  driveway:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/driveway
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/driveway_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 3840
+      height: 1080
+      fps: 3
+    record:
+      enabled: true
+
+  doorbell:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/doorbell
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/doorbell_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 2560
+      height: 1920
+      fps: 3
+    record:
+      enabled: true
+
+  garage:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/garage
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/garage_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 2560
+      height: 1920
+      fps: 3
+    record:
+      enabled: true
+
+  backyard:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/backyard
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/backyard_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 2304
+      height: 864
+      fps: 3
+    record:
+      enabled: true
+
+  alley:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/alley
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/alley_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 1280
+      height: 720
+      fps: 3
+    record:
+      enabled: true
+
+  living_room:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/living_room
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/living_room_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 1280
+      height: 720
+      fps: 3
+    record:
+      enabled: true
+
+  study:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/study
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/study_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 1280
+      height: 720
+      fps: 3
+    record:
+      enabled: true
+
+  family_room:
+    ffmpeg:
+      inputs:
+        - path: rtsp://127.0.0.1:8554/family_room
+          input_args: preset-rtsp-restream
+          roles: [record, audio]
+        - path: rtsp://127.0.0.1:8554/family_room_sub
+          input_args: preset-rtsp-restream
+          roles: [detect]
+      output_args:
+        record: preset-record-generic-audio-aac
+    detect:
+      enabled: true
+      width: 1280
+      height: 720
+      fps: 3
+    record:
+      enabled: true
+
+detectors:
+  ov:
+    type: openvino
+    device: GPU
+
+model:
+  width: 300
+  height: 300
+  input_tensor: nhwc
+  input_pixel_format: bgr
+  path: /openvino-model/ssdlite_mobilenet_v2.xml
+  labelmap_path: /openvino-model/coco_91cl_bkgr.txt
+
+detect:
+  enabled: true
+version: 0.16-0
