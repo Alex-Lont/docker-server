@@ -16,6 +16,7 @@ services:
       - PGID=${PGID}
       - HEALTH_CHECK_HOST=one.one.one.one
       - HEALTH_CHECK_INTERVAL=300
+      - INSTALL_PYTHON3=yes
       - UMASK=0022
     volumes:
       - ${config}/qBittorrent:/config
@@ -25,6 +26,12 @@ services:
       - 8999:8999
       - 8999:8999/udp
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "tail -n 15 /config/data/logs/qbittorrent.log | grep -q 'Caught signal: SIGSEGV' || exit 0 ; exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 9999999
+      start_period: 10s
 
   jackett:
     image: dyonr/jackettvpn:latest
