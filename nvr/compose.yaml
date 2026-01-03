@@ -4,10 +4,11 @@ services:
     privileged: true
     restart: unless-stopped
     image: ghcr.io/blakeblackshear/frigate:stable
-    shm_size: "194mb" 
+    shm_size: "656mb" 
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config.yaml:/config/config.yaml
+      - ./certs:/config/certs
       - ${nvr}:/media/frigate
       - type: tmpfs
         target: /tmp/cache
@@ -21,6 +22,7 @@ services:
     environment:
       - FRIGATE_RTSP_USER=${FRIGATE_RTSP_USER}
       - FRIGATE_RTSP_PASSWORD=${FRIGATE_RTSP_PASSWORD}
+      - FRIGATE_MQTT_PASSWORD=${FRIGATE_MQTT_PASSWORD}
 
 networks:
   docker:

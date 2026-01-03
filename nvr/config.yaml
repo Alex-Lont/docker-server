@@ -1,5 +1,15 @@
 mqtt:
-  enabled: false
+  enabled: True
+  host: mqtt.lontiotlabs.au
+  port: 8883
+  user: frigate
+  password: '{FRIGATE_MQTT_PASSWORD}'
+  tls_ca_certs: /config/certs/ca.crt
+  tls_client_cert: /config/certs/client.crt
+  tls_client_key: /config/certs/client.key
+  tls_insecure: False
+  stats_interval: 60
+  qos: 0
 
 go2rtc:
   streams:
@@ -129,6 +139,15 @@ cameras:
     record:
       enabled: true
 
+    motion:
+      threshold: 80
+      contour_area: 50
+      improve_contrast: true
+    objects:
+      filters:
+        car:
+          mask: 
+            0.237,0.986,0.287,0.417,0.345,0.183,0.433,0.148,0.469,0.299,0.483,0.991
   doorbell:
     ffmpeg:
       inputs:
@@ -148,6 +167,14 @@ cameras:
     record:
       enabled: true
 
+    motion:
+      threshold: 30
+      contour_area: 30
+      improve_contrast: true
+    objects:
+      filters:
+        car:
+          mask: 0.312,0.696,0.322,0.601,0.428,0.614,0.484,0.645,0.455,0.72
   garage:
     ffmpeg:
       inputs:
@@ -186,6 +213,15 @@ cameras:
     record:
       enabled: true
 
+    motion:
+      threshold: 30
+      contour_area: 30
+      improve_contrast: true
+    objects:
+      filters:
+        car:
+          mask: 
+            0.388,0.347,0.401,0.273,0.417,0.215,0.453,0.202,0.476,0.239,0.472,0.286,0.469,0.332
   alley:
     ffmpeg:
       inputs:
@@ -205,6 +241,10 @@ cameras:
     record:
       enabled: true
 
+    motion:
+      threshold: 50
+      contour_area: 30
+      improve_contrast: true
   living_room:
     ffmpeg:
       inputs:
@@ -277,4 +317,8 @@ model:
 
 detect:
   enabled: true
+  stationary:
+    interval: 50
+    threshold: 50
+
 version: 0.16-0

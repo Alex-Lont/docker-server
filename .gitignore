@@ -10,3 +10,6 @@ secret.json
 *.backup
 *.sqlite
 *.rdb
+*.crt
+*.key
+logs/
