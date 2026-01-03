@@ -36,6 +36,15 @@ http:
         - https-redirectscheme
       tls: {}
       service: zigbee
+    zigbee2mqtt:
+      entryPoints:
+        - "https"
+      rule: "Host(`zigbee2mqtt.iot.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: zigbee2mqtt
 
   services:
     raklora:
@@ -57,4 +66,9 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.10.8"
+        passHostHeader: true
+    zigbee2mqtt:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.10.5:8080"
         passHostHeader: true
