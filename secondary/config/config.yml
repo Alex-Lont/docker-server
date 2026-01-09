@@ -23,7 +23,7 @@ http:
     homeassistant:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.12:8123"
+          - url: "http://192.168.10.7:8123"
         passHostHeader: true
     plex:
       loadBalancer:
