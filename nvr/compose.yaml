@@ -4,7 +4,9 @@ services:
     privileged: true
     restart: unless-stopped
     image: ghcr.io/blakeblackshear/frigate:stable
-    shm_size: "656mb" 
+    shm_size: "824mb" 
+    mem_limit: 4G
+    mem_swappiness: 0
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config.yaml:/config/config.yaml
