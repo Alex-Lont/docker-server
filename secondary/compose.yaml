@@ -32,6 +32,9 @@ services:
       - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
       - "traefik.http.routers.traefik-secure.tls.domains[0].main=${DOMAIN}"
       - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[1].sans=*.camera.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.iot.${DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[3].sans=*.virtual.${DOMAIN}"
       - "traefik.http.routers.traefik-secure.service=api@internal"
 
   adguard:
@@ -51,16 +54,45 @@ services:
     labels:
       - traefik.enable=true
       - traefik.http.routers.adguard.entrypoints=http
-      - traefik.http.routers.adguard.rule=Host(`dns.${DOMAIN}`)
+      - traefik.http.routers.adguard.rule=Host(`dns-sec.${DOMAIN}`)
       - traefik.http.routers.adguard.middlewares=adguard-https-redirect
       - traefik.http.middlewares.adguard-https-redirect.redirectscheme.scheme=https
       - traefik.http.routers.adguard-secure.entrypoints=https
-      - traefik.http.routers.adguard-secure.rule=Host(`dns.${DOMAIN}`)
+      - traefik.http.routers.adguard-secure.rule=Host(`dns-sec.${DOMAIN}`)
       - traefik.http.routers.adguard-secure.tls=true
       - traefik.http.routers.adguard-secure.tls.certresolver=cloudflare
       - traefik.http.routers.adguard-secure.service=adguard
       - traefik.http.services.adguard.loadbalancer.server.port=80
       - traefik.docker.network=proxy
+
+  organizr:
+    container_name: organizr
+    hostname: organizr
+    image: organizr/organizr:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - ${config}/organizr:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - branch=v2-master
+      - fpm=true
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.organizr.entrypoints=http
+      - traefik.http.routers.organizr.rule=Host(`organiser.virtual.${DOMAIN}`)
+      - traefik.http.middlewares.organizr-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.organizr.middlewares=organizr-https-redirect
+      - traefik.http.routers.organizr-secure.entrypoints=https
+      - traefik.http.routers.organizr-secure.rule=Host(`organiser.virtual.${DOMAIN}`)
+      - traefik.http.routers.organizr-secure.tls=true
+      - traefik.http.routers.organizr-secure.service=organizr
+      - traefik.http.services.organizr.loadbalancer.server.port=80
+      - traefik.docker.network=proxy
+
 
 networks:
   proxy:
