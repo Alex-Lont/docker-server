@@ -2,7 +2,7 @@
 
 Controller to script for LCD screen to turn off at night and in the morning.  
 controls screen via a NPN BJT wired accross the switch with the base going to a pin via a series 10k resistor.
-BJT's collector wired to one side of the button and the  emitter to the other.  
+BJT's collector wired to one side of the button and the emitter to the other.  
 
 ## Browser
 
@@ -28,6 +28,7 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ![Pinout](./header_pinout.jpg)
 
 ## Remote GPIO
+https://github.com/joan2937/pigpio/issues/632#issuecomment-3379034242
 
 ```bash
 sudo apt install pigpio
@@ -50,8 +51,8 @@ This is for single-session-use and will not persist after a reboot. However, thi
 
 ```bash
 sudo pigpiod -n localhost # allow localhost only
-sudo pigpiod -n 192.168.10.12 # allow 192.168.1.65 only
-sudo pigpiod -n localhost -n 192.168.10.12 # allow localhost and 192.168.1.65 only
+sudo pigpiod -n 192.168.10.7
+sudo pigpiod -n localhost -n 192.168.10.7 # allow localhost and 192.168.10.7
 ```
 
 # LCD controller 
