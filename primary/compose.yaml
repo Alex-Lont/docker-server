@@ -75,7 +75,7 @@ services:
       - 3000:3000/tcp
     volumes:
       - ${config}/adguard/work:/opt/adguardhome/work
-      - ${config}/adguard/conf:/opt/adguardhome/conf
+      - ./adguard:/opt/adguardhome/conf
     labels:
       - traefik.enable=true
       - traefik.http.routers.adguard.entrypoints=http
