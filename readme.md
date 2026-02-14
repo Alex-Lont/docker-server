@@ -83,12 +83,46 @@ chmod 600 traefik-ext/acme.json
 To enable external, A records need to be added to domain controller such as cloudflare.
 Port forwarding for 443 to machine running this stack.
 
-## Updating
+## Browser
 
-### Update manually via watch tower
+Opens up a browser on boot to organizr screen.  
+For wayland & labwc
+Add the following to file.  
 
 ```bash
-docker run --detach --volume /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --run-once --cleanup
+sudo sed -i 's|^/usr/bin/lxsession-xdg-autostart$|/usr/bin/lxsession-xdg-autostart \&|' /etc/xdg/labwc/autostart && echo "/usr/bin/lwrespawn /usr/bin/chromium https://organiser.virtual.lontiotlabs.au/#Homepage --kiosk --force-device-scale-factor=0.75 --ozone-platform=wayland --no-sandbox --disable-infobars --disable-features=TranslateUIT &" | sudo tee -a /etc/xdg/labwc/autostart > /dev/null
+```
+
+## Pi Wiring
+
+![Pinout](./header_pinout.jpg)
+
+## Remote GPIO
+https://github.com/joan2937/pigpio/issues/632#issuecomment-3379034242
+
+```bash
+sudo apt install pigpio
+```
+
+Enter sudo raspi-config on the command line, and enable Remote GPIO. This is functionally equivalent to the desktop method.
+
+This will allow remote connections (until disabled) when the pigpio daemon is launched using systemctl (see below). It will also launch the pigpio daemon for the current session. Therefore, nothing further is required for the current session, but after a reboot, a systemctl command will be required.
+
+Command-line: systemctl
+To automate running the daemon at boot time, run:
+
+```bash
+sudo systemctl enable pigpiod
+```
+
+Command-line: pigpiod
+
+This is for single-session-use and will not persist after a reboot. However, this method can be used to allow connections from a specific IP address, using the -n flag. For example:
+
+```bash
+sudo pigpiod -n localhost # allow localhost only
+sudo pigpiod -n 192.168.10.7
+sudo pigpiod -n localhost -n 192.168.10.7 # allow localhost and 192.168.10.7
 ```
 
 ## VPN Apps
