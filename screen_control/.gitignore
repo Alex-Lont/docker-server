@@ -1,9 +1,0 @@
-#dont store .env
-.env
-#dont store the log file
-screen.log*
-screen.txt
-screen_toggle.log
-screen_toggle.conf
-#test file 
-test.py
