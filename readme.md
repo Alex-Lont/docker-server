@@ -89,8 +89,15 @@ Opens up a browser on boot to organizr screen.
 For wayland & labwc
 Add the following to file.  
 
+Service
+
 ```bash
-sudo sed -i 's|^/usr/bin/lxsession-xdg-autostart$|/usr/bin/lxsession-xdg-autostart \&|' /etc/xdg/labwc/autostart && echo "/usr/bin/lwrespawn /usr/bin/chromium https://organiser.virtual.lontiotlabs.au/#Homepage --kiosk --force-device-scale-factor=0.75 --ozone-platform=wayland --no-sandbox --disable-infobars --disable-features=TranslateUIT &" | sudo tee -a /etc/xdg/labwc/autostart > /dev/null
+sudo cp ~/docker-server/secondary/stark-kiosk.sh /usr/local/bin/start-kiosk.sh
+sudo chmod +x /usr/local/bin/start-kiosk.sh
+sudo cp ~/docker-server/secondary/kiosk.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable kiosk.service
+sudo systemctl start kiosk.service
 ```
 
 ## Pi Wiring
@@ -106,7 +113,6 @@ sudo apt install pigpio
 
 Enter sudo raspi-config on the command line, and enable Remote GPIO. This is functionally equivalent to the desktop method.
 
-This will allow remote connections (until disabled) when the pigpio daemon is launched using systemctl (see below). It will also launch the pigpio daemon for the current session. Therefore, nothing further is required for the current session, but after a reboot, a systemctl command will be required.
 
 Command-line: systemctl
 To automate running the daemon at boot time, run:
