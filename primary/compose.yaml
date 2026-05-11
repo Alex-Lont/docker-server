@@ -90,6 +90,34 @@ services:
       - traefik.http.services.adguard.loadbalancer.server.port=80
       - traefik.docker.network=proxy
 
+  tududi:
+    container_name: tududi
+    image: chrisvel/tududi:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - TUDUDI_USER_NAME=admin 
+      - TUDUDI_USER_EMAIL=${CF_API_EMAIL}
+      - TUDUDI_USER_PASSWORD=${MYSQL_PASSWORD}
+      - TUDUDI_SESSION_SECRET=${SECRET_ENCRYPTION_KEY}
+    volumes:
+      - ${config}/tududi/db:/app/backend/db
+      - ${config}/tududi/uploads:/app/backend/uploads
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.tududi.entrypoints=http
+      - traefik.http.routers.tududi.rule=Host(`todo.${DOMAIN}`)
+      - traefik.http.routers.tududi.middlewares=tududi-https-redirect
+      - traefik.http.middlewares.tududi-https-redirect.redirectscheme.scheme=https
+      - traefik.http.routers.tududi-secure.entrypoints=https
+      - traefik.http.routers.tududi-secure.rule=Host(`todo.${DOMAIN}`)
+      - traefik.http.routers.tududi-secure.tls=true
+      - traefik.http.routers.tududi-secure.tls.certresolver=cloudflare
+      - traefik.http.routers.tududi-secure.service=tududi
+      - traefik.http.services.tududi.loadbalancer.server.port=3002
+      - traefik.docker.network=proxy
+
 networks:
   proxy:
     driver: bridge
