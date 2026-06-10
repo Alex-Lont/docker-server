@@ -56,6 +56,19 @@ services:
       - 9117:9117
     restart: unless-stopped
 
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    hostname: flaresolverr
+    networks:
+      - docker
+    environment:
+      - LOG_LEVEL=info
+      - TZ=${TZ}
+    ports:
+      - 8191:8191
+    restart: unless-stopped 
+
   radarr:
     image: linuxserver/radarr:latest
     container_name: radarr
