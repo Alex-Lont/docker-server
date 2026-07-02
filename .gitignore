@@ -13,3 +13,4 @@ secret.json
 *.crt
 *.key
 logs/
+AdGuardHome.yaml
