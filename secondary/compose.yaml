@@ -95,6 +95,16 @@ services:
       - 192.168.7.10
       - 192.168.7.11
 
+  tunnel:
+    container_name: tunnel
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - TUNNEL_TOKEN=${CF_TUNNEL_TOKEN}
+    command: tunnel --no-autoupdate run
+
 networks:
   proxy:
     driver: bridge
