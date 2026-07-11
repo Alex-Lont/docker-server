@@ -87,7 +87,7 @@ http:
     omada:
       loadBalancer:
         servers:
-          - url: "https://10.0.100.2"
+          - url: "https://10.0.100.2:4443"
         passHostHeader: true
     pihole:
       loadBalancer:
