@@ -1,5 +1,0 @@
-- name: Update pihole
-  shell: pihole -up
-  when: "inventory_hostname in groups['pihole']"
-  tags:
-    - always

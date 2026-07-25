@@ -1,6 +1,0 @@
----
-# handlers file for roles/pihole_dns
-- name: FTL Restart
-  ansible.builtin.service:
-    name: pihole-FTL
-    state: restarted

@@ -1,11 +1,8 @@
-- hosts: pihole, docker
+- hosts: dns, proxmox, lxc, virtual, self
   become: true
   roles:
     - updates   #restart
-    - pihole-update
-    - git
-    - nvidia
-    - role: nvidia-driver
-      when: "inventory_hostname == 'dionysus' and 'failed' in results.stdout|lower"
-    - role: watchtower    
-      when: "inventory_hostname != 'demeter'"
+    # - role: git    
+    #   when:
+    #     - "'proxmox' not in group_names"
+    #     - "'lxc' not in group_names"

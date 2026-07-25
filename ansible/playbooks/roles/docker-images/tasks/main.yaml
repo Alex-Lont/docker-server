@@ -1,0 +1,22 @@
+- name: Pull images
+  command:
+    cmd: docker compose pull
+    chdir: "{{ ansible_facts.user_dir }}/{{ compose_dir }}"
+
+# - name: List compose directory
+#   shell: |
+#     pwd
+#     ls -la "{{ ansible_facts.user_dir }}/{{ compose_dir }}"
+#   register: dir_listing
+
+# - debug:
+#     var: dir_listing.stdout_lines
+
+- name: Start containers
+  command:
+    cmd: docker compose --env-file .env up -d
+    chdir: "{{ ansible_facts.user_dir }}/{{ compose_dir }}"
+
+- name: Prune unused images
+  command:
+    cmd: docker image prune -f

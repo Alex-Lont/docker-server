@@ -1,26 +1,46 @@
-pihole:
+dns:
   hosts:
     artemis:
-      ansible_host: 192.168.7.10
-      ansible_user: pi
-      ansible_python_interpreter: /usr/bin/python3
-
-    apollo:
       ansible_host: 192.168.7.11
       ansible_user: pi
       ansible_python_interpreter: /usr/bin/python3
-    
-docker:
+      compose_dir: docker-server/primary
+
+    apollo:
+      ansible_host: 192.168.7.10
+      ansible_user: pi
+      ansible_python_interpreter: /usr/bin/python3
+      compose_dir: docker-server/secondary
+
+proxmox:
+  hosts:
+    hephaestus:
+      ansible_host: 10.0.14.2
+      ansible_user: root
+
+lxc:
+  hosts:    
+    mqtt:
+      ansible_host: 192.168.10.4
+      ansible_user: root
+
+virtual:
   hosts:
     hestia:
       ansible_host: 10.0.14.4
       ansible_user: ubuntu
+      base_compose_dir: docker-server/base
+      down_compose_dir: docker-server/downloads
+      hardware_compose_dir: docker-server/hardware
+      nvr_compose_dir: docker-server/nvr
+      image_compose_dir: docker-server/image
 
-    demeter:
-      ansible_host: 10.0.14.5
-      ansible_user: ubuntu
+self:
+  hosts:
+    localhost:
+      ansible_connection: local
 
 init:
   hosts:
-    init:
+    new:
       ansible_host: 192.168.7.97

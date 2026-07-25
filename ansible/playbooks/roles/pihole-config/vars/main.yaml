@@ -1,7 +1,0 @@
-dns:
-  - ip:
-    domain: 
-
-cname:
-  - domain:
-    target: 
