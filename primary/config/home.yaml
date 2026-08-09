@@ -48,12 +48,21 @@ http:
     dumbdrop:
       entryPoints:
         - "https"
-      rule: "Host(`drop.lontiotlabs.au`)"
+      rule: "Host(`drop.virtual.lontiotlabs.au`)"
       middlewares:
         - default-headers
         - https-redirectscheme
       tls: {}
       service: dumbdrop
+    dumbpad:
+      entryPoints:
+        - "https"
+      rule: "Host(`pad.virtual.lontiotlabs.au`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: dumbpad
     immich:
       entryPoints:
         - "https"
@@ -104,6 +113,11 @@ http:
         servers:
           - url: "http://10.0.14.4:3002"
         passHostHeader: true    
+    dumbpad:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.14.4:3001"
+        passHostHeader: true  
     immich:
       loadBalancer:
         servers:

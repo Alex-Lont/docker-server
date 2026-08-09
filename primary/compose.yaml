@@ -62,34 +62,6 @@ services:
       - traefik.http.services.homarr.loadbalancer.server.port=7575
       - traefik.docker.network=proxy
 
-  adguard:
-    container_name: adguard
-    image: adguard/adguardhome:latest
-    restart: unless-stopped
-    networks:
-      - proxy
-    ports:
-      - 53:53/udp
-      - 53:53/tcp
-      - 853:853/tcp
-      - 3000:3000/tcp
-    volumes:
-      - ${config}/adguard/work:/opt/adguardhome/work
-      - ./adguard:/opt/adguardhome/conf
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.adguard.entrypoints=http
-      - traefik.http.routers.adguard.rule=Host(`dns.${DOMAIN}`)
-      - traefik.http.routers.adguard.middlewares=adguard-https-redirect
-      - traefik.http.middlewares.adguard-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.adguard-secure.entrypoints=https
-      - traefik.http.routers.adguard-secure.rule=Host(`dns.${DOMAIN}`)
-      - traefik.http.routers.adguard-secure.tls=true
-      - traefik.http.routers.adguard-secure.tls.certresolver=cloudflare
-      - traefik.http.routers.adguard-secure.service=adguard
-      - traefik.http.services.adguard.loadbalancer.server.port=80
-      - traefik.docker.network=proxy
-
   tududi:
     container_name: tududi
     image: chrisvel/tududi:latest
@@ -99,7 +71,7 @@ services:
     environment:
       - TUDUDI_USER_NAME=admin 
       - TUDUDI_USER_EMAIL=${CF_API_EMAIL}
-      - TUDUDI_USER_PASSWORD=${MYSQL_PASSWORD}
+      - TUDUDIcd de_USER_PASSWORD=${MYSQL_PASSWORD}
       - TUDUDI_SESSION_SECRET=${SECRET_ENCRYPTION_KEY}
     volumes:
       - ${config}/tududi/db:/app/backend/db
@@ -127,20 +99,14 @@ services:
       - net.ipv4.ip_local_port_range=1024 65535 #remove when using "host" network mode
     networks:
       - proxy
-    # ports:
-      # - 5380:5380/tcp #DNS web console (HTTP)
-      # - 53:53/udp #DNS service
-      # - 53:53/tcp #DNS service
-      # - 853:853/udp #DNS-over-QUIC service
-      # - 853:853/tcp #DNS-over-TLS service
-      # - "443:443/udp" #DNS-over-HTTPS service (HTTP/3)
-      # - "443:443/tcp" #DNS-over-HTTPS service (HTTP/1.1, HTTP/2)
-      # - "80:80/tcp" #DNS-over-HTTP service (use with reverse proxy or certbot certificate renewal)
+    ports:
+      - 53:53/udp #DNS service
+      - 53:53/tcp #DNS service
     environment:
       - DNS_SERVER_ADMIN_PASSWORD=password
       - DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP=true #Enables DNS server optional protocol DNS-over-HTTP on TCP port 8053 to be used with a TLS terminating reverse proxy like nginx.
       - DNS_SERVER_RECURSION=UseSpecifiedNetworkACL  #Recursion options: Allow, Deny, AllowOnlyForPrivateNetworks, UseSpecifiedNetworkACL.
-      - DNS_SERVER_RECURSION_NETWORK_ACL=192.168.7.1/32, 192.168.10.1/32, 10.0.100.1/32, 10.0.20.1/32, 10.0.14.1/32,172.16.30.1/32 
+      - DNS_SERVER_RECURSION_NETWORK_ACL=192.168.7.1/32, 192.168.10.1/32, 10.0.100.1/32, 10.0.20.1/32, 10.0.14.1/32, 172.16.30.1/32, 10.0.42.1/32 
       - DNS_SERVER_LOG_USING_LOCAL_TIME=true #Enable this option to use local time instead of UTC for logging.
       - DNS_SERVER_LOG_FOLDER_PATH=/var/log/technitium/dns #The folder path on the server where the log files should be saved.
       - DNS_SERVER_LOG_MAX_LOG_FILE_DAYS=7 #Max number of days to keep the log files. Log files older than the specified number of days will be deleted automatically. Set 0 to disable auto delete.
@@ -154,16 +120,16 @@ services:
       - traefik.docker.network=proxy
       - traefik.http.services.technitium-web.loadbalancer.server.port=5380
       - traefik.http.routers.technitium-http.service=technitium-web
-      - traefik.http.routers.technitium-http.rule=Host(`dns-tech.${DOMAIN}`)
+      - traefik.http.routers.technitium-http.rule=Host(`dns.${DOMAIN}`)
       - traefik.http.routers.technitium-http.entrypoints=http
       - traefik.http.routers.technitium-https.service=technitium-web
-      - traefik.http.routers.technitium-https.rule=Host(`dns-tech.${DOMAIN}`)
+      - traefik.http.routers.technitium-https.rule=Host(`dns.${DOMAIN}`)
       - traefik.http.routers.technitium-https.entrypoints=https
       - traefik.http.routers.technitium-https.tls=true
       - traefik.http.routers.technitium-https.tls.certresolver=cloudflare
       - traefik.http.services.technitium-doh.loadbalancer.server.port=80
       - traefik.http.routers.technitium-doh.service=technitium-doh
-      - traefik.http.routers.technitium-doh.rule=Host(`dns-tech.${DOMAIN}`) && PathPrefix(`/dns-query`)
+      - traefik.http.routers.technitium-doh.rule=Host(`dns.${DOMAIN}`) && PathPrefix(`/dns-query`)
       - traefik.http.routers.technitium-doh.entrypoints=https
       - traefik.http.routers.technitium-doh.tls=true
       - traefik.http.routers.technitium-doh.tls.certresolver=cloudflare
