@@ -1,3 +1,4 @@
-- hosts: artemis
+- hosts: dns, virtual
+  gather_facts: true
   roles:
     - docker-images

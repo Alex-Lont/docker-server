@@ -2,30 +2,38 @@ api:
   dashboard: true
   debug: true
 
-accessLog: true
+accessLog:
+  format: json
+  filters:
+    statusCodes:
+      - "200"
+      - "400-404"
+      - "500-503"
 
 log:
-  level: DEBUG
+  level: INFO
 
 entryPoints:
   http:
     address: ":80"
     http:
+      middlewares:
+        - secured@file
+        - https-redirectscheme@file
       redirections:
         entryPoint:
           to: https
           scheme: https
   https:
     address: ":443"
+    http:
+      middlewares:
+        - secured@file
 
 serversTransport:
   insecureSkipVerify: true
 
 providers:
-  docker:
-    endpoint: "unix:///var/run/docker.sock"
-    exposedByDefault: false
-    watch: true
   file:
     directory: /config
     watch: true

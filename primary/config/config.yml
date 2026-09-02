@@ -1,0 +1,92 @@
+http:
+  routers:
+    traefik-http:
+      entryPoints:
+        - http
+      rule: Host(`traefik.virtual.lontiotlabs.au`)
+      middlewares:
+        - https-redirectscheme@file
+      service: api@internal
+
+    traefik:
+      entryPoints:
+        - https
+      rule: Host(`traefik.virtual.lontiotlabs.au`)
+      middlewares:
+        - secured@file
+      tls:
+        certResolver: cloudflare
+        domains:
+          - main: lontiotlabs.au
+            sans:
+              - '*.lontiotlabs.au'
+          - sans:
+              - '*.camera.lontiotlabs.au'
+          - sans:
+              - '*.iot.lontiotlabs.au'
+          - sans:
+              - '*.virtual.lontiotlabs.au'
+      service: api@internal
+
+    technitium-http:
+      entryPoints:
+        - http
+      rule: Host(`dns-tech.lontiotlabs.au`)
+      service: technitium-web
+
+    technitium-https:
+      entryPoints:
+        - https
+      rule: Host(`dns-tech.lontiotlabs.au`)
+      middlewares:
+        - secured@file
+      tls:
+        certResolver: cloudflare
+      service: technitium-web
+
+    technitium-doh:
+      entryPoints:
+        - https
+      rule: Host(`dns-tech.lontiotlabs.au`) && PathPrefix(`/dns-query`)
+      priority: 100
+      tls:
+        certResolver: cloudflare
+      service: technitium-doh
+
+    patchmon-http:
+      entryPoints:
+        - http
+      rule: Host(`patch.lontiotlabs.au`)
+      middlewares:
+        - https-redirectscheme@file
+      service: patchmon
+
+    patchmon:
+      entryPoints:
+        - https
+      rule: Host(`patch.lontiotlabs.au`)
+      tls:
+        certResolver: cloudflare
+      service: patchmon
+
+  services:
+    technitium-web:
+      loadBalancer:
+        servers:
+          - url: http://technitium:5380
+        passHostHeader: true
+    technitium-doh:
+      loadBalancer:
+        servers:
+          - url: http://technitium:80
+        passHostHeader: true
+    patchmon:
+      loadBalancer:
+        servers:
+          - url: http://patchmon:3000
+        passHostHeader: true
+    keycloak:
+      loadBalancer:
+        servers:
+          - url: http://keycloak:8080
+        passHostHeader: true

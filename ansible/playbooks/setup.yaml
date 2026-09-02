@@ -32,7 +32,7 @@
     - sudo
     - updates   #restart
     - ssh       
-    - apt       #vm, docker
+    - package       #vm, docker
     - vscode        
     - git       #init
     - docker    

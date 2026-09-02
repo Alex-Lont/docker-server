@@ -1,21 +1,48 @@
+- name: Build compose directory list
+  set_fact:
+    docker_compose_dirs: "{{ hostvars[inventory_hostname].compose_dirs | default([]) }}"
+
+- name: Show discovered compose directories
+  debug:
+    msg:
+      - "Host: {{ inventory_hostname }}"
+      - "compose_dirs: {{ docker_compose_dirs }}"
+  when: ansible_check_mode
+
+- name: Set compose directory base path
+  set_fact:
+    compose_dir_base: >-
+      {{
+        '/root' if (ansible_user | default(ansible_env.USER | default('root'))) == 'root'
+        else '/home/' + (ansible_user | default(ansible_env.USER | default('root')))
+      }}
+
+- name: Show files found in each compose directory
+  shell: |
+    echo "== {{ item }} =="
+    ls -la "{{ compose_dir_base }}/{{ item }}"
+  loop: "{{ docker_compose_dirs }}"
+  register: compose_dir_listing
+  when: docker_compose_dirs | length > 0 and ansible_check_mode
+
+- name: Display compose directory contents
+  debug:
+    msg: "{{ compose_dir_listing.results | map(attribute='stdout_lines') | list }}"
+  when: docker_compose_dirs | length > 0 and ansible_check_mode
+
 - name: Pull images
   command:
     cmd: docker compose pull
-    chdir: "{{ ansible_facts.user_dir }}/{{ compose_dir }}"
-
-# - name: List compose directory
-#   shell: |
-#     pwd
-#     ls -la "{{ ansible_facts.user_dir }}/{{ compose_dir }}"
-#   register: dir_listing
-
-# - debug:
-#     var: dir_listing.stdout_lines
+    chdir: "{{ compose_dir_base }}/{{ item }}"
+  loop: "{{ docker_compose_dirs }}"
+  when: docker_compose_dirs | length > 0
 
 - name: Start containers
   command:
     cmd: docker compose --env-file .env up -d
-    chdir: "{{ ansible_facts.user_dir }}/{{ compose_dir }}"
+    chdir: "{{ compose_dir_base }}/{{ item }}"
+  loop: "{{ docker_compose_dirs }}"
+  when: docker_compose_dirs | length > 0
 
 - name: Prune unused images
   command:

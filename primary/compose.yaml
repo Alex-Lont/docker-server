@@ -15,108 +15,9 @@ services:
       - CF_API_KEY=${CF_API_KEY}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/traefik.yml:ro
       - ./config:/config:ro
       - ./acme.json:/acme.json
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.traefik.entrypoints=http"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.virtual.${DOMAIN}`)"
-      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
-      - "traefik.http.routers.traefik-secure.entrypoints=https"
-      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.virtual.${DOMAIN}`)"
-      - "traefik.http.routers.traefik-secure.tls=true"
-      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].main=${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[1].sans=*.camera.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[2].sans=*.iot.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.tls.domains[3].sans=*.virtual.${DOMAIN}"
-      - "traefik.http.routers.traefik-secure.service=api@internal"
-
-  homarr:
-    container_name: homarr
-    image: ghcr.io/homarr-labs/homarr:latest
-    restart: unless-stopped
-    volumes:
-      - ./../homarr/datadata:/appdata 
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - SECRET_ENCRYPTION_KEY=${SECRET_ENCRYPTION_KEY}
-      - ENABLE_DNS_CACHING=true
-    networks:
-      - proxy
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.homarr.entrypoints=http
-      - traefik.http.routers.homarr.rule=Host(`home.${DOMAIN}`)
-      - traefik.http.middlewares.homarr-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.homarr.middlewares=homarr-https-redirect
-      - traefik.http.routers.homarr-secure.entrypoints=https
-      - traefik.http.routers.homarr-secure.rule=Host(`home.${DOMAIN}`)
-      - traefik.http.routers.homarr-secure.tls=true
-      - traefik.http.routers.homarr-secure.service=homarr
-      - traefik.http.services.homarr.loadbalancer.server.port=7575
-      - traefik.docker.network=proxy
-
-  adguard:
-    container_name: adguard
-    image: adguard/adguardhome:latest
-    restart: unless-stopped
-    networks:
-      - proxy
-    ports:
-      - 53:53/udp
-      - 53:53/tcp
-      - 853:853/tcp
-      - 3000:3000/tcp
-    volumes:
-      - ${config}/adguard/work:/opt/adguardhome/work
-      - ./adguard:/opt/adguardhome/conf
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.adguard.entrypoints=http
-      - traefik.http.routers.adguard.rule=Host(`dns.${DOMAIN}`)
-      - traefik.http.routers.adguard.middlewares=adguard-https-redirect
-      - traefik.http.middlewares.adguard-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.adguard-secure.entrypoints=https
-      - traefik.http.routers.adguard-secure.rule=Host(`dns.${DOMAIN}`)
-      - traefik.http.routers.adguard-secure.tls=true
-      - traefik.http.routers.adguard-secure.tls.certresolver=cloudflare
-      - traefik.http.routers.adguard-secure.service=adguard
-      - traefik.http.services.adguard.loadbalancer.server.port=80
-      - traefik.docker.network=proxy
-
-  tududi:
-    container_name: tududi
-    image: chrisvel/tududi:latest
-    restart: unless-stopped
-    networks:
-      - proxy
-    environment:
-      - TUDUDI_USER_NAME=admin 
-      - TUDUDI_USER_EMAIL=${CF_API_EMAIL}
-      - TUDUDI_USER_PASSWORD=${MYSQL_PASSWORD}
-      - TUDUDI_SESSION_SECRET=${SECRET_ENCRYPTION_KEY}
-    volumes:
-      - ${config}/tududi/db:/app/backend/db
-      - ${config}/tududi/uploads:/app/backend/uploads
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.tududi.entrypoints=http
-      - traefik.http.routers.tududi.rule=Host(`todo.${DOMAIN}`)
-      - traefik.http.routers.tududi.middlewares=tududi-https-redirect
-      - traefik.http.middlewares.tududi-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.tududi-secure.entrypoints=https
-      - traefik.http.routers.tududi-secure.rule=Host(`todo.${DOMAIN}`)
-      - traefik.http.routers.tududi-secure.tls=true
-      - traefik.http.routers.tududi-secure.tls.certresolver=cloudflare
-      - traefik.http.routers.tududi-secure.service=tududi
-      - traefik.http.services.tududi.loadbalancer.server.port=3002
-      - traefik.docker.network=proxy
 
   technitium:
     container_name: dns-server
@@ -127,15 +28,6 @@ services:
       - net.ipv4.ip_local_port_range=1024 65535 #remove when using "host" network mode
     networks:
       - proxy
-    # ports:
-      # - 5380:5380/tcp #DNS web console (HTTP)
-      # - 53:53/udp #DNS service
-      # - 53:53/tcp #DNS service
-      # - 853:853/udp #DNS-over-QUIC service
-      # - 853:853/tcp #DNS-over-TLS service
-      # - "443:443/udp" #DNS-over-HTTPS service (HTTP/3)
-      # - "443:443/tcp" #DNS-over-HTTPS service (HTTP/1.1, HTTP/2)
-      # - "80:80/tcp" #DNS-over-HTTP service (use with reverse proxy or certbot certificate renewal)
     environment:
       - DNS_SERVER_ADMIN_PASSWORD=password
       - DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP=true #Enables DNS server optional protocol DNS-over-HTTP on TCP port 8053 to be used with a TLS terminating reverse proxy like nginx.
@@ -147,27 +39,166 @@ services:
       - DNS_SERVER_STATS_ENABLE_IN_MEMORY_STATS=true #This option will enable in-memory stats and only Last Hour data will be available on Dashboard. No stats data will be stored on disk.
       - DNS_SERVER_STATS_MAX_STAT_FILE_DAYS=7 #Max number of days to keep the dashboard stats. Stat files older than the specified number of days will be deleted automatically. Set 0 to disable auto delete.
     volumes:
-      - ${config}/technitium:/etc/dns
-      - ${config}/technitium/logs:/var/log/technitium/dns
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=proxy
-      - traefik.http.services.technitium-web.loadbalancer.server.port=5380
-      - traefik.http.routers.technitium-http.service=technitium-web
-      - traefik.http.routers.technitium-http.rule=Host(`dns-tech.${DOMAIN}`)
-      - traefik.http.routers.technitium-http.entrypoints=http
-      - traefik.http.routers.technitium-https.service=technitium-web
-      - traefik.http.routers.technitium-https.rule=Host(`dns-tech.${DOMAIN}`)
-      - traefik.http.routers.technitium-https.entrypoints=https
-      - traefik.http.routers.technitium-https.tls=true
-      - traefik.http.routers.technitium-https.tls.certresolver=cloudflare
-      - traefik.http.services.technitium-doh.loadbalancer.server.port=80
-      - traefik.http.routers.technitium-doh.service=technitium-doh
-      - traefik.http.routers.technitium-doh.rule=Host(`dns-tech.${DOMAIN}`) && PathPrefix(`/dns-query`)
-      - traefik.http.routers.technitium-doh.entrypoints=https
-      - traefik.http.routers.technitium-doh.tls=true
-      - traefik.http.routers.technitium-doh.tls.certresolver=cloudflare
-      - traefik.http.routers.technitium-doh.priority=100
+      - ${config:-~/config}/technitium:/etc/dns
+      - ${config:-~/config}/technitium/logs:/var/log/technitium/dns
+
+  patchmon:
+    container_name: patchmon
+    hostname: patchmon
+    image: ghcr.io/patchmon/patchmon-server:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - 3000:3000
+    environment:
+      -  CORS_ORIGIN=http://localhost:3000,http://patchmon.local:3000,http://192.168.7.10:3000,https://patch.${DOMAIN}
+      -  TZ=${TZ:-Australia/Melbourne}
+      -  TRUST_PROXY=true
+      -  JWT_SECRET=${PATCHMON_JWT_SECRET}
+      -  SESSION_SECRET=${PATCHMON_SESSION_SECRET}
+      -  AI_ENCRYPTION_KEY=${PATCHMON_AI_ENCRYPTION_KEY}
+      -  POSTGRES_HOST=patch_db
+      -  POSTGRES_PASSWORD=${PATCHMON_POSTGRES}
+      -  POSTGRES_USER=patchmon
+      -  POSTGRES_DB=patchmon
+      -  DATABASE_URL=postgresql://patchmon:${PATCHMON_POSTGRES}@patch_db:5432/patchmon
+      -  REDIS_PASSWORD=${PATCHMON_REDIS_PASSWORD}
+      -  OIDC_ENABLED=true
+      -  OIDC_ISSUER_URL=https://auth.${DOMAIN}/application/o/patch/
+      -  OIDC_CLIENT_ID=${PATCHMON_OIDC_CLIENT_ID}
+      -  OIDC_CLIENT_SECRET=${PATCHMON_OIDC_CLIENT_SECRET}
+      -  OIDC_REDIRECT_URI=https://patch.${DOMAIN}/api/v1/auth/oidc/callback
+      -  OIDC_AUTO_CREATE_USERS=true
+      -  OIDC_DEFAULT_ROLE=user
+      -  OIDC_ADMIN_GROUP=PatchMon Admins
+      -  OIDC_USER_GROUP=PatchMon Users
+      -  OIDC_SUPERADMIN_GROUP=PatchMon SuperAdmins
+      -  OIDC_HOST_MANAGER_GROUP=PatchMon Host Managers
+      -  OIDC_READONLY_GROUP=PatchMon Readonly
+    depends_on:
+      patch_db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      guacd:
+        condition: service_healthy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  patch_db:
+    container_name: patch_db
+    hostname: patch_db
+    image: postgres:17-alpine
+    restart: unless-stopped
+    volumes:
+      - ${config:-~/config}/patch_db:/var/lib/postgresql/data
+    networks:
+      - proxy
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U patchmon -d patchmon"]
+      interval: 3s
+      timeout: 5s
+      retries: 7
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --requirepass ${PATCHMON_REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    networks:
+      - proxy
+    healthcheck:
+      test: ["CMD", "redis-cli", "--no-auth-warning", "-a", "${PATCHMON_REDIS_PASSWORD}", "ping"]
+      interval: 3s
+      timeout: 5s
+      retries: 7
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  guacd:
+    image: guacamole/guacd:1.6.0
+    hostname: guacd
+    container_name: guacd
+    read_only: true
+    restart: unless-stopped
+    tmpfs:
+      - /tmp:size=64m
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cpus: '1.0'
+    networks:
+      - proxy
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 4822 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.7
+    hostname: keycloak
+    container_name: keycloak
+    restart: unless-stopped
+    command: start-dev
+    networks:
+      - proxy
+    ports:
+      - 8080:8080
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://keycloakdb:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: ${KC_DB_PASSWORD}
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    depends_on:
+      keycloakdb:
+        condition: service_healthy
+
+  keycloak_db:
+    container_name: keycloak_db
+    hostname: keycloak_db
+    image: postgres:17-alpine
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - ${config:-~/config}/keycloak_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: ${KC_DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U keycloak -d keycloak"]
+      interval: 3s
+      timeout: 5s
+      retries: 7
+
+volumes:
+  redis_data:
 
 networks:
   proxy:

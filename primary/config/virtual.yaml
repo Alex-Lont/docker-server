@@ -2,143 +2,141 @@ http:
   routers:
     qbit:
       entryPoints:
-        - "https"
-      rule: "Host(`qbit.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`qbit.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: qbit
     sonarr:
       entryPoints:
-        - "https"
-      rule: "Host(`sonarr.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`sonarr.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: sonarr
     radarr:
       entryPoints:
-        - "https"
-      rule: "Host(`radarr.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`radarr.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: radarr
     jackett:
       entryPoints:
-        - "https"
-      rule: "Host(`jackett.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`jackett.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: jackett
     bazarr:
       entryPoints:
-        - "https"
-      rule: "Host(`bazarr.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`bazarr.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: bazarr
     tdarr:
       entryPoints:
-        - "https"
-      rule: "Host(`tdarr.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`tdarr.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: tdarr
     speed:
       entryPoints:
-        - "https"
-      rule: "Host(`speed.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`speed.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: speed
     notes:
       entryPoints:
         - "https"
-      rule: "Host(`notes.virtual.lontiotlabs.au`)"
+      rule: Host(`notes.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: notes
-    ansible:
+    tududi:
       entryPoints:
-        - "https"
-      rule: "Host(`ansible.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`todo.lontiotlabs.au`)
       middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: ansible
-    dumbpad:
+        - secured@file
+      tls:
+        certResolver: cloudflare
+      service: tududi
+    organizr:
       entryPoints:
-        - "https"
-      rule: "Host(`pad.virtual.lontiotlabs.au`)"
+        - https
+      rule: Host(`organiser.virtual.lontiotlabs.au`)
       middlewares:
-        - default-headers
-        - https-redirectscheme
+        - secured@file
       tls: {}
-      service: dumbpad
+      service: organizr
 
   services:
     qbit:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8080"
+          - url: http://10.0.14.4:8080
         passHostHeader: true
     sonarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8989"
+          - url: http://10.0.14.4:8989
         passHostHeader: true
     radarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:7878"
+          - url: http://10.0.14.4:7878
         passHostHeader: true
     jackett:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:9117"
+          - url: http://10.0.14.4:9117
         passHostHeader: true
     bazarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:6767"
+          - url: http://10.0.14.4:6767
         passHostHeader: true
     tdarr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8265"
+          - url: http://10.0.14.4:8265
         passHostHeader: true
     speed:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8765"
+          - url: http://10.0.14.4:8765
         passHostHeader: true
     notes:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:8000"
+          - url: http://10.0.14.4:8000
         passHostHeader: true
-    ansible:
+    tududi:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:3000"
+          - url: http://10.0.14.4:3002
         passHostHeader: true
-    dumbpad:
+    organizr:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:3001"
-        passHostHeader: true
+          - url: http://10.0.14.4:8881

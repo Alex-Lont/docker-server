@@ -6,15 +6,15 @@ services:
     privileged: true
     restart: unless-stopped
     environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
+      - PGID=${PGID:-1000}
+      - PUID=${PUID:-1000}
       - VERSION=docker
       - PLEX_CLAIM=${PLEX_CLAIM}
     volumes:
-      - ${config}/plex:/config
+      - ${config:-~/config}/plex:/config
       - ${tv}:/tv
       - ${movies}:/movies
-      - ${config}/transcode/plex:/transcode
+      - ${config:-~/config}/transcode/plex:/transcode
 
   tdarr:
     container_name: tdarr
@@ -28,9 +28,9 @@ services:
       - 8266:8266 # server port
       - 8267:8267 # Internal node port
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-Australia/Melbourne}
       - UMASK_SET=002
       - serverIP=0.0.0.0
       - serverPort=8266
@@ -40,13 +40,13 @@ services:
       - nodeIP=0.0.0.0
       - nodePort=8267
     volumes:
-      - ${config}/tdarr/server:/app/server
-      - ${config}/tdarr/config:/app/configs
-      - ${config}/tdarr/logs:/app/logs
+      - ${config:-~/config}/tdarr/server:/app/server
+      - ${config:-~/config}/tdarr/config:/app/configs
+      - ${config:-~/config}/tdarr/logs:/app/logs
+      - ${config:-~/config}/transcode/tdarr:/temp
       - ${tv}:/tv
       - ${movies}:/movies
       - ${videos}:/videos
-      - ${config}/transcode/tdarr:/temp
       
 networks:
   docker:

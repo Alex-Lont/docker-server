@@ -8,12 +8,12 @@ services:
     ports:
       - 8765:80
     environment:
-      - TZ=${TZ}
-      - PGID=${PGID}
-      - PUID=${PUID}
+      - TZ=${TZ:-Australia/Melbourne}
+      - PGID=${PGID:-1000}
+      - PUID=${PUID:-1000}
       - OOKLA_EULA_GDPR=true
     volumes:
-      - ${config}/speedtest:/config
+      - ${config:-~/config}/speedtest:/config
 
   flatnotes:
     container_name: flatnotes
@@ -21,155 +21,67 @@ services:
     networks:
       - docker
     environment:
-      PUID: ${PUID}
-      PGID: ${PGID}
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
       FLATNOTES_AUTH_TYPE: "None"
     volumes:
-      - ${config}/flatnotes:/data
+      - ${config:-~/config}/flatnotes:/data
     ports:
       - 8000:8080
     restart: unless-stopped
-
-  mysql:
-    image: mysql:8.0
-    hostname: mysql
-    container_name: mysql
-    networks:
-      - docker
-    volumes:
-      - ${config}/mysql:/var/lib/mysql
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD} 
+    
+  tududi:
+    container_name: tududi
+    image: chrisvel/tududi:latest
     restart: unless-stopped
-
-  semaphore:
-    image: semaphoreui/semaphore:latest
-    container_name: ansiblesemaphore
     networks:
-      - docker
-    restart: unless-stopped
+      - proxy
     ports:
+      - 3002:3002
+    environment:
+      - TUDUDI_USER_NAME=admin 
+      - TUDUDI_USER_EMAIL=${CF_API_EMAIL}
+      - TUDUDI_USER_PASSWORD=${MYSQL_PASSWORD}
+      - TUDUDI_SESSION_SECRET=${SECRET_ENCRYPTION_KEY}
+    volumes:
+      - ${config}/tududi/db:/app/backend/db
+      - ${config}/tududi/uploads:/app/backend/uploads
+
+  organizr:
+    container_name: organizr
+    hostname: organizr
+    image: ghcr.io/organizr/organizr:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - 8881:80
+    volumes:
+      - ${config:-~/config}/organizr:/config
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-Australia/Melbourne}
+      - branch=v2-develop
+    dns:
+      - 192.168.7.10
+      - 192.168.7.11
+
+  dumbassets:
+    container_name: dumbassets
+    image: dumbwareio/dumbassets:latest
+    restart: unless-stopped
+    networks:
+      - docker
+    ports: 
       - 3000:3000
-    environment:
-      SEMAPHORE_DB_USER: ${MYSQL_USER}
-      SEMAPHORE_DB_PASS: ${MYSQL_PASSWORD}
-      SEMAPHORE_DB_HOST: mysql # for postgres, change to: postgres
-      SEMAPHORE_DB_PORT: 3306 # change to 5432 for postgres
-      SEMAPHORE_DB_DIALECT: mysql
-      SEMAPHORE_DB: ${MYSQL_DATABASE}
-      SEMAPHORE_PLAYBOOK_PATH: /tmp/semaphore/
-      SEMAPHORE_ADMIN_PASSWORD: ${MYSQL_PASSWORD}
-      SEMAPHORE_ADMIN_NAME: admin
-      SEMAPHORE_ADMIN_EMAIL: admin@localhost
-      SEMAPHORE_ADMIN: admin
-      SEMAPHORE_ACCESS_KEY_ENCRYPTION: ${KEY_ENCRYPTION}
-    depends_on:
-      - mysql # for postgres, change to: postgres
-
-  dumbpad:
-    image: dumbwareio/dumbpad:latest
-    container_name: dumbpad
-    restart: unless-stopped
-    networks:
-      - docker
-    ports:
-      - 3001:3000
     volumes:
-      - ${config}/dumbpad:/app/data
+      - ${config:-~/config}/dumbasset:/app/data
     environment:
-      SITE_TITLE: DumbPad
-      BASE_URL: https://pad.virtual.lontiotlabs.au
-
-  dumbdrop:
-    image: dumbwareio/dumbdrop:latest
-    container_name: dumbdrop
-    restart: unless-stopped
-    networks:
-      - docker
-    ports:
-        - 3002:3000
-    volumes:
-        - ${stuff}/drop:/app/uploads 
-    environment:
-        DUMBDROP_TITLE: DumbDrop
-        MAX_FILE_SIZE: 1024
-        AUTO_UPLOAD: true
-        BASE_URL: https://drop.virtual.lontiotlabs.au
-        APPRISE_URL: ${apprise_url}
-
-  # dumbassets:
-  #   container_name: dumbassets
-  #   image: dumbwareio/dumbassets:latest
-  #   restart: unless-stopped
-  #   networks:
-  #     - docker
-  #   ports: 
-  #     - 3003:3000
-  #   volumes:
-  #     - ${config}/dumbasset:/app/data
-  #   environment:
-  #     NODE_ENV: production
-  #     DEBUG: False
-  #     SITE_TITLE: DumbAssets
-  #     BASE_URL: https://assets.virtual.lontiotlabs.au
-  #     APPRISE_URL: ${apprise_url}
-  #     TZ: ${TZ}
-
-  # dumbdo:
-  #   container_name: dumbdo
-  #   image: dumbwareio/dumbdo:latest
-  #   restart: unless-stopped
-  #   networks:
-  #     - docker
-  #   ports: 
-  #     - 3004:3000
-  #   volumes:
-  #     - ${config}/dumbdo:/app/data
-
-  # dumbbudget:
-  #   image: dumbwareio/dumbbudget:latest
-  #   container_name: dumbbudget
-  #   restart: unless-stopped
-  #   networks:
-  #     - docker
-  #   ports:
-  #     - 3005:3000
-  #   volumes:
-  #     - ${config}/budget:/app/data
-  #   environment:
-  #     BASE_URL: https://budget.virtual.lontiotlabs.au
-  #     CURRENCY: AUD
-  #     SITE_TITLE: DumbBudget
-  #     INSTANCE_NAME: My Account 
-
-  # dumbkan:
-  #   image: dumbwareio/dumbkan:latest
-  #   container_name: dumbkan
-  #   restart: unless-stopped
-  #   networks:
-  #     - docker
-  #   ports:
-  #     - 3006:3000
-  #   volumes:
-  #     - ${config}/kanban:/app/data
-
-  donetick:
-    image: donetick/donetick:latest
-    container_name: donetick
-    restart: unless-stopped
-    networks:
-      - docker
-    ports:
-      - 2021:2021
-    volumes:
-      - ${config}/donetick/data:/donetick-data
-      - ${config}/donetick/config:/config
-    environment:
-      DT_ENV: selfhosted
-      DT_SQLITE_PATH: /donetick-data/donetick.db
+      NODE_ENV: production
+      DEBUG: False
+      SITE_TITLE: Assets
+      TZ: ${TZ:-Australia/Melbourne}
 
 networks:
   docker:

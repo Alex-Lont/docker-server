@@ -1,0 +1,28 @@
+http:
+  routers:
+    homeassistant:
+      entryPoints:
+        - https
+      rule: Host(`homeassistant.lontiotlabs.au`)
+      middlewares:
+        - secured@file
+      tls: {}
+      service: homeassistant
+    plex:
+      entryPoints:
+        - https
+      rule: Host(`plex.lontiotlabs.au`)
+      middlewares:
+        - secured@file
+      tls: {}
+      service: plex
+
+  services:
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: http://192.168.10.7:8123
+    plex:
+      loadBalancer:
+        servers:
+          - url: http://10.0.14.4:32400

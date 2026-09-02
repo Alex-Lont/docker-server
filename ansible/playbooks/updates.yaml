@@ -2,7 +2,13 @@
   become: true
   roles:
     - updates   #restart
-    # - role: git    
-    #   when:
-    #     - "'proxmox' not in group_names"
-    #     - "'lxc' not in group_names"
+    - role: git
+      when: >
+        'dns' in group_names 
+        or 
+        'virtual' in group_names
+    - role: docker-images
+      when: >
+        'dns' in group_names 
+        or
+        'virtual' in group_names

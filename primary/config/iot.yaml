@@ -3,45 +3,45 @@ http:
     raklora:
       entryPoints:
         - "https"
-      rule: "Host(`rak.iot.lontiotlabs.au`)"
+      rule: Host(`rak.iot.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: raklora
     milesight:
       entryPoints:
         - "https"
-      rule: "Host(`milesight.iot.lontiotlabs.au`)"
+      rule: Host(`milesight.iot.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: milesight
     tablet:
       entryPoints:
         - "https"
-      rule: "Host(`tablet.iot.lontiotlabs.au`)"
+      rule: Host(`tablet.iot.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: tablet
     zigbee:
       entryPoints:
         - "https"
-      rule: "Host(`zigbee.iot.lontiotlabs.au`)"
+      rule: Host(`zigbee.iot.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: zigbee
     zigbee2mqtt:
       entryPoints:
         - "https"
-      rule: "Host(`zigbee2mqtt.iot.lontiotlabs.au`)"
+      rule: Host(`zigbee2mqtt.iot.lontiotlabs.au`)
       middlewares:
-        - default-headers
+        - secured
         - https-redirectscheme
       tls: {}
       service: zigbee2mqtt
@@ -50,25 +50,25 @@ http:
     raklora:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.10"
+          - url: http://192.168.10.10
         passHostHeader: true
     milesight:
       loadBalancer:
         servers:
-          - url: "https://192.168.10.11"
+          - url: https://192.168.10.11
         passHostHeader: true
     tablet:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.3:2323"
+          - url: http://192.168.10.3:2323
         passHostHeader: true
     zigbee:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.8"
+          - url: http://192.168.10.8
         passHostHeader: true
     zigbee2mqtt:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.5:8080"
+          - url: http://192.168.10.5:8080
         passHostHeader: true

@@ -1,32 +1,68 @@
 http:
   routers:
-    homeassistant:
+    traefik:
       entryPoints:
-        - "https"
-      rule: "Host(`homeassistant.lontiotlabs.au`)"
+        - https
+      rule: Host(`traefik.lontiotlabs.au`)
       middlewares:
-        - default-headers
-        - https-redirectscheme
-      tls: {}
-      service: homeassistant
-    plex:
+        - secured@file
+      tls:
+        certResolver: cloudflare
+        domains:
+          - main: lontiotlabs.au
+            sans:
+              - '*.lontiotlabs.au'
+          - sans:
+              - '*.camera.lontiotlabs.au'
+          - sans:
+              - '*.iot.lontiotlabs.au'
+          - sans:
+              - '*.virtual.lontiotlabs.au'
+      service: api@internal
+
+    homarr:
       entryPoints:
-        - "https"
-      rule: "Host(`plex.lontiotlabs.au`)"
+        - https
+      rule: Host(`home.lontiotlabs.au`)
       middlewares:
-        - default-headers
-        - https-redirectscheme
+        - secured@file
       tls: {}
-      service: plex
+      service: homarr
+
+    technitium:
+      entryPoints:
+        - https
+      rule: Host(`dns-sec.lontiotlabs.au`)
+      middlewares:
+        - secured@file
+      tls: {}
+      service: technitium-web
+
+    technitium-doh:
+      entryPoints:
+        - https
+      rule: Host(`dns-sec.lontiotlabs.au`) && PathPrefix(`/dns-query`)
+      priority: 100
+      middlewares:
+        - secured@file
+      tls: {}
+      service: technitium-doh
 
   services:
-    homeassistant:
+    homarr:
       loadBalancer:
         servers:
-          - url: "http://192.168.10.7:8123"
+          - url: http://homarr:7575
         passHostHeader: true
-    plex:
+    technitium:
       loadBalancer:
         servers:
-          - url: "http://10.0.14.4:32400"
-        passHostHeader: true
+          - url: http://technitium:5380
+    technitium-doh:
+      loadBalancer:
+        servers:
+          - url: http://technitium:80
+    traefik:
+      loadBalancer:
+        servers:
+          - url: http://traefik:80
