@@ -49,8 +49,6 @@ services:
     restart: unless-stopped
     networks:
       - proxy
-    ports:
-      - 3000:3000
     environment:
       -  CORS_ORIGIN=http://localhost:3000,http://patchmon.local:3000,http://192.168.7.10:3000,https://patch.${DOMAIN}
       -  TZ=${TZ:-Australia/Melbourne}
@@ -64,18 +62,18 @@ services:
       -  POSTGRES_DB=patchmon
       -  DATABASE_URL=postgresql://patchmon:${PATCHMON_POSTGRES}@patch_db:5432/patchmon
       -  REDIS_PASSWORD=${PATCHMON_REDIS_PASSWORD}
-      -  OIDC_ENABLED=true
-      -  OIDC_ISSUER_URL=https://auth.${DOMAIN}/application/o/patch/
-      -  OIDC_CLIENT_ID=${PATCHMON_OIDC_CLIENT_ID}
-      -  OIDC_CLIENT_SECRET=${PATCHMON_OIDC_CLIENT_SECRET}
-      -  OIDC_REDIRECT_URI=https://patch.${DOMAIN}/api/v1/auth/oidc/callback
-      -  OIDC_AUTO_CREATE_USERS=true
-      -  OIDC_DEFAULT_ROLE=user
-      -  OIDC_ADMIN_GROUP=PatchMon Admins
-      -  OIDC_USER_GROUP=PatchMon Users
-      -  OIDC_SUPERADMIN_GROUP=PatchMon SuperAdmins
-      -  OIDC_HOST_MANAGER_GROUP=PatchMon Host Managers
-      -  OIDC_READONLY_GROUP=PatchMon Readonly
+      # -  OIDC_ENABLED=true
+      # -  OIDC_ISSUER_URL=https://auth.${DOMAIN}/application/o/patch/
+      # -  OIDC_CLIENT_ID=${PATCHMON_OIDC_CLIENT_ID}
+      # -  OIDC_CLIENT_SECRET=${PATCHMON_OIDC_CLIENT_SECRET}
+      # -  OIDC_REDIRECT_URI=https://patch.${DOMAIN}/api/v1/auth/oidc/callback
+      # -  OIDC_AUTO_CREATE_USERS=true
+      # -  OIDC_DEFAULT_ROLE=user
+      # -  OIDC_ADMIN_GROUP=PatchMon Admins
+      # -  OIDC_USER_GROUP=PatchMon Users
+      # -  OIDC_SUPERADMIN_GROUP=PatchMon SuperAdmins
+      # -  OIDC_HOST_MANAGER_GROUP=PatchMon Host Managers
+      # -  OIDC_READONLY_GROUP=PatchMon Readonly
     depends_on:
       patch_db:
         condition: service_healthy
@@ -94,6 +92,10 @@ services:
     hostname: patch_db
     image: postgres:17-alpine
     restart: unless-stopped
+    environment:
+      POSTGRES_DB: patchmon
+      POSTGRES_USER: patchmon
+      POSTGRES_PASSWORD: ${PATCHMON_POSTGRES}
     volumes:
       - ${config:-~/config}/patch_db:/var/lib/postgresql/data
     networks:

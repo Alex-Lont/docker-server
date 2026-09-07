@@ -1,5 +1,13 @@
 http:
   routers:
+    traefik-http:
+      entryPoints:
+        - http
+      rule: Host(`traefik.lontiotlabs.au`)
+      middlewares:
+        - https-redirectscheme@file
+      service: api@internal
+
     traefik:
       entryPoints:
         - https
@@ -29,23 +37,29 @@ http:
       tls: {}
       service: homarr
 
-    technitium:
+    technitium-http:
+      entryPoints:
+        - http
+      rule: Host(`dns-tech.lontiotlabs.au`)
+      service: technitium-web
+
+    technitium-https:
       entryPoints:
         - https
-      rule: Host(`dns-sec.lontiotlabs.au`)
+      rule: Host(`dns-tech.lontiotlabs.au`)
       middlewares:
         - secured@file
-      tls: {}
+      tls:
+        certResolver: cloudflare
       service: technitium-web
 
     technitium-doh:
       entryPoints:
         - https
-      rule: Host(`dns-sec.lontiotlabs.au`) && PathPrefix(`/dns-query`)
+      rule: Host(`dns-tech.lontiotlabs.au`) && PathPrefix(`/dns-query`)
       priority: 100
-      middlewares:
-        - secured@file
-      tls: {}
+      tls:
+        certResolver: cloudflare
       service: technitium-doh
 
   services:
@@ -54,14 +68,19 @@ http:
         servers:
           - url: http://homarr:7575
         passHostHeader: true
-    technitium:
+
+    technitium-web:
       loadBalancer:
         servers:
           - url: http://technitium:5380
+        passHostHeader: true
+
     technitium-doh:
       loadBalancer:
         servers:
           - url: http://technitium:80
+        passHostHeader: true
+
     traefik:
       loadBalancer:
         servers:

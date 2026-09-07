@@ -75,16 +75,19 @@ http:
         servers:
           - url: http://technitium:5380
         passHostHeader: true
+
     technitium-doh:
       loadBalancer:
         servers:
           - url: http://technitium:80
         passHostHeader: true
+
     patchmon:
       loadBalancer:
         servers:
           - url: http://patchmon:3000
         passHostHeader: true
+        
     keycloak:
       loadBalancer:
         servers:

@@ -22,7 +22,10 @@ http:
       loadBalancer:
         servers:
           - url: http://192.168.10.7:8123
+        passHostHeader: true
+
     plex:
       loadBalancer:
         servers:
           - url: http://10.0.14.4:32400
+        passHostHeader: true
