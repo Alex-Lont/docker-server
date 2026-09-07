@@ -40,13 +40,13 @@ http:
     technitium-http:
       entryPoints:
         - http
-      rule: Host(`dns-tech.lontiotlabs.au`)
+      rule: Host(`dns-sec.lontiotlabs.au`)
       service: technitium-web
 
     technitium-https:
       entryPoints:
         - https
-      rule: Host(`dns-tech.lontiotlabs.au`)
+      rule: Host(`dns-sec.lontiotlabs.au`)
       middlewares:
         - secured@file
       tls:
@@ -56,7 +56,7 @@ http:
     technitium-doh:
       entryPoints:
         - https
-      rule: Host(`dns-tech.lontiotlabs.au`) && PathPrefix(`/dns-query`)
+      rule: Host(`dns-sec.lontiotlabs.au`) && PathPrefix(`/dns-query`)
       priority: 100
       tls:
         certResolver: cloudflare
