@@ -3,6 +3,7 @@ services:
     image: traefik:latest
     container_name: traefik
     restart: unless-stopped
+    hostname: traefik
     security_opt:
       - no-new-privileges:true
     networks:
@@ -23,6 +24,7 @@ services:
     container_name: homarr
     image: ghcr.io/homarr-labs/homarr:latest
     restart: unless-stopped
+    hostname: homarr
     networks: 
       - proxy
     volumes:
@@ -46,7 +48,7 @@ services:
 
   technitium:
     container_name: dns-sec
-    hostname: dns-sec
+    hostname: technitium
     image: docker.io/technitium/dns-server:latest
     restart: unless-stopped
     sysctls:
